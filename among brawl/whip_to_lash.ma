@@ -1,6 +1,6 @@
 //Maya ASCII 2019 scene
-//Name: whiplash model.ma
-//Last modified: Mon, Mar 29, 2021 09:06:33 AM
+//Name: whip_to_lash.ma
+//Last modified: Mon, Mar 29, 2021 10:07:31 AM
 //Codeset: UTF-8
 requires maya "2019";
 requires -nodeType "HIKSolverNode" -nodeType "HIKCharacterNode" -nodeType "HIKControlSetNode"
@@ -19,29 +19,30 @@ fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "400AA029-7C44-34CA-83E6-D28B68C6672F";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 12.78503915357223 6.0929091620412592 16.469401935073584 ;
-	setAttr ".r" -type "double3" 350.06164709396768 -4296.1999999996697 4.3452115885965408e-16 ;
+	setAttr ".t" -type "double3" 5.4428496825190154 6.7285380251736857 22.248976572632252 ;
+	setAttr ".r" -type "double3" 350.06164705166816 -5388.9999999981374 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "4300CC95-3643-1916-A6FD-7890BC68F30B";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 19.221244713059839;
+	setAttr ".coi" 23.562698710604284;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
+	setAttr ".tp" -type "double3" 0.60584482228252723 3.4000429254827171 2.278333768962729 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 	setAttr ".ai_translator" -type "string" "perspective";
 createNode transform -s -n "top";
 	rename -uid "D6C3FB86-014D-7FE2-B42A-7D8C8DBE8FE4";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 0.17382704354729156 1000.1 -0.64474788628978263 ;
+	setAttr ".t" -type "double3" 3.8939724398342603 1000.1 0.070638562114926362 ;
 	setAttr ".r" -type "double3" -89.999999999999986 0 0 ;
 createNode camera -s -n "topShape" -p "top";
 	rename -uid "4EC3743B-3747-1B9F-1F2F-BD9A7A1FFE36";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".coi" 1000.1;
-	setAttr ".ow" 33.395174166562896;
+	setAttr ".ow" 10.772515408528232;
 	setAttr ".imn" -type "string" "top";
 	setAttr ".den" -type "string" "top_depth";
 	setAttr ".man" -type "string" "top_mask";
@@ -65,14 +66,14 @@ createNode camera -s -n "frontShape" -p "front";
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode transform -s -n "side";
 	rename -uid "CB4FC08D-1D48-CD24-333B-B39197AC7DBB";
-	setAttr ".t" -type "double3" 1000.1 1.9089816502525112 -2.7081228450943251 ;
+	setAttr ".t" -type "double3" 1000.1 0.79685862469322277 0.54695009893336954 ;
 	setAttr ".r" -type "double3" 0 89.999999999999986 0 ;
 createNode camera -s -n "sideShape" -p "side";
 	rename -uid "ED0D7E8C-624E-8214-D876-898C36184F6A";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
 	setAttr ".coi" 1000.1;
-	setAttr ".ow" 24.890768331165148;
+	setAttr ".ow" 9.8849104086896258;
 	setAttr ".imn" -type "string" "side";
 	setAttr ".den" -type "string" "side_depth";
 	setAttr ".man" -type "string" "side_mask";
@@ -12324,8 +12325,8 @@ createNode mesh -n "pCubeShape6Orig" -p "pCube6";
 createNode joint -n "root";
 	rename -uid "296D9788-DC45-87FD-3F82-99B688C9076D";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" 0.016240619780109711 0 -0.014756993951775321 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -3.8432376654167739 0 -3.2655712308942082 1;
@@ -12333,10 +12334,9 @@ createNode joint -n "root";
 createNode joint -n "hip_body" -p "root";
 	rename -uid "A8577396-0E48-7D87-5B12-E3ABCD6068C7";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" -0.003877104448288371 2.4742959040831582 -0.033610406459638309 ;
-	setAttr ".r" -type "double3" -4.3972762361223898 0 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -3.8471147698650623 2.4742959040831582 -3.2991816373538465 1;
@@ -12344,10 +12344,9 @@ createNode joint -n "hip_body" -p "root";
 createNode joint -n "hip_left_leg" -p "hip_body";
 	rename -uid "BCBA2F15-2146-B87E-E5C2-6DB388EBD823";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" 0.46569950605779153 -0.20785684493105672 0 ;
-	setAttr ".r" -type "double3" 3.4117226152052669 2.4848083448933719e-17 4.4438603001868389 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -3.3814152638072708 2.2664390591521015 -3.2991816373538465 1;
@@ -12355,10 +12354,9 @@ createNode joint -n "hip_left_leg" -p "hip_body";
 createNode joint -n "left_knee" -p "hip_left_leg";
 	rename -uid "44CDA04C-0143-C5FF-D40B-42A28DAA8FA3";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" 0.0078139408455411008 -0.88035496756316256 0 ;
-	setAttr ".r" -type "double3" 13.198793274600197 1.4294224891899385 -6.07149068926525 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -3.3736013229617297 1.386084091588939 -3.2991816373538465 1;
@@ -12366,10 +12364,9 @@ createNode joint -n "left_knee" -p "hip_left_leg";
 createNode joint -n "left_ancle" -p "left_knee";
 	rename -uid "0E06A49D-0848-44FC-33FB-E698246F6635";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" 0 -0.76657571374186095 0 ;
-	setAttr ".r" -type "double3" -12.482415969177698 9.7086562415300914 -2.0167302820156539e-16 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -3.3736013229617297 0.61950837784707802 -3.2991816373538465 1;
@@ -12377,10 +12374,9 @@ createNode joint -n "left_ancle" -p "left_knee";
 createNode joint -n "hip_right_leg" -p "hip_body";
 	rename -uid "0B8A5E0C-954E-BA01-432B-0D8C038E990F";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" -0.46565904911406042 -0.20785684493105672 0 ;
-	setAttr ".r" -type "double3" 3.41172261520527 0 -5.3291115178460284 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -4.3127738189791227 2.2664390591521015 -3.2991816373538465 1;
@@ -12388,10 +12384,9 @@ createNode joint -n "hip_right_leg" -p "hip_body";
 createNode joint -n "right_knee" -p "hip_right_leg";
 	rename -uid "B532370A-B34D-A0F4-7386-86A121953027";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" -0.0063143462930259631 -0.88035496756316256 0 ;
-	setAttr ".r" -type "double3" 13.1644972474677 -1.7214726220330401 7.318870388764692 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -4.3190881652721487 1.386084091588939 -3.2991816373538465 1;
@@ -12399,10 +12394,9 @@ createNode joint -n "right_knee" -p "hip_right_leg";
 createNode joint -n "right_ancle" -p "right_knee";
 	rename -uid "EA41CA72-974E-BFD7-DB3F-B094C6A14321";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" 0 -0.76657571374186095 0 ;
-	setAttr ".r" -type "double3" -12.482415969177694 -12.15250544238784 -2.0334139924335944e-16 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -4.3190881652721487 0.61950837784707802 -3.2991816373538465 1;
@@ -12410,10 +12404,9 @@ createNode joint -n "right_ancle" -p "right_knee";
 createNode joint -n "mid_body" -p "hip_body";
 	rename -uid "6601DC36-FD4F-8D67-3363-24A35058BB04";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" -0.0031369446746469798 0.87828093259909323 0 ;
-	setAttr ".r" -type "double3" 10.363436138108414 0 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -3.8502517145397093 3.3525768366822515 -3.2991816373538465 1;
@@ -12421,9 +12414,9 @@ createNode joint -n "mid_body" -p "hip_body";
 createNode joint -n "neck_body_connection" -p "mid_body";
 	rename -uid "7E148FC5-C947-60D1-BD89-3688CBDFBC47";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" 0 0.955233235585629 -0.060279677631229323 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -3.8502517145397093 4.3078100722678805 -3.3594613149850758 1;
@@ -12431,10 +12424,9 @@ createNode joint -n "neck_body_connection" -p "mid_body";
 createNode joint -n "neck_head_connection" -p "neck_body_connection";
 	rename -uid "988FF536-B148-9632-8094-069863D45B15";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" 0 0.50985647560937775 0 ;
-	setAttr ".r" -type "double3" -6.0266713813511661 0 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -3.8502517145397093 4.8176665478772582 -3.3594613149850758 1;
@@ -12442,10 +12434,9 @@ createNode joint -n "neck_head_connection" -p "neck_body_connection";
 createNode joint -n "head" -p "neck_head_connection";
 	rename -uid "29C69409-9A4E-135C-43E6-D0AB4C4D613A";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 5;
-	setAttr ".t" -type "double3" 0 1.0385488557663756 0 ;
-	setAttr ".r" -type "double3" 11.484145566373682 0 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -3.8502517145397093 5.8562154036436338 -3.3594613149850758 1;
@@ -12453,9 +12444,9 @@ createNode joint -n "head" -p "neck_head_connection";
 createNode joint -n "right_eyebrow" -p "head";
 	rename -uid "FC9A2FA0-E545-791C-8A91-2D950ADBF757";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 6;
-	setAttr ".t" -type "double3" -0.48690037256883834 0.30482501115881355 1.0620487816273871 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -4.3371520871085476 6.1610404148024474 -2.2974125333576887 1;
@@ -12463,9 +12454,9 @@ createNode joint -n "right_eyebrow" -p "head";
 createNode joint -n "left_eyebrow" -p "head";
 	rename -uid "48BFD69E-1C46-9970-04C7-E898C92BB218";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 6;
-	setAttr ".t" -type "double3" 0.48772001785410168 0.30482501115881355 1.0620487816273871 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -3.3625316966856076 6.1610404148024474 -2.2974125333576887 1;
@@ -12473,9 +12464,9 @@ createNode joint -n "left_eyebrow" -p "head";
 createNode joint -n "left_shoulder" -p "neck_body_connection";
 	rename -uid "7FC706BE-B649-2D85-5844-0B9DB7CA7275";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" 0.96502169442426888 -0.29692975213054495 0.037095186234602284 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
@@ -12484,9 +12475,9 @@ createNode joint -n "left_shoulder" -p "neck_body_connection";
 createNode joint -n "left_elbow" -p "left_shoulder";
 	rename -uid "A716D573-3940-0059-5546-D8BE9C6E0D72";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 5;
-	setAttr ".t" -type "double3" 1.1486493042944748 -0.54697585918784553 0.00463689827932523 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
@@ -12495,169 +12486,255 @@ createNode joint -n "left_elbow" -p "left_shoulder";
 createNode joint -n "left_wrist" -p "left_elbow";
 	rename -uid "BC5FC3BD-CE47-6D23-1B9F-2FBE3ED35C7C";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 6;
-	setAttr ".t" -type "double3" 1.1733194812943935 -0.50030762991696953 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 -0.57125762617201925 2.9635968310325205 -3.5149597479138532 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "left_pinky" -p "left_wrist";
 	rename -uid "9616E3D5-0940-E9AA-7BC8-8E8611426D3A";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 7;
-	setAttr ".t" -type "double3" 0.52047134831124398 -0.20865374197978293 -0.27323737280641991 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 -0.075874057025349662 2.7549430890527375 -3.8314154410694443 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "left_pinky1" -p "left_pinky";
 	rename -uid "3336B3B5-7C46-4C60-2A08-DE85D5094DD4";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" 0.19237290220706427 -0.079371520971327492 -0.064442776605287744 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 0.1103303498315889 2.6755715680814101 -3.9119643319818795 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "left_pinky2" -p "left_pinky1";
 	rename -uid "78F9CF0D-5A40-CF68-C54E-20AF4C3A7F44";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" 0.11084157576109521 -0.060212877978248258 -0.04124337702738412 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 0.21726845067741637 2.6153586901031618 -3.9624728822809447 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "left_ring" -p "left_wrist";
 	rename -uid "A866FA69-7947-D2A4-B76C-21A1B6F7FB9C";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 7;
-	setAttr ".t" -type "double3" 0.54882617001757095 -0.20865374197978293 -0.13404097533899861 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 -0.035799206091217894 2.7549430890527375 -3.6951303013640713 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "left_ring1" -p "left_ring";
 	rename -uid "D49ABFD6-744F-81C8-0E87-8B91EE5AB330";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" 0.21815001284917901 -0.079371520971327492 -0.012888555321057371 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 0.1804678669880897 2.6755715680814101 -3.7265006068466509 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "left_ring2" -p "left_ring1";
 	rename -uid "B7C75856-4D41-EA25-CB70-25950A4F847C";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" 0.12115242001794113 -0.060212877978248258 -0.028354821706326749 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 0.2987742295019718 2.6153586901031618 -3.7650429131986987 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "left_middle" -p "left_wrist";
 	rename -uid "53109044-9944-DC3A-8AE6-3B9ABFC7DC0E";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 7;
-	setAttr ".t" -type "double3" 0.54882617001757095 -0.20865374197978293 0.028354821706326305 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 -0.022006304852465464 2.7549430890527375 -3.5333213066406493 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "left_middle1" -p "left_middle";
 	rename -uid "4222CD3A-B945-518E-7E2C-4B82B0D6D619";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" 0.23877170136287151 -0.079371520971327492 0.04124337702738412 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 0.21940557590622634 2.6755715680814101 -3.5125067600711359 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "left_middle2" -p "left_middle1";
 	rename -uid "5E2B643F-B64A-9F8D-A500-E2890F27057B";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" 0.097953020440037175 -0.060212877978248258 0.0051554221284231261 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 0.31744252196920308 2.6153586901031618 -3.5156894943191634 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "left_pointer" -p "left_wrist";
 	rename -uid "53079C25-6644-7AD0-DB43-2B9C8D22F0CA";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 7;
-	setAttr ".t" -type "double3" 0.46376170489859148 -0.20865374197978293 0.18043977449480497 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 -0.093846235849076864 2.7549430890527375 -3.3745610458539712 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "left_pointer1" -p "left_pointer";
 	rename -uid "EF95D73D-CE4C-5D88-73D5-248D50521303";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" 0.24650483455550593 -0.079371520971327492 0.061865065541076181 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 0.15702231465692096 2.6755715680814101 -3.3338561301722183 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "left_pointer2" -p "left_pointer1";
 	rename -uid "F42A2C86-7747-B24D-E312-E3BC35F62A64";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" 0.11857470895372946 -0.060212877978248258 0.038665665963172557 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 0.27845258887690039 2.6153586901031618 -3.3054011863012862 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "left_thumb" -p "left_wrist";
 	rename -uid "4E725E1A-724B-840F-05BD-C18204B0E9D5";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 7;
-	setAttr ".t" -type "double3" 0.27091108888712795 -0.11559747601339998 0.34283557154013033 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 -0.27220710260407494 2.8479993550191205 -3.1963725046836893 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "left_thumb1" -p "left_thumb";
 	rename -uid "4F3582F5-BF42-0A34-D67E-96865AE3D05B";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" 0.079909042990556678 -0.049265081982203363 0.18043977449480586 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.99638659169400046 0 -0.084933855984603041 0 0 1 0 0
 		 0.084933855984603041 0 0.99638659169400046 0 -0.17726135779234872 2.7987342730369171 -3.0233717159180031 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
+createNode joint -n "joint1" -p "left_wrist";
+	rename -uid "0D533808-F146-118B-3B4D-4CACD461F7BD";
+	setAttr ".gh" yes;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" -5.966159901986023 0 0 ;
+	setAttr ".radi" 0.15;
+createNode joint -n "whip_base1" -p "joint1";
+	rename -uid "EA1F253A-4F45-2B71-AB9C-D6B0EA21DC2B";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
+	setAttr ".uoc" 1;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 0.65163375865996298 -3.4215272781381567 1;
+	setAttr ".radi" 0.15;
+createNode joint -n "whip_base" -p "whip_base1";
+	rename -uid "B4853A59-BA4E-6ED7-7C81-FEA490C9B2A2";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 1.3032101208814684 -3.4215272781381567 1;
+	setAttr ".radi" 0.15;
+createNode joint -n "whip_joint_1" -p "whip_base";
+	rename -uid "682D2030-7E41-C541-40AB-FBA6E03185FD";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
+	setAttr ".uoc" 1;
+	setAttr ".oc" 2;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 1.9786455633307756 -3.4215272781381567 1;
+	setAttr ".radi" 0.15;
+createNode joint -n "whip_joint_2" -p "whip_joint_1";
+	rename -uid "D95FF6D0-7247-41C8-489D-CBA56F964F96";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
+	setAttr ".uoc" 1;
+	setAttr ".oc" 3;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 2.6582336631769383 -3.4215272781381567 1;
+	setAttr ".radi" 0.15;
+createNode joint -n "whip_joint_3" -p "whip_joint_2";
+	rename -uid "C4E357AB-9C48-47DA-3E06-F1AE4509AD81";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
+	setAttr ".uoc" 1;
+	setAttr ".oc" 4;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 3.3298266089072648 -3.4215272781381567 1;
+	setAttr ".radi" 0.15;
+createNode joint -n "whip_joint_4" -p "whip_joint_3";
+	rename -uid "5C4EAB1D-F642-D605-FCF8-3EA7FE3BC96A";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
+	setAttr ".uoc" 1;
+	setAttr ".oc" 5;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 3.9934244005217554 -3.4215272781381567 1;
+	setAttr ".radi" 0.15;
+createNode joint -n "whip_joint_5" -p "whip_joint_4";
+	rename -uid "69A3455A-204A-4370-1476-DA9B89BE2497";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
+	setAttr ".uoc" 1;
+	setAttr ".oc" 6;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 4.6810076544837571 -3.4215272781381567 1;
+	setAttr ".radi" 0.15;
+createNode joint -n "whip_joint_6" -p "whip_joint_5";
+	rename -uid "BA6482FB-3742-1195-EDAD-14968C8547CD";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
+	setAttr ".uoc" 1;
+	setAttr ".oc" 7;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 5.3605957543299212 -3.4215272781381567 1;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_shoulder" -p "neck_body_connection";
 	rename -uid "58306E01-C14A-F682-5628-919F6BBC618B";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" -0.93376593104210848 -0.29692975213054495 0.037095186234602284 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -4.7840176455818177 4.0108803201373355 -3.3223661287504735 1;
@@ -12665,9 +12742,9 @@ createNode joint -n "right_shoulder" -p "neck_body_connection";
 createNode joint -n "right_elbow" -p "right_shoulder";
 	rename -uid "3D6D0633-C846-B80F-CBB8-9DA77963D01F";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 5;
-	setAttr ".t" -type "double3" -1.2033468902132594 -0.55869677045615651 0.00463689827932523 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -5.9873645357950771 3.452183549681179 -3.3177292304711483 1;
@@ -12675,228 +12752,148 @@ createNode joint -n "right_elbow" -p "right_shoulder";
 createNode joint -n "right_wrist" -p "right_elbow";
 	rename -uid "881B8997-6441-DC03-D2BE-E7A0ACCD8C02";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 6;
-	setAttr ".t" -type "double3" -1.1248223219159774 -0.48858671864865855 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -7.1121868577110545 2.9635968310325205 -3.3177292304711483 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_pinky_hand" -p "right_wrist";
 	rename -uid "E83B5A68-A343-BB3C-4E30-348994FF4845";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 7;
-	setAttr ".t" -type "double3" -0.54353405911818697 -0.23506625459856956 -0.2869731081717446 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -7.6557209168292415 2.7285305764339509 -3.6047023386428929 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_pinky_hand1" -p "right_pinky_hand";
 	rename -uid "1039B2ED-3D48-9C00-44F9-7F9DBCF22161";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" -0.18953730748440467 -0.072890157384170706 -0.084647729556142082 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -7.8452582243136462 2.6556404190497802 -3.689350068199035 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_pinky_hand2" -p "right_pinky_hand1";
 	rename -uid "20632B88-B44C-0B97-FB51-5089AC63CDD6";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" -0.10672974596209261 -0.059637401496139386 -0.038643528710413211 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -7.9519879702757388 2.5960030175536408 -3.7279935969094482 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_ring_hand" -p "right_wrist";
 	rename -uid "5F34E4B1-334A-FE0F-F1BD-64974880CAF8";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 7;
-	setAttr ".t" -type "double3" -0.5838338165388306 -0.23506625459856956 -0.14409215004400489 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -7.6960206742498851 2.7285305764339509 -3.4618213805151532 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_ring_hand1" -p "right_ring_hand";
 	rename -uid "1EA35E72-1F4C-E8D4-0826-B79BE450F8D8";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" -0.20241848372120863 -0.072890157384170706 -0.031282856575095774 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -7.8984391579710937 2.6556404190497802 -3.493104237090249 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_ring_hand2" -p "right_ring_hand1";
 	rename -uid "DFDA7BAA-B04B-A2F4-C87E-82960381D3DC";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" -0.12881176236804492 -0.059637401496139386 -0.018401680338291815 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -8.0272509203391387 2.5960030175536408 -3.5115059174285408 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_middle_hand" -p "right_wrist";
 	rename -uid "058C71E6-9648-6E15-DA3A-A89F8C783CA0";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 7;
-	setAttr ".t" -type "double3" -0.59116104516076629 -0.23506625459856956 0.013443265327605314 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -7.7033479028718208 2.7285305764339509 -3.304285965143543 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_middle_hand1" -p "right_middle_hand";
 	rename -uid "E4BA24F6-9A4C-42B8-52AC-5FB27DEE4EBF";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" -0.2060988197888669 -0.072890157384170706 0.034963192642754493 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -7.9094467226606877 2.6556404190497802 -3.2693227725007885 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_middle_hand2" -p "right_middle_hand1";
 	rename -uid "9FD9B2CC-7249-F084-1452-9F87EC030722";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" -0.14537327467251338 -0.059637401496139386 0.018401680338291815 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -8.0548199973332011 2.5960030175536408 -3.2509210921624967 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_pointer_hand" -p "right_wrist";
 	rename -uid "B060474E-3646-DB82-C7EB-7CAC9D78CF0D";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 7;
-	setAttr ".t" -type "double3" -0.5288796018743156 -0.23506625459856956 0.16731506638824811 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -7.6410664595853701 2.7285305764339509 -3.1504141640829002 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_pointer_hand1" -p "right_pointer_hand";
 	rename -uid "0C7DE6F4-BA4F-1AF9-F34E-E2B961CAA304";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" -0.20425865175503777 -0.072890157384170706 0.079127225454654671 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -7.8453251113404079 2.6556404190497802 -3.0712869386282455 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_pointer_hand2" -p "right_pointer_hand1";
 	rename -uid "A322D2DF-1F4E-B1D9-3252-75A02427FDBC";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" -0.11961092219889746 -0.059637401496139386 0.034963192642754048 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -7.9649360335393053 2.5960030175536408 -3.0363237459854915 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_thumb_hand" -p "right_wrist";
 	rename -uid "1D53D4F2-504A-A793-762D-5C84321EB717";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
 	setAttr ".oc" 7;
-	setAttr ".t" -type "double3" -0.23579045699690138 -0.085972750858220426 0.31385963882695567 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -7.3479773147079559 2.8776240801743 -3.0038695916441926 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode joint -n "right_thumb_hand1" -p "right_thumb_hand";
 	rename -uid "0CB0FDF6-0840-6BD0-98F1-F99D85B27A08";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".gh" yes;
 	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" -0.097524473237370124 -0.062950590468147105 0.2171398279918435 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -7.445501787945326 2.8146734897061529 -2.7867297636523491 1;
-	setAttr ".radi" 0.5;
-createNode joint -n "whip_base1";
-	rename -uid "EA1F253A-4F45-2B71-AB9C-D6B0EA21DC2B";
-	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
-	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" 6.2964756791077985 0.65163375865996298 -0.088065221612440903 ;
-	setAttr ".r" -type "double3" 86.93697587412646 0 0 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 0.65163375865996298 -3.4215272781381567 1;
-	setAttr ".radi" 0.5;
-createNode joint -n "whip_base" -p "whip_base1";
-	rename -uid "B4853A59-BA4E-6ED7-7C81-FEA490C9B2A2";
-	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
-	setAttr ".uoc" 1;
-	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" 0 0.65157636222150539 0 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 1.3032101208814684 -3.4215272781381567 1;
-	setAttr ".radi" 0.5;
-createNode joint -n "whip_joint_1" -p "whip_base";
-	rename -uid "682D2030-7E41-C541-40AB-FBA6E03185FD";
-	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
-	setAttr ".uoc" 1;
-	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" 0 0.6754354424493072 0 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 1.9786455633307756 -3.4215272781381567 1;
-	setAttr ".radi" 0.5;
-createNode joint -n "whip_joint_2" -p "whip_joint_1";
-	rename -uid "D95FF6D0-7247-41C8-489D-CBA56F964F96";
-	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
-	setAttr ".uoc" 1;
-	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" 0 0.67958809984616275 0 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 2.6582336631769383 -3.4215272781381567 1;
-	setAttr ".radi" 0.5;
-createNode joint -n "whip_joint_3" -p "whip_joint_2";
-	rename -uid "C4E357AB-9C48-47DA-3E06-F1AE4509AD81";
-	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
-	setAttr ".uoc" 1;
-	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" 0 0.67159294573032646 0 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 3.3298266089072648 -3.4215272781381567 1;
-	setAttr ".radi" 0.5;
-createNode joint -n "whip_joint_4" -p "whip_joint_3";
-	rename -uid "5C4EAB1D-F642-D605-FCF8-3EA7FE3BC96A";
-	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
-	setAttr ".uoc" 1;
-	setAttr ".oc" 5;
-	setAttr ".t" -type "double3" 0 0.66359779161449062 0 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 3.9934244005217554 -3.4215272781381567 1;
-	setAttr ".radi" 0.5;
-createNode joint -n "whip_joint_5" -p "whip_joint_4";
-	rename -uid "69A3455A-204A-4370-1476-DA9B89BE2497";
-	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
-	setAttr ".uoc" 1;
-	setAttr ".oc" 6;
-	setAttr ".t" -type "double3" 0 0.68758325396200171 0 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 4.6810076544837571 -3.4215272781381567 1;
-	setAttr ".radi" 0.5;
-createNode joint -n "whip_joint_6" -p "whip_joint_5";
-	rename -uid "BA6482FB-3742-1195-EDAD-14968C8547CD";
-	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
-	setAttr ".uoc" 1;
-	setAttr ".oc" 7;
-	setAttr ".t" -type "double3" 0 0.67958809984616408 0 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 1.9145352679672294 5.3605957543299212 -3.4215272781381567 1;
-	setAttr ".radi" 0.5;
+	setAttr ".radi" 0.15;
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "9844048A-F045-EB90-6B0D-20806B610884";
 	setAttr -s 27 ".lnk";
@@ -12967,7 +12964,7 @@ createNode script -n "uiConfigurationScriptNode";
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "F064AE57-3748-A689-F4EE-8D9305EAEE20";
-	setAttr ".b" -type "string" "playbackOptions -min 1 -max 120 -ast 1 -aet 200 ";
+	setAttr ".b" -type "string" "playbackOptions -min 1 -max 24 -ast 1 -aet 24 ";
 	setAttr ".st" 6;
 createNode groupId -n "groupId7";
 	rename -uid "A399869B-504C-142A-AB8B-CD9369AEB66D";
@@ -15423,7 +15420,7 @@ createNode skinCluster -n "skinCluster1";
 		1 10 1
 		1 10 1
 		1 10 1;
-	setAttr ".wl[928:1325].w"
+	setAttr ".wl[928:1315].w"
 		1 10 1
 		1 10 1
 		1 10 1
@@ -15573,16 +15570,16 @@ createNode skinCluster -n "skinCluster1";
 		2 14 0.15441944786503098 15 0.84558055213496908
 		2 14 0.2506819963623047 15 0.7493180036376953
 		2 14 0.30008572484332435 15 0.6999142751566757
-		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
+		2 14 0.18449999392032623 15 0.81550000607967377
+		2 14 0.18449999392032623 15 0.81550000607967377
+		2 14 0.18449999392032623 15 0.81550000607967377
+		2 14 0.18449999392032623 15 0.81550000607967377
+		2 14 0.18449999392032623 15 0.81550000607967377
+		2 14 0.18449999392032623 15 0.81550000607967377
+		2 14 0.18449999392032623 15 0.81550000607967377
+		2 14 0.18449999392032623 15 0.81550000607967377
+		2 14 0.18449999392032623 15 0.81550000607967377
+		2 14 0.18449999392032623 15 0.81550000607967377
 		1 14 1
 		1 14 1
 		1 14 1
@@ -15811,7 +15808,8 @@ createNode skinCluster -n "skinCluster1";
 		1 42 1
 		1 42 1
 		1 42 1
-		1 19 1
+		1 19 1;
+	setAttr ".wl[1316:1551].w"
 		1 19 1
 		1 19 1
 		1 19 1
@@ -15821,8 +15819,7 @@ createNode skinCluster -n "skinCluster1";
 		1 22 1
 		1 25 1
 		1 25 1
-		1 25 1;
-	setAttr ".wl[1326:1554].w"
+		1 25 1
 		1 25 1
 		1 45 1
 		1 45 1
@@ -16066,15 +16063,15 @@ createNode skinCluster -n "skinCluster1";
 		28 0.3521745450408198
 		4 16 0.037266924449434545 26 0.15854378479864628 27 0.52564742530379405 
 		28 0.27854186544812515
-		4 16 0.011642157501455901 26 0.12352216024099834 27 0.52926258679944327 
-		28 0.33557309545810254
+		3 16 0.011642157501455901 26 0.12352216024099834 27 0.52926258679944327;
+	setAttr ".wl[1551:1604].w"
+		1 28 0.33557309545810254
 		4 16 0.036825935717145743 26 0.20848433751552614 27 0.50651420447496676 
 		28 0.24817552229236145
 		4 16 0.014431688740235194 26 0.1394975920862763 27 0.52761541839028392 
 		28 0.31845530078320455
-		1 16 0.04795062965719496;
-	setAttr ".wl[1554:1604].w"
-		3 26 0.2217443847634708 27 0.50053909965221499 28 0.22976588592711922
+		4 16 0.04795062965719496 26 0.2217443847634708 27 0.50053909965221499 
+		28 0.22976588592711922
 		4 33 0.022884858380235091 40 0.15265178366326532 41 0.48247116080136643 
 		42 0.34199219715513324
 		4 33 0.059637109358602371 40 0.19571937018265789 41 0.43468361763659258 
@@ -21618,6 +21615,3518 @@ createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
 	setAttr ".tgi[0].ni[7].x" -37.142856597900391;
 	setAttr ".tgi[0].ni[7].y" 138.57142639160156;
 	setAttr ".tgi[0].ni[7].nvs" 1923;
+createNode character -n "whiplash";
+	rename -uid "256B0B02-3F48-40C3-CBE0-B3B0895B789E";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
+	setAttr -s 513 ".dnsm";
+	setAttr -s 171 ".uv";
+	setAttr -s 171 ".uv";
+	setAttr -s 171 ".lv";
+	setAttr -s 171 ".lv";
+	setAttr -s 171 ".av";
+	setAttr -s 171 ".av";
+	setAttr ".am" -type "characterMapping" 513 "right_thumb_hand1.scaleZ" 0 
+		1 "right_thumb_hand1.scaleY" 0 2 "right_thumb_hand1.scaleX" 0 
+		3 "right_thumb_hand1.rotateZ" 2 1 "right_thumb_hand1.rotateY" 2 
+		2 "right_thumb_hand1.rotateX" 2 3 "right_thumb_hand1.translateZ" 1 
+		1 "right_thumb_hand1.translateY" 1 2 "right_thumb_hand1.translateX" 
+		1 3 "right_thumb_hand.scaleZ" 0 4 "right_thumb_hand.scaleY" 0 
+		5 "right_thumb_hand.scaleX" 0 6 "right_thumb_hand.rotateZ" 2 
+		4 "right_thumb_hand.rotateY" 2 5 "right_thumb_hand.rotateX" 2 
+		6 "right_thumb_hand.translateZ" 1 4 "right_thumb_hand.translateY" 
+		1 5 "right_thumb_hand.translateX" 1 6 "right_pointer_hand2.scaleZ" 
+		0 7 "right_pointer_hand2.scaleY" 0 8 "right_pointer_hand2.scaleX" 
+		0 9 "right_pointer_hand2.rotateZ" 2 7 "right_pointer_hand2.rotateY" 
+		2 8 "right_pointer_hand2.rotateX" 2 9 "right_pointer_hand2.translateZ" 
+		1 7 "right_pointer_hand2.translateY" 1 8 "right_pointer_hand2.translateX" 
+		1 9 "right_pointer_hand1.scaleZ" 0 10 "right_pointer_hand1.scaleY" 
+		0 11 "right_pointer_hand1.scaleX" 0 12 "right_pointer_hand1.rotateZ" 
+		2 10 "right_pointer_hand1.rotateY" 2 11 "right_pointer_hand1.rotateX" 
+		2 12 "right_pointer_hand1.translateZ" 1 10 "right_pointer_hand1.translateY" 
+		1 11 "right_pointer_hand1.translateX" 1 12 "right_pointer_hand.scaleZ" 
+		0 13 "right_pointer_hand.scaleY" 0 14 "right_pointer_hand.scaleX" 
+		0 15 "right_pointer_hand.rotateZ" 2 13 "right_pointer_hand.rotateY" 
+		2 14 "right_pointer_hand.rotateX" 2 15 "right_pointer_hand.translateZ" 
+		1 13 "right_pointer_hand.translateY" 1 14 "right_pointer_hand.translateX" 
+		1 15 "right_middle_hand2.scaleZ" 0 16 "right_middle_hand2.scaleY" 
+		0 17 "right_middle_hand2.scaleX" 0 18 "right_middle_hand2.rotateZ" 
+		2 16 "right_middle_hand2.rotateY" 2 17 "right_middle_hand2.rotateX" 
+		2 18 "right_middle_hand2.translateZ" 1 16 "right_middle_hand2.translateY" 
+		1 17 "right_middle_hand2.translateX" 1 18 "right_middle_hand1.scaleZ" 
+		0 19 "right_middle_hand1.scaleY" 0 20 "right_middle_hand1.scaleX" 
+		0 21 "right_middle_hand1.rotateZ" 2 19 "right_middle_hand1.rotateY" 
+		2 20 "right_middle_hand1.rotateX" 2 21 "right_middle_hand1.translateZ" 
+		1 19 "right_middle_hand1.translateY" 1 20 "right_middle_hand1.translateX" 
+		1 21 "right_middle_hand.scaleZ" 0 22 "right_middle_hand.scaleY" 
+		0 23 "right_middle_hand.scaleX" 0 24 "right_middle_hand.rotateZ" 
+		2 22 "right_middle_hand.rotateY" 2 23 "right_middle_hand.rotateX" 
+		2 24 "right_middle_hand.translateZ" 1 22 "right_middle_hand.translateY" 
+		1 23 "right_middle_hand.translateX" 1 24 "right_ring_hand2.scaleZ" 
+		0 25 "right_ring_hand2.scaleY" 0 26 "right_ring_hand2.scaleX" 0 
+		27 "right_ring_hand2.rotateZ" 2 25 "right_ring_hand2.rotateY" 2 
+		26 "right_ring_hand2.rotateX" 2 27 "right_ring_hand2.translateZ" 1 
+		25 "right_ring_hand2.translateY" 1 26 "right_ring_hand2.translateX" 
+		1 27 "right_ring_hand1.scaleZ" 0 28 "right_ring_hand1.scaleY" 0 
+		29 "right_ring_hand1.scaleX" 0 30 "right_ring_hand1.rotateZ" 2 
+		28 "right_ring_hand1.rotateY" 2 29 "right_ring_hand1.rotateX" 2 
+		30 "right_ring_hand1.translateZ" 1 28 "right_ring_hand1.translateY" 
+		1 29 "right_ring_hand1.translateX" 1 30 "right_ring_hand.scaleZ" 
+		0 31 "right_ring_hand.scaleY" 0 32 "right_ring_hand.scaleX" 0 
+		33 "right_ring_hand.rotateZ" 2 31 "right_ring_hand.rotateY" 2 32 "right_ring_hand.rotateX" 
+		2 33 "right_ring_hand.translateZ" 1 31 "right_ring_hand.translateY" 
+		1 32 "right_ring_hand.translateX" 1 33 "right_pinky_hand2.scaleZ" 
+		0 34 "right_pinky_hand2.scaleY" 0 35 "right_pinky_hand2.scaleX" 
+		0 36 "right_pinky_hand2.rotateZ" 2 34 "right_pinky_hand2.rotateY" 
+		2 35 "right_pinky_hand2.rotateX" 2 36 "right_pinky_hand2.translateZ" 
+		1 34 "right_pinky_hand2.translateY" 1 35 "right_pinky_hand2.translateX" 
+		1 36 "right_pinky_hand1.scaleZ" 0 37 "right_pinky_hand1.scaleY" 
+		0 38 "right_pinky_hand1.scaleX" 0 39 "right_pinky_hand1.rotateZ" 
+		2 37 "right_pinky_hand1.rotateY" 2 38 "right_pinky_hand1.rotateX" 
+		2 39 "right_pinky_hand1.translateZ" 1 37 "right_pinky_hand1.translateY" 
+		1 38 "right_pinky_hand1.translateX" 1 39 "right_pinky_hand.scaleZ" 
+		0 40 "right_pinky_hand.scaleY" 0 41 "right_pinky_hand.scaleX" 0 
+		42 "right_pinky_hand.rotateZ" 2 40 "right_pinky_hand.rotateY" 2 
+		41 "right_pinky_hand.rotateX" 2 42 "right_pinky_hand.translateZ" 1 
+		40 "right_pinky_hand.translateY" 1 41 "right_pinky_hand.translateX" 
+		1 42 "right_wrist.scaleZ" 0 43 "right_wrist.scaleY" 0 44 "right_wrist.scaleX" 
+		0 45 "right_wrist.rotateZ" 2 43 "right_wrist.rotateY" 2 44 "right_wrist.rotateX" 
+		2 45 "right_wrist.translateZ" 1 43 "right_wrist.translateY" 1 
+		44 "right_wrist.translateX" 1 45 "right_elbow.scaleZ" 0 46 "right_elbow.scaleY" 
+		0 47 "right_elbow.scaleX" 0 48 "right_elbow.rotateZ" 2 46 "right_elbow.rotateY" 
+		2 47 "right_elbow.rotateX" 2 48 "right_elbow.translateZ" 1 
+		46 "right_elbow.translateY" 1 47 "right_elbow.translateX" 1 48 "right_shoulder.scaleZ" 
+		0 49 "right_shoulder.scaleY" 0 50 "right_shoulder.scaleX" 0 
+		51 "right_shoulder.rotateZ" 2 49 "right_shoulder.rotateY" 2 50 "right_shoulder.rotateX" 
+		2 51 "right_shoulder.translateZ" 1 49 "right_shoulder.translateY" 
+		1 50 "right_shoulder.translateX" 1 51 "whip_joint_6.scaleZ" 0 
+		52 "whip_joint_6.scaleY" 0 53 "whip_joint_6.scaleX" 0 54 "whip_joint_6.rotateZ" 
+		2 52 "whip_joint_6.rotateY" 2 53 "whip_joint_6.rotateX" 2 
+		54 "whip_joint_6.translateZ" 1 52 "whip_joint_6.translateY" 1 53 "whip_joint_6.translateX" 
+		1 54 "whip_joint_5.scaleZ" 0 55 "whip_joint_5.scaleY" 0 56 "whip_joint_5.scaleX" 
+		0 57 "whip_joint_5.rotateZ" 2 55 "whip_joint_5.rotateY" 2 
+		56 "whip_joint_5.rotateX" 2 57 "whip_joint_5.translateZ" 1 55 "whip_joint_5.translateY" 
+		1 56 "whip_joint_5.translateX" 1 57 "whip_joint_4.scaleZ" 0 
+		58 "whip_joint_4.scaleY" 0 59 "whip_joint_4.scaleX" 0 60 "whip_joint_4.rotateZ" 
+		2 58 "whip_joint_4.rotateY" 2 59 "whip_joint_4.rotateX" 2 
+		60 "whip_joint_4.translateZ" 1 58 "whip_joint_4.translateY" 1 59 "whip_joint_4.translateX" 
+		1 60 "whip_joint_3.scaleZ" 0 61 "whip_joint_3.scaleY" 0 62 "whip_joint_3.scaleX" 
+		0 63 "whip_joint_3.rotateZ" 2 61 "whip_joint_3.rotateY" 2 
+		62 "whip_joint_3.rotateX" 2 63 "whip_joint_3.translateZ" 1 61 "whip_joint_3.translateY" 
+		1 62 "whip_joint_3.translateX" 1 63 "whip_joint_2.scaleZ" 0 
+		64 "whip_joint_2.scaleY" 0 65 "whip_joint_2.scaleX" 0 66 "whip_joint_2.rotateZ" 
+		2 64 "whip_joint_2.rotateY" 2 65 "whip_joint_2.rotateX" 2 
+		66 "whip_joint_2.translateZ" 1 64 "whip_joint_2.translateY" 1 65 "whip_joint_2.translateX" 
+		1 66 "whip_joint_1.scaleZ" 0 67 "whip_joint_1.scaleY" 0 68 "whip_joint_1.scaleX" 
+		0 69 "whip_joint_1.rotateZ" 2 67 "whip_joint_1.rotateY" 2 
+		68 "whip_joint_1.rotateX" 2 69 "whip_joint_1.translateZ" 1 67 "whip_joint_1.translateY" 
+		1 68 "whip_joint_1.translateX" 1 69 "whip_base.scaleZ" 0 70 "whip_base.scaleY" 
+		0 71 "whip_base.scaleX" 0 72 "whip_base.rotateZ" 2 70 "whip_base.rotateY" 
+		2 71 "whip_base.rotateX" 2 72 "whip_base.translateZ" 1 70 "whip_base.translateY" 
+		1 71 "whip_base.translateX" 1 72 "whip_base1.scaleZ" 0 73 "whip_base1.scaleY" 
+		0 74 "whip_base1.scaleX" 0 75 "whip_base1.rotateZ" 2 73 "whip_base1.rotateY" 
+		2 74 "whip_base1.rotateX" 2 75 "whip_base1.translateZ" 1 73 "whip_base1.translateY" 
+		1 74 "whip_base1.translateX" 1 75 "joint1.scaleZ" 0 76 "joint1.scaleY" 
+		0 77 "joint1.scaleX" 0 78 "joint1.rotateZ" 2 76 "joint1.rotateY" 
+		2 77 "joint1.rotateX" 2 78 "joint1.translateZ" 1 76 "joint1.translateY" 
+		1 77 "joint1.translateX" 1 78 "left_thumb1.scaleZ" 0 79 "left_thumb1.scaleY" 
+		0 80 "left_thumb1.scaleX" 0 81 "left_thumb1.rotateZ" 2 79 "left_thumb1.rotateY" 
+		2 80 "left_thumb1.rotateX" 2 81 "left_thumb1.translateZ" 1 
+		79 "left_thumb1.translateY" 1 80 "left_thumb1.translateX" 1 81 "left_thumb.scaleZ" 
+		0 82 "left_thumb.scaleY" 0 83 "left_thumb.scaleX" 0 84 "left_thumb.rotateZ" 
+		2 82 "left_thumb.rotateY" 2 83 "left_thumb.rotateX" 2 84 "left_thumb.translateZ" 
+		1 82 "left_thumb.translateY" 1 83 "left_thumb.translateX" 1 
+		84 "left_pointer2.scaleZ" 0 85 "left_pointer2.scaleY" 0 86 "left_pointer2.scaleX" 
+		0 87 "left_pointer2.rotateZ" 2 85 "left_pointer2.rotateY" 2 
+		86 "left_pointer2.rotateX" 2 87 "left_pointer2.translateZ" 1 85 "left_pointer2.translateY" 
+		1 86 "left_pointer2.translateX" 1 87 "left_pointer1.scaleZ" 0 
+		88 "left_pointer1.scaleY" 0 89 "left_pointer1.scaleX" 0 90 "left_pointer1.rotateZ" 
+		2 88 "left_pointer1.rotateY" 2 89 "left_pointer1.rotateX" 2 
+		90 "left_pointer1.translateZ" 1 88 "left_pointer1.translateY" 1 
+		89 "left_pointer1.translateX" 1 90 "left_pointer.scaleZ" 0 91 "left_pointer.scaleY" 
+		0 92 "left_pointer.scaleX" 0 93 "left_pointer.rotateZ" 2 91 "left_pointer.rotateY" 
+		2 92 "left_pointer.rotateX" 2 93 "left_pointer.translateZ" 1 
+		91 "left_pointer.translateY" 1 92 "left_pointer.translateX" 1 93 "left_middle2.scaleZ" 
+		0 94 "left_middle2.scaleY" 0 95 "left_middle2.scaleX" 0 96 "left_middle2.rotateZ" 
+		2 94 "left_middle2.rotateY" 2 95 "left_middle2.rotateX" 2 
+		96 "left_middle2.translateZ" 1 94 "left_middle2.translateY" 1 95 "left_middle2.translateX" 
+		1 96 "left_middle1.scaleZ" 0 97 "left_middle1.scaleY" 0 98 "left_middle1.scaleX" 
+		0 99 "left_middle1.rotateZ" 2 97 "left_middle1.rotateY" 2 
+		98 "left_middle1.rotateX" 2 99 "left_middle1.translateZ" 1 97 "left_middle1.translateY" 
+		1 98 "left_middle1.translateX" 1 99 "left_middle.scaleZ" 0 
+		100 "left_middle.scaleY" 0 101 "left_middle.scaleX" 0 102 "left_middle.rotateZ" 
+		2 100 "left_middle.rotateY" 2 101 "left_middle.rotateX" 2 102 "left_middle.translateZ" 
+		1 100 "left_middle.translateY" 1 101 "left_middle.translateX" 1 
+		102 "left_ring2.scaleZ" 0 103 "left_ring2.scaleY" 0 104 "left_ring2.scaleX" 
+		0 105 "left_ring2.rotateZ" 2 103 "left_ring2.rotateY" 2 104 "left_ring2.rotateX" 
+		2 105 "left_ring2.translateZ" 1 103 "left_ring2.translateY" 1 
+		104 "left_ring2.translateX" 1 105 "left_ring1.scaleZ" 0 106 "left_ring1.scaleY" 
+		0 107 "left_ring1.scaleX" 0 108 "left_ring1.rotateZ" 2 106 "left_ring1.rotateY" 
+		2 107 "left_ring1.rotateX" 2 108 "left_ring1.translateZ" 1 106 "left_ring1.translateY" 
+		1 107 "left_ring1.translateX" 1 108 "left_ring.scaleZ" 0 109 "left_ring.scaleY" 
+		0 110 "left_ring.scaleX" 0 111 "left_ring.rotateZ" 2 109 "left_ring.rotateY" 
+		2 110 "left_ring.rotateX" 2 111 "left_ring.translateZ" 1 109 "left_ring.translateY" 
+		1 110 "left_ring.translateX" 1 111 "left_pinky2.scaleZ" 0 112 "left_pinky2.scaleY" 
+		0 113 "left_pinky2.scaleX" 0 114 "left_pinky2.rotateZ" 2 112 "left_pinky2.rotateY" 
+		2 113 "left_pinky2.rotateX" 2 114 "left_pinky2.translateZ" 1 
+		112 "left_pinky2.translateY" 1 113 "left_pinky2.translateX" 1 114 "left_pinky1.scaleZ" 
+		0 115 "left_pinky1.scaleY" 0 116 "left_pinky1.scaleX" 0 117 "left_pinky1.rotateZ" 
+		2 115 "left_pinky1.rotateY" 2 116 "left_pinky1.rotateX" 2 117 "left_pinky1.translateZ" 
+		1 115 "left_pinky1.translateY" 1 116 "left_pinky1.translateX" 1 
+		117 "left_pinky.scaleZ" 0 118 "left_pinky.scaleY" 0 119 "left_pinky.scaleX" 
+		0 120 "left_pinky.rotateZ" 2 118 "left_pinky.rotateY" 2 119 "left_pinky.rotateX" 
+		2 120 "left_pinky.translateZ" 1 118 "left_pinky.translateY" 1 
+		119 "left_pinky.translateX" 1 120 "left_wrist.scaleZ" 0 121 "left_wrist.scaleY" 
+		0 122 "left_wrist.scaleX" 0 123 "left_wrist.rotateZ" 2 121 "left_wrist.rotateY" 
+		2 122 "left_wrist.rotateX" 2 123 "left_wrist.translateZ" 1 121 "left_wrist.translateY" 
+		1 122 "left_wrist.translateX" 1 123 "left_elbow.scaleZ" 0 124 "left_elbow.scaleY" 
+		0 125 "left_elbow.scaleX" 0 126 "left_elbow.rotateZ" 2 124 "left_elbow.rotateY" 
+		2 125 "left_elbow.rotateX" 2 126 "left_elbow.translateZ" 1 124 "left_elbow.translateY" 
+		1 125 "left_elbow.translateX" 1 126 "left_shoulder.scaleZ" 0 
+		127 "left_shoulder.scaleY" 0 128 "left_shoulder.scaleX" 0 129 "left_shoulder.rotateZ" 
+		2 127 "left_shoulder.rotateY" 2 128 "left_shoulder.rotateX" 2 
+		129 "left_shoulder.translateZ" 1 127 "left_shoulder.translateY" 1 
+		128 "left_shoulder.translateX" 1 129 "left_eyebrow.scaleZ" 0 130 "left_eyebrow.scaleY" 
+		0 131 "left_eyebrow.scaleX" 0 132 "left_eyebrow.rotateZ" 2 130 "left_eyebrow.rotateY" 
+		2 131 "left_eyebrow.rotateX" 2 132 "left_eyebrow.translateZ" 1 
+		130 "left_eyebrow.translateY" 1 131 "left_eyebrow.translateX" 1 132 "right_eyebrow.scaleZ" 
+		0 133 "right_eyebrow.scaleY" 0 134 "right_eyebrow.scaleX" 0 
+		135 "right_eyebrow.rotateZ" 2 133 "right_eyebrow.rotateY" 2 134 "right_eyebrow.rotateX" 
+		2 135 "right_eyebrow.translateZ" 1 133 "right_eyebrow.translateY" 
+		1 134 "right_eyebrow.translateX" 1 135 "head.scaleZ" 0 136 "head.scaleY" 
+		0 137 "head.scaleX" 0 138 "head.rotateZ" 2 136 "head.rotateY" 
+		2 137 "head.rotateX" 2 138 "head.translateZ" 1 136 "head.translateY" 
+		1 137 "head.translateX" 1 138 "neck_head_connection.scaleZ" 0 
+		139 "neck_head_connection.scaleY" 0 140 "neck_head_connection.scaleX" 
+		0 141 "neck_head_connection.rotateZ" 2 139 "neck_head_connection.rotateY" 
+		2 140 "neck_head_connection.rotateX" 2 141 "neck_head_connection.translateZ" 
+		1 139 "neck_head_connection.translateY" 1 140 "neck_head_connection.translateX" 
+		1 141 "neck_body_connection.scaleZ" 0 142 "neck_body_connection.scaleY" 
+		0 143 "neck_body_connection.scaleX" 0 144 "neck_body_connection.rotateZ" 
+		2 142 "neck_body_connection.rotateY" 2 143 "neck_body_connection.rotateX" 
+		2 144 "neck_body_connection.translateZ" 1 142 "neck_body_connection.translateY" 
+		1 143 "neck_body_connection.translateX" 1 144 "mid_body.scaleZ" 0 
+		145 "mid_body.scaleY" 0 146 "mid_body.scaleX" 0 147 "mid_body.rotateZ" 
+		2 145 "mid_body.rotateY" 2 146 "mid_body.rotateX" 2 147 "mid_body.translateZ" 
+		1 145 "mid_body.translateY" 1 146 "mid_body.translateX" 1 147 "right_ancle.scaleZ" 
+		0 148 "right_ancle.scaleY" 0 149 "right_ancle.scaleX" 0 150 "right_ancle.rotateZ" 
+		2 148 "right_ancle.rotateY" 2 149 "right_ancle.rotateX" 2 150 "right_ancle.translateZ" 
+		1 148 "right_ancle.translateY" 1 149 "right_ancle.translateX" 1 
+		150 "right_knee.scaleZ" 0 151 "right_knee.scaleY" 0 152 "right_knee.scaleX" 
+		0 153 "right_knee.rotateZ" 2 151 "right_knee.rotateY" 2 152 "right_knee.rotateX" 
+		2 153 "right_knee.translateZ" 1 151 "right_knee.translateY" 1 
+		152 "right_knee.translateX" 1 153 "hip_right_leg.scaleZ" 0 154 "hip_right_leg.scaleY" 
+		0 155 "hip_right_leg.scaleX" 0 156 "hip_right_leg.rotateZ" 2 
+		154 "hip_right_leg.rotateY" 2 155 "hip_right_leg.rotateX" 2 156 "hip_right_leg.translateZ" 
+		1 154 "hip_right_leg.translateY" 1 155 "hip_right_leg.translateX" 
+		1 156 "left_ancle.scaleZ" 0 157 "left_ancle.scaleY" 0 158 "left_ancle.scaleX" 
+		0 159 "left_ancle.rotateZ" 2 157 "left_ancle.rotateY" 2 158 "left_ancle.rotateX" 
+		2 159 "left_ancle.translateZ" 1 157 "left_ancle.translateY" 1 
+		158 "left_ancle.translateX" 1 159 "left_knee.scaleZ" 0 160 "left_knee.scaleY" 
+		0 161 "left_knee.scaleX" 0 162 "left_knee.rotateZ" 2 160 "left_knee.rotateY" 
+		2 161 "left_knee.rotateX" 2 162 "left_knee.translateZ" 1 160 "left_knee.translateY" 
+		1 161 "left_knee.translateX" 1 162 "hip_left_leg.scaleZ" 0 163 "hip_left_leg.scaleY" 
+		0 164 "hip_left_leg.scaleX" 0 165 "hip_left_leg.rotateZ" 2 163 "hip_left_leg.rotateY" 
+		2 164 "hip_left_leg.rotateX" 2 165 "hip_left_leg.translateZ" 1 
+		163 "hip_left_leg.translateY" 1 164 "hip_left_leg.translateX" 1 165 "hip_body.scaleZ" 
+		0 166 "hip_body.scaleY" 0 167 "hip_body.scaleX" 0 168 "hip_body.rotateZ" 
+		2 166 "hip_body.rotateY" 2 167 "hip_body.rotateX" 2 168 "hip_body.translateZ" 
+		1 166 "hip_body.translateY" 1 167 "hip_body.translateX" 1 168 "root.scaleZ" 
+		0 169 "root.scaleY" 0 170 "root.scaleX" 0 171 "root.rotateZ" 
+		2 169 "root.rotateY" 2 170 "root.rotateX" 2 171 "root.translateZ" 
+		1 169 "root.translateY" 1 170 "root.translateX" 1 171  ;
+	setAttr ".aal" -type "attributeAlias" {"left_middle_rotateZ","angularValues[100]"
+		,"left_middle_rotateY","angularValues[101]","left_middle_rotateX","angularValues[102]"
+		,"left_ring2_rotateZ","angularValues[103]","left_ring2_rotateY","angularValues[104]"
+		,"left_ring2_rotateX","angularValues[105]","left_ring1_rotateZ","angularValues[106]"
+		,"left_ring1_rotateY","angularValues[107]","left_ring1_rotateX","angularValues[108]"
+		,"left_ring_rotateZ","angularValues[109]","right_pointer_hand1_rotateZ","angularValues[10]"
+		,"left_ring_rotateY","angularValues[110]","left_ring_rotateX","angularValues[111]"
+		,"left_pinky2_rotateZ","angularValues[112]","left_pinky2_rotateY","angularValues[113]"
+		,"left_pinky2_rotateX","angularValues[114]","left_pinky1_rotateZ","angularValues[115]"
+		,"left_pinky1_rotateY","angularValues[116]","left_pinky1_rotateX","angularValues[117]"
+		,"left_pinky_rotateZ","angularValues[118]","left_pinky_rotateY","angularValues[119]"
+		,"right_pointer_hand1_rotateY","angularValues[11]","left_pinky_rotateX","angularValues[120]"
+		,"left_wrist_rotateZ","angularValues[121]","left_wrist_rotateY","angularValues[122]"
+		,"left_wrist_rotateX","angularValues[123]","left_elbow_rotateZ","angularValues[124]"
+		,"left_elbow_rotateY","angularValues[125]","left_elbow_rotateX","angularValues[126]"
+		,"left_shoulder_rotateZ","angularValues[127]","left_shoulder_rotateY","angularValues[128]"
+		,"left_shoulder_rotateX","angularValues[129]","right_pointer_hand1_rotateX","angularValues[12]"
+		,"left_eyebrow_rotateZ","angularValues[130]","left_eyebrow_rotateY","angularValues[131]"
+		,"left_eyebrow_rotateX","angularValues[132]","right_eyebrow_rotateZ","angularValues[133]"
+		,"right_eyebrow_rotateY","angularValues[134]","right_eyebrow_rotateX","angularValues[135]"
+		,"head_rotateZ","angularValues[136]","head_rotateY","angularValues[137]","head_rotateX"
+		,"angularValues[138]","neck_head_connection_rotateZ","angularValues[139]","right_pointer_hand_rotateZ"
+		,"angularValues[13]","neck_head_connection_rotateY","angularValues[140]","neck_head_connection_rotateX"
+		,"angularValues[141]","neck_body_connection_rotateZ","angularValues[142]","neck_body_connection_rotateY"
+		,"angularValues[143]","neck_body_connection_rotateX","angularValues[144]","mid_body_rotateZ"
+		,"angularValues[145]","mid_body_rotateY","angularValues[146]","mid_body_rotateX","angularValues[147]"
+		,"right_ancle_rotateZ","angularValues[148]","right_ancle_rotateY","angularValues[149]"
+		,"right_pointer_hand_rotateY","angularValues[14]","right_ancle_rotateX","angularValues[150]"
+		,"right_knee_rotateZ","angularValues[151]","right_knee_rotateY","angularValues[152]"
+		,"right_knee_rotateX","angularValues[153]","hip_right_leg_rotateZ","angularValues[154]"
+		,"hip_right_leg_rotateY","angularValues[155]","hip_right_leg_rotateX","angularValues[156]"
+		,"left_ancle_rotateZ","angularValues[157]","left_ancle_rotateY","angularValues[158]"
+		,"left_ancle_rotateX","angularValues[159]","right_pointer_hand_rotateX","angularValues[15]"
+		,"left_knee_rotateZ","angularValues[160]","left_knee_rotateY","angularValues[161]"
+		,"left_knee_rotateX","angularValues[162]","hip_left_leg_rotateZ","angularValues[163]"
+		,"hip_left_leg_rotateY","angularValues[164]","hip_left_leg_rotateX","angularValues[165]"
+		,"hip_body_rotateZ","angularValues[166]","hip_body_rotateY","angularValues[167]","hip_body_rotateX"
+		,"angularValues[168]","root_rotateZ","angularValues[169]","right_middle_hand2_rotateZ"
+		,"angularValues[16]","root_rotateY","angularValues[170]","root_rotateX","angularValues[171]"
+		,"right_middle_hand2_rotateY","angularValues[17]","right_middle_hand2_rotateX","angularValues[18]"
+		,"right_middle_hand1_rotateZ","angularValues[19]","right_thumb_hand1_rotateZ","angularValues[1]"
+		,"right_middle_hand1_rotateY","angularValues[20]","right_middle_hand1_rotateX","angularValues[21]"
+		,"right_middle_hand_rotateZ","angularValues[22]","right_middle_hand_rotateY","angularValues[23]"
+		,"right_middle_hand_rotateX","angularValues[24]","right_ring_hand2_rotateZ","angularValues[25]"
+		,"right_ring_hand2_rotateY","angularValues[26]","right_ring_hand2_rotateX","angularValues[27]"
+		,"right_ring_hand1_rotateZ","angularValues[28]","right_ring_hand1_rotateY","angularValues[29]"
+		,"right_thumb_hand1_rotateY","angularValues[2]","right_ring_hand1_rotateX","angularValues[30]"
+		,"right_ring_hand_rotateZ","angularValues[31]","right_ring_hand_rotateY","angularValues[32]"
+		,"right_ring_hand_rotateX","angularValues[33]","right_pinky_hand2_rotateZ","angularValues[34]"
+		,"right_pinky_hand2_rotateY","angularValues[35]","right_pinky_hand2_rotateX","angularValues[36]"
+		,"right_pinky_hand1_rotateZ","angularValues[37]","right_pinky_hand1_rotateY","angularValues[38]"
+		,"right_pinky_hand1_rotateX","angularValues[39]","right_thumb_hand1_rotateX","angularValues[3]"
+		,"right_pinky_hand_rotateZ","angularValues[40]","right_pinky_hand_rotateY","angularValues[41]"
+		,"right_pinky_hand_rotateX","angularValues[42]","right_wrist_rotateZ","angularValues[43]"
+		,"right_wrist_rotateY","angularValues[44]","right_wrist_rotateX","angularValues[45]"
+		,"right_elbow_rotateZ","angularValues[46]","right_elbow_rotateY","angularValues[47]"
+		,"right_elbow_rotateX","angularValues[48]","right_shoulder_rotateZ","angularValues[49]"
+		,"right_thumb_hand_rotateZ","angularValues[4]","right_shoulder_rotateY","angularValues[50]"
+		,"right_shoulder_rotateX","angularValues[51]","whip_joint_6_rotateZ","angularValues[52]"
+		,"whip_joint_6_rotateY","angularValues[53]","whip_joint_6_rotateX","angularValues[54]"
+		,"whip_joint_5_rotateZ","angularValues[55]","whip_joint_5_rotateY","angularValues[56]"
+		,"whip_joint_5_rotateX","angularValues[57]","whip_joint_4_rotateZ","angularValues[58]"
+		,"whip_joint_4_rotateY","angularValues[59]","right_thumb_hand_rotateY","angularValues[5]"
+		,"whip_joint_4_rotateX","angularValues[60]","whip_joint_3_rotateZ","angularValues[61]"
+		,"whip_joint_3_rotateY","angularValues[62]","whip_joint_3_rotateX","angularValues[63]"
+		,"whip_joint_2_rotateZ","angularValues[64]","whip_joint_2_rotateY","angularValues[65]"
+		,"whip_joint_2_rotateX","angularValues[66]","whip_joint_1_rotateZ","angularValues[67]"
+		,"whip_joint_1_rotateY","angularValues[68]","whip_joint_1_rotateX","angularValues[69]"
+		,"right_thumb_hand_rotateX","angularValues[6]","whip_base_rotateZ","angularValues[70]"
+		,"whip_base_rotateY","angularValues[71]","whip_base_rotateX","angularValues[72]","whip_base1_rotateZ"
+		,"angularValues[73]","whip_base1_rotateY","angularValues[74]","whip_base1_rotateX"
+		,"angularValues[75]","joint1_rotateZ","angularValues[76]","joint1_rotateY","angularValues[77]"
+		,"joint1_rotateX","angularValues[78]","left_thumb1_rotateZ","angularValues[79]","right_pointer_hand2_rotateZ"
+		,"angularValues[7]","left_thumb1_rotateY","angularValues[80]","left_thumb1_rotateX"
+		,"angularValues[81]","left_thumb_rotateZ","angularValues[82]","left_thumb_rotateY"
+		,"angularValues[83]","left_thumb_rotateX","angularValues[84]","left_pointer2_rotateZ"
+		,"angularValues[85]","left_pointer2_rotateY","angularValues[86]","left_pointer2_rotateX"
+		,"angularValues[87]","left_pointer1_rotateZ","angularValues[88]","left_pointer1_rotateY"
+		,"angularValues[89]","right_pointer_hand2_rotateY","angularValues[8]","left_pointer1_rotateX"
+		,"angularValues[90]","left_pointer_rotateZ","angularValues[91]","left_pointer_rotateY"
+		,"angularValues[92]","left_pointer_rotateX","angularValues[93]","left_middle2_rotateZ"
+		,"angularValues[94]","left_middle2_rotateY","angularValues[95]","left_middle2_rotateX"
+		,"angularValues[96]","left_middle1_rotateZ","angularValues[97]","left_middle1_rotateY"
+		,"angularValues[98]","left_middle1_rotateX","angularValues[99]","right_pointer_hand2_rotateX"
+		,"angularValues[9]","left_middle_translateZ","linearValues[100]","left_middle_translateY"
+		,"linearValues[101]","left_middle_translateX","linearValues[102]","left_ring2_translateZ"
+		,"linearValues[103]","left_ring2_translateY","linearValues[104]","left_ring2_translateX"
+		,"linearValues[105]","left_ring1_translateZ","linearValues[106]","left_ring1_translateY"
+		,"linearValues[107]","left_ring1_translateX","linearValues[108]","left_ring_translateZ"
+		,"linearValues[109]","right_pointer_hand1_translateZ","linearValues[10]","left_ring_translateY"
+		,"linearValues[110]","left_ring_translateX","linearValues[111]","left_pinky2_translateZ"
+		,"linearValues[112]","left_pinky2_translateY","linearValues[113]","left_pinky2_translateX"
+		,"linearValues[114]","left_pinky1_translateZ","linearValues[115]","left_pinky1_translateY"
+		,"linearValues[116]","left_pinky1_translateX","linearValues[117]","left_pinky_translateZ"
+		,"linearValues[118]","left_pinky_translateY","linearValues[119]","right_pointer_hand1_translateY"
+		,"linearValues[11]","left_pinky_translateX","linearValues[120]","left_wrist_translateZ"
+		,"linearValues[121]","left_wrist_translateY","linearValues[122]","left_wrist_translateX"
+		,"linearValues[123]","left_elbow_translateZ","linearValues[124]","left_elbow_translateY"
+		,"linearValues[125]","left_elbow_translateX","linearValues[126]","left_shoulder_translateZ"
+		,"linearValues[127]","left_shoulder_translateY","linearValues[128]","left_shoulder_translateX"
+		,"linearValues[129]","right_pointer_hand1_translateX","linearValues[12]","left_eyebrow_translateZ"
+		,"linearValues[130]","left_eyebrow_translateY","linearValues[131]","left_eyebrow_translateX"
+		,"linearValues[132]","right_eyebrow_translateZ","linearValues[133]","right_eyebrow_translateY"
+		,"linearValues[134]","right_eyebrow_translateX","linearValues[135]","head_translateZ"
+		,"linearValues[136]","head_translateY","linearValues[137]","head_translateX","linearValues[138]"
+		,"neck_head_connection_translateZ","linearValues[139]","right_pointer_hand_translateZ"
+		,"linearValues[13]","neck_head_connection_translateY","linearValues[140]","neck_head_connection_translateX"
+		,"linearValues[141]","neck_body_connection_translateZ","linearValues[142]","neck_body_connection_translateY"
+		,"linearValues[143]","neck_body_connection_translateX","linearValues[144]","mid_body_translateZ"
+		,"linearValues[145]","mid_body_translateY","linearValues[146]","mid_body_translateX"
+		,"linearValues[147]","right_ancle_translateZ","linearValues[148]","right_ancle_translateY"
+		,"linearValues[149]","right_pointer_hand_translateY","linearValues[14]","right_ancle_translateX"
+		,"linearValues[150]","right_knee_translateZ","linearValues[151]","right_knee_translateY"
+		,"linearValues[152]","right_knee_translateX","linearValues[153]","hip_right_leg_translateZ"
+		,"linearValues[154]","hip_right_leg_translateY","linearValues[155]","hip_right_leg_translateX"
+		,"linearValues[156]","left_ancle_translateZ","linearValues[157]","left_ancle_translateY"
+		,"linearValues[158]","left_ancle_translateX","linearValues[159]","right_pointer_hand_translateX"
+		,"linearValues[15]","left_knee_translateZ","linearValues[160]","left_knee_translateY"
+		,"linearValues[161]","left_knee_translateX","linearValues[162]","hip_left_leg_translateZ"
+		,"linearValues[163]","hip_left_leg_translateY","linearValues[164]","hip_left_leg_translateX"
+		,"linearValues[165]","hip_body_translateZ","linearValues[166]","hip_body_translateY"
+		,"linearValues[167]","hip_body_translateX","linearValues[168]","root_translateZ","linearValues[169]"
+		,"right_middle_hand2_translateZ","linearValues[16]","root_translateY","linearValues[170]"
+		,"root_translateX","linearValues[171]","right_middle_hand2_translateY","linearValues[17]"
+		,"right_middle_hand2_translateX","linearValues[18]","right_middle_hand1_translateZ"
+		,"linearValues[19]","right_thumb_hand1_translateZ","linearValues[1]","right_middle_hand1_translateY"
+		,"linearValues[20]","right_middle_hand1_translateX","linearValues[21]","right_middle_hand_translateZ"
+		,"linearValues[22]","right_middle_hand_translateY","linearValues[23]","right_middle_hand_translateX"
+		,"linearValues[24]","right_ring_hand2_translateZ","linearValues[25]","right_ring_hand2_translateY"
+		,"linearValues[26]","right_ring_hand2_translateX","linearValues[27]","right_ring_hand1_translateZ"
+		,"linearValues[28]","right_ring_hand1_translateY","linearValues[29]","right_thumb_hand1_translateY"
+		,"linearValues[2]","right_ring_hand1_translateX","linearValues[30]","right_ring_hand_translateZ"
+		,"linearValues[31]","right_ring_hand_translateY","linearValues[32]","right_ring_hand_translateX"
+		,"linearValues[33]","right_pinky_hand2_translateZ","linearValues[34]","right_pinky_hand2_translateY"
+		,"linearValues[35]","right_pinky_hand2_translateX","linearValues[36]","right_pinky_hand1_translateZ"
+		,"linearValues[37]","right_pinky_hand1_translateY","linearValues[38]","right_pinky_hand1_translateX"
+		,"linearValues[39]","right_thumb_hand1_translateX","linearValues[3]","right_pinky_hand_translateZ"
+		,"linearValues[40]","right_pinky_hand_translateY","linearValues[41]","right_pinky_hand_translateX"
+		,"linearValues[42]","right_wrist_translateZ","linearValues[43]","right_wrist_translateY"
+		,"linearValues[44]","right_wrist_translateX","linearValues[45]","right_elbow_translateZ"
+		,"linearValues[46]","right_elbow_translateY","linearValues[47]","right_elbow_translateX"
+		,"linearValues[48]","right_shoulder_translateZ","linearValues[49]","right_thumb_hand_translateZ"
+		,"linearValues[4]","right_shoulder_translateY","linearValues[50]","right_shoulder_translateX"
+		,"linearValues[51]","whip_joint_6_translateZ","linearValues[52]","whip_joint_6_translateY"
+		,"linearValues[53]","whip_joint_6_translateX","linearValues[54]","whip_joint_5_translateZ"
+		,"linearValues[55]","whip_joint_5_translateY","linearValues[56]","whip_joint_5_translateX"
+		,"linearValues[57]","whip_joint_4_translateZ","linearValues[58]","whip_joint_4_translateY"
+		,"linearValues[59]","right_thumb_hand_translateY","linearValues[5]","whip_joint_4_translateX"
+		,"linearValues[60]","whip_joint_3_translateZ","linearValues[61]","whip_joint_3_translateY"
+		,"linearValues[62]","whip_joint_3_translateX","linearValues[63]","whip_joint_2_translateZ"
+		,"linearValues[64]","whip_joint_2_translateY","linearValues[65]","whip_joint_2_translateX"
+		,"linearValues[66]","whip_joint_1_translateZ","linearValues[67]","whip_joint_1_translateY"
+		,"linearValues[68]","whip_joint_1_translateX","linearValues[69]","right_thumb_hand_translateX"
+		,"linearValues[6]","whip_base_translateZ","linearValues[70]","whip_base_translateY"
+		,"linearValues[71]","whip_base_translateX","linearValues[72]","whip_base1_translateZ"
+		,"linearValues[73]","whip_base1_translateY","linearValues[74]","whip_base1_translateX"
+		,"linearValues[75]","joint1_translateZ","linearValues[76]","joint1_translateY","linearValues[77]"
+		,"joint1_translateX","linearValues[78]","left_thumb1_translateZ","linearValues[79]"
+		,"right_pointer_hand2_translateZ","linearValues[7]","left_thumb1_translateY","linearValues[80]"
+		,"left_thumb1_translateX","linearValues[81]","left_thumb_translateZ","linearValues[82]"
+		,"left_thumb_translateY","linearValues[83]","left_thumb_translateX","linearValues[84]"
+		,"left_pointer2_translateZ","linearValues[85]","left_pointer2_translateY","linearValues[86]"
+		,"left_pointer2_translateX","linearValues[87]","left_pointer1_translateZ","linearValues[88]"
+		,"left_pointer1_translateY","linearValues[89]","right_pointer_hand2_translateY","linearValues[8]"
+		,"left_pointer1_translateX","linearValues[90]","left_pointer_translateZ","linearValues[91]"
+		,"left_pointer_translateY","linearValues[92]","left_pointer_translateX","linearValues[93]"
+		,"left_middle2_translateZ","linearValues[94]","left_middle2_translateY","linearValues[95]"
+		,"left_middle2_translateX","linearValues[96]","left_middle1_translateZ","linearValues[97]"
+		,"left_middle1_translateY","linearValues[98]","left_middle1_translateX","linearValues[99]"
+		,"right_pointer_hand2_translateX","linearValues[9]","left_middle_scaleZ","unitlessValues[100]"
+		,"left_middle_scaleY","unitlessValues[101]","left_middle_scaleX","unitlessValues[102]"
+		,"left_ring2_scaleZ","unitlessValues[103]","left_ring2_scaleY","unitlessValues[104]"
+		,"left_ring2_scaleX","unitlessValues[105]","left_ring1_scaleZ","unitlessValues[106]"
+		,"left_ring1_scaleY","unitlessValues[107]","left_ring1_scaleX","unitlessValues[108]"
+		,"left_ring_scaleZ","unitlessValues[109]","right_pointer_hand1_scaleZ","unitlessValues[10]"
+		,"left_ring_scaleY","unitlessValues[110]","left_ring_scaleX","unitlessValues[111]"
+		,"left_pinky2_scaleZ","unitlessValues[112]","left_pinky2_scaleY","unitlessValues[113]"
+		,"left_pinky2_scaleX","unitlessValues[114]","left_pinky1_scaleZ","unitlessValues[115]"
+		,"left_pinky1_scaleY","unitlessValues[116]","left_pinky1_scaleX","unitlessValues[117]"
+		,"left_pinky_scaleZ","unitlessValues[118]","left_pinky_scaleY","unitlessValues[119]"
+		,"right_pointer_hand1_scaleY","unitlessValues[11]","left_pinky_scaleX","unitlessValues[120]"
+		,"left_wrist_scaleZ","unitlessValues[121]","left_wrist_scaleY","unitlessValues[122]"
+		,"left_wrist_scaleX","unitlessValues[123]","left_elbow_scaleZ","unitlessValues[124]"
+		,"left_elbow_scaleY","unitlessValues[125]","left_elbow_scaleX","unitlessValues[126]"
+		,"left_shoulder_scaleZ","unitlessValues[127]","left_shoulder_scaleY","unitlessValues[128]"
+		,"left_shoulder_scaleX","unitlessValues[129]","right_pointer_hand1_scaleX","unitlessValues[12]"
+		,"left_eyebrow_scaleZ","unitlessValues[130]","left_eyebrow_scaleY","unitlessValues[131]"
+		,"left_eyebrow_scaleX","unitlessValues[132]","right_eyebrow_scaleZ","unitlessValues[133]"
+		,"right_eyebrow_scaleY","unitlessValues[134]","right_eyebrow_scaleX","unitlessValues[135]"
+		,"head_scaleZ","unitlessValues[136]","head_scaleY","unitlessValues[137]","head_scaleX"
+		,"unitlessValues[138]","neck_head_connection_scaleZ","unitlessValues[139]","right_pointer_hand_scaleZ"
+		,"unitlessValues[13]","neck_head_connection_scaleY","unitlessValues[140]","neck_head_connection_scaleX"
+		,"unitlessValues[141]","neck_body_connection_scaleZ","unitlessValues[142]","neck_body_connection_scaleY"
+		,"unitlessValues[143]","neck_body_connection_scaleX","unitlessValues[144]","mid_body_scaleZ"
+		,"unitlessValues[145]","mid_body_scaleY","unitlessValues[146]","mid_body_scaleX","unitlessValues[147]"
+		,"right_ancle_scaleZ","unitlessValues[148]","right_ancle_scaleY","unitlessValues[149]"
+		,"right_pointer_hand_scaleY","unitlessValues[14]","right_ancle_scaleX","unitlessValues[150]"
+		,"right_knee_scaleZ","unitlessValues[151]","right_knee_scaleY","unitlessValues[152]"
+		,"right_knee_scaleX","unitlessValues[153]","hip_right_leg_scaleZ","unitlessValues[154]"
+		,"hip_right_leg_scaleY","unitlessValues[155]","hip_right_leg_scaleX","unitlessValues[156]"
+		,"left_ancle_scaleZ","unitlessValues[157]","left_ancle_scaleY","unitlessValues[158]"
+		,"left_ancle_scaleX","unitlessValues[159]","right_pointer_hand_scaleX","unitlessValues[15]"
+		,"left_knee_scaleZ","unitlessValues[160]","left_knee_scaleY","unitlessValues[161]"
+		,"left_knee_scaleX","unitlessValues[162]","hip_left_leg_scaleZ","unitlessValues[163]"
+		,"hip_left_leg_scaleY","unitlessValues[164]","hip_left_leg_scaleX","unitlessValues[165]"
+		,"hip_body_scaleZ","unitlessValues[166]","hip_body_scaleY","unitlessValues[167]","hip_body_scaleX"
+		,"unitlessValues[168]","root_scaleZ","unitlessValues[169]","right_middle_hand2_scaleZ"
+		,"unitlessValues[16]","root_scaleY","unitlessValues[170]","root_scaleX","unitlessValues[171]"
+		,"right_middle_hand2_scaleY","unitlessValues[17]","right_middle_hand2_scaleX","unitlessValues[18]"
+		,"right_middle_hand1_scaleZ","unitlessValues[19]","right_thumb_hand1_scaleZ","unitlessValues[1]"
+		,"right_middle_hand1_scaleY","unitlessValues[20]","right_middle_hand1_scaleX","unitlessValues[21]"
+		,"right_middle_hand_scaleZ","unitlessValues[22]","right_middle_hand_scaleY","unitlessValues[23]"
+		,"right_middle_hand_scaleX","unitlessValues[24]","right_ring_hand2_scaleZ","unitlessValues[25]"
+		,"right_ring_hand2_scaleY","unitlessValues[26]","right_ring_hand2_scaleX","unitlessValues[27]"
+		,"right_ring_hand1_scaleZ","unitlessValues[28]","right_ring_hand1_scaleY","unitlessValues[29]"
+		,"right_thumb_hand1_scaleY","unitlessValues[2]","right_ring_hand1_scaleX","unitlessValues[30]"
+		,"right_ring_hand_scaleZ","unitlessValues[31]","right_ring_hand_scaleY","unitlessValues[32]"
+		,"right_ring_hand_scaleX","unitlessValues[33]","right_pinky_hand2_scaleZ","unitlessValues[34]"
+		,"right_pinky_hand2_scaleY","unitlessValues[35]","right_pinky_hand2_scaleX","unitlessValues[36]"
+		,"right_pinky_hand1_scaleZ","unitlessValues[37]","right_pinky_hand1_scaleY","unitlessValues[38]"
+		,"right_pinky_hand1_scaleX","unitlessValues[39]","right_thumb_hand1_scaleX","unitlessValues[3]"
+		,"right_pinky_hand_scaleZ","unitlessValues[40]","right_pinky_hand_scaleY","unitlessValues[41]"
+		,"right_pinky_hand_scaleX","unitlessValues[42]","right_wrist_scaleZ","unitlessValues[43]"
+		,"right_wrist_scaleY","unitlessValues[44]","right_wrist_scaleX","unitlessValues[45]"
+		,"right_elbow_scaleZ","unitlessValues[46]","right_elbow_scaleY","unitlessValues[47]"
+		,"right_elbow_scaleX","unitlessValues[48]","right_shoulder_scaleZ","unitlessValues[49]"
+		,"right_thumb_hand_scaleZ","unitlessValues[4]","right_shoulder_scaleY","unitlessValues[50]"
+		,"right_shoulder_scaleX","unitlessValues[51]","whip_joint_6_scaleZ","unitlessValues[52]"
+		,"whip_joint_6_scaleY","unitlessValues[53]","whip_joint_6_scaleX","unitlessValues[54]"
+		,"whip_joint_5_scaleZ","unitlessValues[55]","whip_joint_5_scaleY","unitlessValues[56]"
+		,"whip_joint_5_scaleX","unitlessValues[57]","whip_joint_4_scaleZ","unitlessValues[58]"
+		,"whip_joint_4_scaleY","unitlessValues[59]","right_thumb_hand_scaleY","unitlessValues[5]"
+		,"whip_joint_4_scaleX","unitlessValues[60]","whip_joint_3_scaleZ","unitlessValues[61]"
+		,"whip_joint_3_scaleY","unitlessValues[62]","whip_joint_3_scaleX","unitlessValues[63]"
+		,"whip_joint_2_scaleZ","unitlessValues[64]","whip_joint_2_scaleY","unitlessValues[65]"
+		,"whip_joint_2_scaleX","unitlessValues[66]","whip_joint_1_scaleZ","unitlessValues[67]"
+		,"whip_joint_1_scaleY","unitlessValues[68]","whip_joint_1_scaleX","unitlessValues[69]"
+		,"right_thumb_hand_scaleX","unitlessValues[6]","whip_base_scaleZ","unitlessValues[70]"
+		,"whip_base_scaleY","unitlessValues[71]","whip_base_scaleX","unitlessValues[72]","whip_base1_scaleZ"
+		,"unitlessValues[73]","whip_base1_scaleY","unitlessValues[74]","whip_base1_scaleX"
+		,"unitlessValues[75]","joint1_scaleZ","unitlessValues[76]","joint1_scaleY","unitlessValues[77]"
+		,"joint1_scaleX","unitlessValues[78]","left_thumb1_scaleZ","unitlessValues[79]","right_pointer_hand2_scaleZ"
+		,"unitlessValues[7]","left_thumb1_scaleY","unitlessValues[80]","left_thumb1_scaleX"
+		,"unitlessValues[81]","left_thumb_scaleZ","unitlessValues[82]","left_thumb_scaleY"
+		,"unitlessValues[83]","left_thumb_scaleX","unitlessValues[84]","left_pointer2_scaleZ"
+		,"unitlessValues[85]","left_pointer2_scaleY","unitlessValues[86]","left_pointer2_scaleX"
+		,"unitlessValues[87]","left_pointer1_scaleZ","unitlessValues[88]","left_pointer1_scaleY"
+		,"unitlessValues[89]","right_pointer_hand2_scaleY","unitlessValues[8]","left_pointer1_scaleX"
+		,"unitlessValues[90]","left_pointer_scaleZ","unitlessValues[91]","left_pointer_scaleY"
+		,"unitlessValues[92]","left_pointer_scaleX","unitlessValues[93]","left_middle2_scaleZ"
+		,"unitlessValues[94]","left_middle2_scaleY","unitlessValues[95]","left_middle2_scaleX"
+		,"unitlessValues[96]","left_middle1_scaleZ","unitlessValues[97]","left_middle1_scaleY"
+		,"unitlessValues[98]","left_middle1_scaleX","unitlessValues[99]","right_pointer_hand2_scaleX"
+		,"unitlessValues[9]"} ;
+createNode animCurveTU -n "whiplash_right_thumb_hand1_scaleZ";
+	rename -uid "D21B7591-EE4A-5632-D971-9D9F0099CFB8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_thumb_hand1_scaleY";
+	rename -uid "83A314BA-F84B-20D0-294B-728EF28825D7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_thumb_hand1_scaleX";
+	rename -uid "6E217356-BD4A-E358-EE94-3E8B2AB5588F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_thumb_hand1_rotateZ";
+	rename -uid "CB765B6D-C14D-6894-4AEF-73B16815EA2F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_right_thumb_hand1_rotateY";
+	rename -uid "44AF4690-014C-513B-8664-99B35AAC86E8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_right_thumb_hand1_rotateX";
+	rename -uid "96F12631-AC4B-AADC-F35B-45A19E46A397";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 34.860399574442944 2 34.860399574442944
+		 4 34.860399574442944 6 34.860399574442944 8 34.860399574442944 10 34.860399574442944
+		 24 34.860399574442944;
+createNode animCurveTL -n "whiplash_right_thumb_hand1_translateZ";
+	rename -uid "E29E29D0-F54C-6310-910D-2399840C276D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.2171398279918435 2 0.2171398279918435
+		 4 0.2171398279918435 6 0.2171398279918435 8 0.2171398279918435 10 0.2171398279918435
+		 24 0.2171398279918435;
+createNode animCurveTL -n "whiplash_right_thumb_hand1_translateY";
+	rename -uid "7A1ED00E-0040-4C4E-5985-A783BA06B250";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.062950590468147105 2 -0.062950590468147105
+		 4 -0.062950590468147105 6 -0.062950590468147105 8 -0.062950590468147105 10 -0.062950590468147105
+		 24 -0.062950590468147105;
+createNode animCurveTL -n "whiplash_right_thumb_hand1_translateX";
+	rename -uid "30C093B4-0747-B2A4-047E-459FE33F8854";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.097524473237370124 2 -0.097524473237370124
+		 4 -0.097524473237370124 6 -0.097524473237370124 8 -0.097524473237370124 10 -0.097524473237370124
+		 24 -0.097524473237370124;
+createNode animCurveTU -n "whiplash_right_thumb_hand_scaleZ";
+	rename -uid "86A82A44-494C-6E4B-A21B-FB8CAF821322";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_thumb_hand_scaleY";
+	rename -uid "8699751F-FE45-C35C-D08B-359BC5A50A6F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_thumb_hand_scaleX";
+	rename -uid "7A0C6CB0-F740-239E-91DC-36A04DDFCF70";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_thumb_hand_rotateZ";
+	rename -uid "F84D8C70-A64B-CF78-3FF4-4897986001BA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -12.228533162543007 2 -12.228533162543007
+		 4 -12.228533162543007 6 -12.228533162543007 8 -12.228533162543007 10 -12.228533162543007
+		 24 -12.228533162543007;
+createNode animCurveTA -n "whiplash_right_thumb_hand_rotateY";
+	rename -uid "BD897CC9-EF41-9941-1D69-979866A1F97B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -7.0490567596006137 2 -7.0490567596006137
+		 4 -7.0490567596006137 6 -7.0490567596006137 8 -7.0490567596006137 10 -7.0490567596006137
+		 24 -7.0490567596006137;
+createNode animCurveTA -n "whiplash_right_thumb_hand_rotateX";
+	rename -uid "D7F75D89-7147-7B8F-5BA9-3F8144DF8062";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 35.280756446465354 2 35.280756446465354
+		 4 35.280756446465354 6 35.280756446465354 8 35.280756446465354 10 35.280756446465354
+		 24 35.280756446465354;
+createNode animCurveTL -n "whiplash_right_thumb_hand_translateZ";
+	rename -uid "1CD65727-1847-69A4-9D27-1D9DB72DB6A2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.31385963882695567 2 0.31385963882695567
+		 4 0.31385963882695567 6 0.31385963882695567 8 0.31385963882695567 10 0.31385963882695567
+		 24 0.31385963882695567;
+createNode animCurveTL -n "whiplash_right_thumb_hand_translateY";
+	rename -uid "2CB48656-A541-EF77-881E-B0B38F0CD89F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.085972750858220426 2 -0.085972750858220426
+		 4 -0.085972750858220426 6 -0.085972750858220426 8 -0.085972750858220426 10 -0.085972750858220426
+		 24 -0.085972750858220426;
+createNode animCurveTL -n "whiplash_right_thumb_hand_translateX";
+	rename -uid "0C3B1059-FE47-BC3C-55CC-D3A4C963E68D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.23579045699690138 2 -0.23579045699690138
+		 4 -0.23579045699690138 6 -0.23579045699690138 8 -0.23579045699690138 10 -0.23579045699690138
+		 24 -0.23579045699690138;
+createNode animCurveTU -n "whiplash_right_pointer_hand2_scaleZ";
+	rename -uid "FC61F836-A541-A552-584B-1FA995E25595";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_pointer_hand2_scaleY";
+	rename -uid "3BE18875-0049-C51B-DE1B-918EB023BAF3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_pointer_hand2_scaleX";
+	rename -uid "4E283AD0-F14A-41E9-78B5-D0955F9D3FCC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_pointer_hand2_rotateZ";
+	rename -uid "D9D3FD09-AF49-B5A6-D5CE-22842E12B29C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 59.149081934216085 2 59.149081934216085
+		 4 59.149081934216085 6 59.149081934216085 8 59.149081934216085 10 59.149081934216085
+		 24 59.149081934216085;
+createNode animCurveTA -n "whiplash_right_pointer_hand2_rotateY";
+	rename -uid "0F0AE762-394D-F4E9-29F4-57B222870345";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_right_pointer_hand2_rotateX";
+	rename -uid "CF57F993-D64B-7208-ACDD-DC9717B2AA9F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_right_pointer_hand2_translateZ";
+	rename -uid "9E70D2FD-3145-ACA0-2E18-129639F4A13C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.034963192642754048 2 0.034963192642754048
+		 4 0.034963192642754048 6 0.034963192642754048 8 0.034963192642754048 10 0.034963192642754048
+		 24 0.034963192642754048;
+createNode animCurveTL -n "whiplash_right_pointer_hand2_translateY";
+	rename -uid "D0BE6F97-8E43-729B-F234-2285D36E3F30";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.059637401496139386 2 -0.059637401496139386
+		 4 -0.059637401496139386 6 -0.059637401496139386 8 -0.059637401496139386 10 -0.059637401496139386
+		 24 -0.059637401496139386;
+createNode animCurveTL -n "whiplash_right_pointer_hand2_translateX";
+	rename -uid "72333EAA-B040-6526-5F9E-DDAD374504F8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.11961092219889746 2 -0.11961092219889746
+		 4 -0.11961092219889746 6 -0.11961092219889746 8 -0.11961092219889746 10 -0.11961092219889746
+		 24 -0.11961092219889746;
+createNode animCurveTU -n "whiplash_right_pointer_hand1_scaleZ";
+	rename -uid "99E11A18-C244-126D-ED48-A484070F7C04";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_pointer_hand1_scaleY";
+	rename -uid "85095359-154E-E46E-33F4-94BB5AD2854E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_pointer_hand1_scaleX";
+	rename -uid "8187A268-6341-5FAF-0B06-838F57A568ED";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_pointer_hand1_rotateZ";
+	rename -uid "2B475CA7-8C42-F2B0-8D4D-CDB0D1C6170C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 62.096983254506064 2 62.096983254506064
+		 4 62.096983254506064 6 62.096983254506064 8 62.096983254506064 10 62.096983254506064
+		 24 62.096983254506064;
+createNode animCurveTA -n "whiplash_right_pointer_hand1_rotateY";
+	rename -uid "89FE9889-8B4A-1AD9-6A59-0FA825894609";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -13.136022544330654 2 -13.136022544330654
+		 4 -13.136022544330654 6 -13.136022544330654 8 -13.136022544330654 10 -13.136022544330654
+		 24 -13.136022544330654;
+createNode animCurveTA -n "whiplash_right_pointer_hand1_rotateX";
+	rename -uid "D63E6486-2243-832F-C55C-0DA880ECB900";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 24.14719941056002 2 24.14719941056002
+		 4 24.14719941056002 6 24.14719941056002 8 24.14719941056002 10 24.14719941056002
+		 24 24.14719941056002;
+createNode animCurveTL -n "whiplash_right_pointer_hand1_translateZ";
+	rename -uid "05B5C8D9-DD4B-2ACD-E2DE-6EB2D3BE0AC0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.079127225454654671 2 0.079127225454654671
+		 4 0.079127225454654671 6 0.079127225454654671 8 0.079127225454654671 10 0.079127225454654671
+		 24 0.079127225454654671;
+createNode animCurveTL -n "whiplash_right_pointer_hand1_translateY";
+	rename -uid "33918223-4C4E-AB8E-0A2B-DFB7BA0F1A20";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.072890157384170706 2 -0.072890157384170706
+		 4 -0.072890157384170706 6 -0.072890157384170706 8 -0.072890157384170706 10 -0.072890157384170706
+		 24 -0.072890157384170706;
+createNode animCurveTL -n "whiplash_right_pointer_hand1_translateX";
+	rename -uid "778BC547-094F-B5B5-422A-298FF6232101";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.20425865175503777 2 -0.20425865175503777
+		 4 -0.20425865175503777 6 -0.20425865175503777 8 -0.20425865175503777 10 -0.20425865175503777
+		 24 -0.20425865175503777;
+createNode animCurveTU -n "whiplash_right_pointer_hand_scaleZ";
+	rename -uid "4C03903B-F144-03E6-DB51-0399F3B090E9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_pointer_hand_scaleY";
+	rename -uid "63F7A4A7-7649-8C6A-1B83-B8AB4DB50098";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_pointer_hand_scaleX";
+	rename -uid "183A2204-2E4C-4161-E18F-2B9474ED75C9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_pointer_hand_rotateZ";
+	rename -uid "10942EDE-2144-D7C4-AF85-A7AF1041B34C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 104.67889687704513 2 104.67889687704513
+		 4 104.67889687704513 6 104.67889687704513 8 104.67889687704513 10 104.67889687704513
+		 24 104.67889687704513;
+createNode animCurveTA -n "whiplash_right_pointer_hand_rotateY";
+	rename -uid "E26ECF2E-6F49-6027-0859-238144A7FBEE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -3.6070313624277701 2 -3.6070313624277701
+		 4 -3.6070313624277701 6 -3.6070313624277701 8 -3.6070313624277701 10 -3.6070313624277701
+		 24 -3.6070313624277701;
+createNode animCurveTA -n "whiplash_right_pointer_hand_rotateX";
+	rename -uid "61B60367-2945-3F5B-10CE-BA99394D544A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -1.750887332530779 2 -1.750887332530779
+		 4 -1.750887332530779 6 -1.750887332530779 8 -1.750887332530779 10 -1.750887332530779
+		 24 -1.750887332530779;
+createNode animCurveTL -n "whiplash_right_pointer_hand_translateZ";
+	rename -uid "D321EE83-074A-01CC-007F-C8A6700DB2E7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.16731506638824811 2 0.16731506638824811
+		 4 0.16731506638824811 6 0.16731506638824811 8 0.16731506638824811 10 0.16731506638824811
+		 24 0.16731506638824811;
+createNode animCurveTL -n "whiplash_right_pointer_hand_translateY";
+	rename -uid "0BC7FFBE-5A4B-D2CE-C959-CA986B0A0321";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.23506625459856956 2 -0.23506625459856956
+		 4 -0.23506625459856956 6 -0.23506625459856956 8 -0.23506625459856956 10 -0.23506625459856956
+		 24 -0.23506625459856956;
+createNode animCurveTL -n "whiplash_right_pointer_hand_translateX";
+	rename -uid "E8C78BE9-0D49-28C2-C396-5F9CF7E282E8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.5288796018743156 2 -0.5288796018743156
+		 4 -0.5288796018743156 6 -0.5288796018743156 8 -0.5288796018743156 10 -0.5288796018743156
+		 24 -0.5288796018743156;
+createNode animCurveTU -n "whiplash_right_middle_hand2_scaleZ";
+	rename -uid "B7F33E02-CF4A-2EEC-59BE-F8B1F99FFA46";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_middle_hand2_scaleY";
+	rename -uid "85AC861D-154B-F218-1A75-4592397B4863";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_middle_hand2_scaleX";
+	rename -uid "5A903808-904B-295E-BC7E-759597C1AB62";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_middle_hand2_rotateZ";
+	rename -uid "81E42A43-AC42-6B33-6533-A6BD2A2766A5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 59.149081934216085 2 59.149081934216085
+		 4 59.149081934216085 6 59.149081934216085 8 59.149081934216085 10 59.149081934216085
+		 24 59.149081934216085;
+createNode animCurveTA -n "whiplash_right_middle_hand2_rotateY";
+	rename -uid "62644755-A84F-4A2E-4891-17B146E582C8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_right_middle_hand2_rotateX";
+	rename -uid "07A09644-814E-D164-690C-818E34D4FEF2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_right_middle_hand2_translateZ";
+	rename -uid "6FFA3EA9-C54F-F2BE-29C0-F984B9439343";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.018401680338291815 2 0.018401680338291815
+		 4 0.018401680338291815 6 0.018401680338291815 8 0.018401680338291815 10 0.018401680338291815
+		 24 0.018401680338291815;
+createNode animCurveTL -n "whiplash_right_middle_hand2_translateY";
+	rename -uid "7198FE6D-4247-F66C-EEA4-65A0E6B4C6BC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.059637401496139386 2 -0.059637401496139386
+		 4 -0.059637401496139386 6 -0.059637401496139386 8 -0.059637401496139386 10 -0.059637401496139386
+		 24 -0.059637401496139386;
+createNode animCurveTL -n "whiplash_right_middle_hand2_translateX";
+	rename -uid "C2E6CE6D-DE41-AA0C-6D68-C3B0050061A8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.14537327467251338 2 -0.14537327467251338
+		 4 -0.14537327467251338 6 -0.14537327467251338 8 -0.14537327467251338 10 -0.14537327467251338
+		 24 -0.14537327467251338;
+createNode animCurveTU -n "whiplash_right_middle_hand1_scaleZ";
+	rename -uid "040A15B0-DB40-345E-32C0-C7AEBDD1024A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_middle_hand1_scaleY";
+	rename -uid "1C84DED2-BD4E-2CD8-4713-199EBDAF8834";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_middle_hand1_scaleX";
+	rename -uid "2B5F7EDF-9A4A-2CEA-E814-8FB3CB4F836C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_middle_hand1_rotateZ";
+	rename -uid "368211D8-5B4A-BD6C-5133-3AAF54EB11B1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 62.096983254506021 2 62.096983254506021
+		 4 62.096983254506021 6 62.096983254506021 8 62.096983254506021 10 62.096983254506021
+		 24 62.096983254506021;
+createNode animCurveTA -n "whiplash_right_middle_hand1_rotateY";
+	rename -uid "81577390-FA44-214C-B680-21B52B857DBD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -9.4571355148711014 2 -9.4571355148711014
+		 4 -9.4571355148711014 6 -9.4571355148711014 8 -9.4571355148711014 10 -9.4571355148711014
+		 24 -9.4571355148711014;
+createNode animCurveTA -n "whiplash_right_middle_hand1_rotateX";
+	rename -uid "1836B7BA-E042-8F80-33BB-799A66A31F1C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -8.0609445978526411e-16 2 -8.0609445978526411e-16
+		 4 -8.0609445978526411e-16 6 -8.0609445978526411e-16 8 -8.0609445978526411e-16 10 -8.0609445978526411e-16
+		 24 -8.0609445978526411e-16;
+createNode animCurveTL -n "whiplash_right_middle_hand1_translateZ";
+	rename -uid "19CACBB9-2540-F9F2-04E8-0DBCACCA7530";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.017958333469287283 2 0.017958333469287283
+		 4 0.017958333469287283 6 0.017958333469287283 8 0.017958333469287283 10 0.017958333469287283
+		 24 0.017958333469287283;
+createNode animCurveTL -n "whiplash_right_middle_hand1_translateY";
+	rename -uid "AA3F43BA-8748-2150-2B17-CA98BE0531D3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.079475971110763308 2 -0.079475971110763308
+		 4 -0.079475971110763308 6 -0.079475971110763308 8 -0.079475971110763308 10 -0.079475971110763308
+		 24 -0.079475971110763308;
+createNode animCurveTL -n "whiplash_right_middle_hand1_translateX";
+	rename -uid "13C7BBC1-EA4F-EA10-3DAC-A2A09836E67E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.21247100796770424 2 -0.21247100796770424
+		 4 -0.21247100796770424 6 -0.21247100796770424 8 -0.21247100796770424 10 -0.21247100796770424
+		 24 -0.21247100796770424;
+createNode animCurveTU -n "whiplash_right_middle_hand_scaleZ";
+	rename -uid "E9A2DD09-8B4D-85C3-590E-0F82D223C908";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_middle_hand_scaleY";
+	rename -uid "6FCBAACA-6849-6518-6865-0189D97E6E0C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_middle_hand_scaleX";
+	rename -uid "CCB77D5B-0240-71BE-079F-E199CA6BDB78";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_middle_hand_rotateZ";
+	rename -uid "3BF1F433-3546-ABA9-6DC4-3DAA5BDF2DC1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 113.33765549203163 2 113.33765549203163
+		 4 113.33765549203163 6 113.33765549203163 8 113.33765549203163 10 113.33765549203163
+		 24 113.33765549203163;
+createNode animCurveTA -n "whiplash_right_middle_hand_rotateY";
+	rename -uid "C27E4E18-4F45-A503-E88C-069201F5D519";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -4.1282266760932815 2 -4.1282266760932815
+		 4 -4.1282266760932815 6 -4.1282266760932815 8 -4.1282266760932815 10 -4.1282266760932815
+		 24 -4.1282266760932815;
+createNode animCurveTA -n "whiplash_right_middle_hand_rotateX";
+	rename -uid "A11DE39D-AB40-0F55-C35C-CEA92D098C1E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -3.0456693766387253 2 -3.0456693766387253
+		 4 -3.0456693766387253 6 -3.0456693766387253 8 -3.0456693766387253 10 -3.0456693766387253
+		 24 -3.0456693766387253;
+createNode animCurveTL -n "whiplash_right_middle_hand_translateZ";
+	rename -uid "1881B03F-E147-29FE-4208-CB96797A2E35";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.013443265327605314 2 0.013443265327605314
+		 4 0.013443265327605314 6 0.013443265327605314 8 0.013443265327605314 10 0.013443265327605314
+		 24 0.013443265327605314;
+createNode animCurveTL -n "whiplash_right_middle_hand_translateY";
+	rename -uid "B6976BF0-7044-CFE1-2364-01B926641C6E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.23506625459856956 2 -0.23506625459856956
+		 4 -0.23506625459856956 6 -0.23506625459856956 8 -0.23506625459856956 10 -0.23506625459856956
+		 24 -0.23506625459856956;
+createNode animCurveTL -n "whiplash_right_middle_hand_translateX";
+	rename -uid "43600052-4348-8DAB-7B45-E9B70465D35F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.59116104516076629 2 -0.59116104516076629
+		 4 -0.59116104516076629 6 -0.59116104516076629 8 -0.59116104516076629 10 -0.59116104516076629
+		 24 -0.59116104516076629;
+createNode animCurveTU -n "whiplash_right_ring_hand2_scaleZ";
+	rename -uid "48E9CB52-5F4C-D992-DCA5-9F8A351C9A2E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_ring_hand2_scaleY";
+	rename -uid "677743D9-F74C-51DD-32DB-C7ADE420CC4E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_ring_hand2_scaleX";
+	rename -uid "7E75416E-7146-AFAB-6554-A2B9C4F477BD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_ring_hand2_rotateZ";
+	rename -uid "361BAF2A-1743-61D3-133B-A0B8E8B51C34";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 59.149081934216085 2 59.149081934216085
+		 4 59.149081934216085 6 59.149081934216085 8 59.149081934216085 10 59.149081934216085
+		 24 59.149081934216085;
+createNode animCurveTA -n "whiplash_right_ring_hand2_rotateY";
+	rename -uid "947BC126-014C-31D0-0050-DCA19DEE3AB8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_right_ring_hand2_rotateX";
+	rename -uid "1C66A435-2D46-4C9C-5F91-27BDE76C56B8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_right_ring_hand2_translateZ";
+	rename -uid "C23EC1B8-0044-3AFC-05E0-E7A806144789";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.018401680338291815 2 -0.018401680338291815
+		 4 -0.018401680338291815 6 -0.018401680338291815 8 -0.018401680338291815 10 -0.018401680338291815
+		 24 -0.018401680338291815;
+createNode animCurveTL -n "whiplash_right_ring_hand2_translateY";
+	rename -uid "88D15DBE-6949-89AB-8C49-918FACFBE376";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.059637401496139386 2 -0.059637401496139386
+		 4 -0.059637401496139386 6 -0.059637401496139386 8 -0.059637401496139386 10 -0.059637401496139386
+		 24 -0.059637401496139386;
+createNode animCurveTL -n "whiplash_right_ring_hand2_translateX";
+	rename -uid "24F209C1-B14E-502B-99E9-B1AE47BF870F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.12881176236804492 2 -0.12881176236804492
+		 4 -0.12881176236804492 6 -0.12881176236804492 8 -0.12881176236804492 10 -0.12881176236804492
+		 24 -0.12881176236804492;
+createNode animCurveTU -n "whiplash_right_ring_hand1_scaleZ";
+	rename -uid "1DAC5F2D-FB4E-472F-916C-2AAC0779845E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_ring_hand1_scaleY";
+	rename -uid "A3C49713-9741-7202-F48B-2A8B453B17C8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_ring_hand1_scaleX";
+	rename -uid "349434BE-7444-742E-15C8-FE9BEBA108B1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_ring_hand1_rotateZ";
+	rename -uid "9D5DD07B-584B-652A-6EEF-CA8BD94842FC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 62.096983254505986 2 62.096983254505986
+		 4 62.096983254505986 6 62.096983254505986 8 62.096983254505986 10 62.096983254505986
+		 24 62.096983254505986;
+createNode animCurveTA -n "whiplash_right_ring_hand1_rotateY";
+	rename -uid "4A58DF0A-3540-4894-D51E-A0B0C85BED50";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 7.2501065297986598 2 7.2501065297986598
+		 4 7.2501065297986598 6 7.2501065297986598 8 7.2501065297986598 10 7.2501065297986598
+		 24 7.2501065297986598;
+createNode animCurveTA -n "whiplash_right_ring_hand1_rotateX";
+	rename -uid "BC5BFE89-A040-815D-1BA2-83945188CA19";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -13.04487586226483 2 -13.04487586226483
+		 4 -13.04487586226483 6 -13.04487586226483 8 -13.04487586226483 10 -13.04487586226483
+		 24 -13.04487586226483;
+createNode animCurveTL -n "whiplash_right_ring_hand1_translateZ";
+	rename -uid "24357015-CE42-34B0-1782-7B8A7F5152DB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.011524506945931335 2 -0.011524506945931335
+		 4 -0.011524506945931335 6 -0.011524506945931335 8 -0.011524506945931335 10 -0.011524506945931335
+		 24 -0.011524506945931335;
+createNode animCurveTL -n "whiplash_right_ring_hand1_translateY";
+	rename -uid "2685F12C-4B47-5714-1DC1-48A5ABE0CA32";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.063671953302694997 2 -0.063671953302694997
+		 4 -0.063671953302694997 6 -0.063671953302694997 8 -0.063671953302694997 10 -0.063671953302694997
+		 24 -0.063671953302694997;
+createNode animCurveTL -n "whiplash_right_ring_hand1_translateX";
+	rename -uid "4B5F4EE0-064E-9F14-0679-C49D284F23C6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.19704222234810539 2 -0.19704222234810539
+		 4 -0.19704222234810539 6 -0.19704222234810539 8 -0.19704222234810539 10 -0.19704222234810539
+		 24 -0.19704222234810539;
+createNode animCurveTU -n "whiplash_right_ring_hand_scaleZ";
+	rename -uid "09456825-9247-2F44-C6FE-15A232D2A029";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_ring_hand_scaleY";
+	rename -uid "01EADCFE-6E46-45F5-5679-2C831182C197";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_ring_hand_scaleX";
+	rename -uid "00EF2214-9F4A-C89E-E507-6B9740E3A3CF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_ring_hand_rotateZ";
+	rename -uid "C49B6E38-C343-530D-D163-41931EFD2E0C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 113.87334514677856 2 113.87334514677856
+		 4 113.87334514677856 6 113.87334514677856 8 113.87334514677856 10 113.87334514677856
+		 24 113.87334514677856;
+createNode animCurveTA -n "whiplash_right_ring_hand_rotateY";
+	rename -uid "DEBBABC3-5342-41E1-A2AE-B79A356E2C90";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 2.017641013762121 2 2.017641013762121
+		 4 2.017641013762121 6 2.017641013762121 8 2.017641013762121 10 2.017641013762121
+		 24 2.017641013762121;
+createNode animCurveTA -n "whiplash_right_ring_hand_rotateX";
+	rename -uid "2E25F3FF-D442-FA56-88C2-8CA4937A862D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1.6681950731678052 2 1.6681950731678052
+		 4 1.6681950731678052 6 1.6681950731678052 8 1.6681950731678052 10 1.6681950731678052
+		 24 1.6681950731678052;
+createNode animCurveTL -n "whiplash_right_ring_hand_translateZ";
+	rename -uid "EED3BDFF-204E-187C-7380-FB8D9ECB2E0C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.14409215004400489 2 -0.14409215004400489
+		 4 -0.14409215004400489 6 -0.14409215004400489 8 -0.14409215004400489 10 -0.14409215004400489
+		 24 -0.14409215004400489;
+createNode animCurveTL -n "whiplash_right_ring_hand_translateY";
+	rename -uid "FC762D0C-B94D-A538-AF0C-E892C2831077";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.23506625459856956 2 -0.23506625459856956
+		 4 -0.23506625459856956 6 -0.23506625459856956 8 -0.23506625459856956 10 -0.23506625459856956
+		 24 -0.23506625459856956;
+createNode animCurveTL -n "whiplash_right_ring_hand_translateX";
+	rename -uid "0F271E21-894D-2AB4-5097-5C8A84BC41A6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.5838338165388306 2 -0.5838338165388306
+		 4 -0.5838338165388306 6 -0.5838338165388306 8 -0.5838338165388306 10 -0.5838338165388306
+		 24 -0.5838338165388306;
+createNode animCurveTU -n "whiplash_right_pinky_hand2_scaleZ";
+	rename -uid "9BC5C123-5141-69B3-0276-4A8786736029";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_pinky_hand2_scaleY";
+	rename -uid "302D923B-EB40-A3FA-8AF5-2783F8C0849B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_pinky_hand2_scaleX";
+	rename -uid "8AFBDA8C-D443-4EA6-3A89-EE9A6F314B9B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_pinky_hand2_rotateZ";
+	rename -uid "5140B520-4A4B-9CE3-ABED-398E74344B9B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 59.149081934216085 2 59.149081934216085
+		 4 59.149081934216085 6 59.149081934216085 8 59.149081934216085 10 59.149081934216085
+		 24 59.149081934216085;
+createNode animCurveTA -n "whiplash_right_pinky_hand2_rotateY";
+	rename -uid "32EC06B0-0043-A8B5-5B2E-51AD97320BF8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_right_pinky_hand2_rotateX";
+	rename -uid "3EB31C4B-9D42-4F31-907B-51BF9453A9D1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_right_pinky_hand2_translateZ";
+	rename -uid "58BCB5A3-9240-C4AE-6723-83B3CAB90D5A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.038643528710413211 2 -0.038643528710413211
+		 4 -0.038643528710413211 6 -0.038643528710413211 8 -0.038643528710413211 10 -0.038643528710413211
+		 24 -0.038643528710413211;
+createNode animCurveTL -n "whiplash_right_pinky_hand2_translateY";
+	rename -uid "B1AB4A8A-264F-0396-C3F5-B5AC42703C7A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.059637401496139386 2 -0.059637401496139386
+		 4 -0.059637401496139386 6 -0.059637401496139386 8 -0.059637401496139386 10 -0.059637401496139386
+		 24 -0.059637401496139386;
+createNode animCurveTL -n "whiplash_right_pinky_hand2_translateX";
+	rename -uid "388D73EE-1F49-B5D8-A696-E3A34AC60422";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.10672974596209261 2 -0.10672974596209261
+		 4 -0.10672974596209261 6 -0.10672974596209261 8 -0.10672974596209261 10 -0.10672974596209261
+		 24 -0.10672974596209261;
+createNode animCurveTU -n "whiplash_right_pinky_hand1_scaleZ";
+	rename -uid "5672D73A-7A44-7EEE-51DD-3ABA93B52CA8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_pinky_hand1_scaleY";
+	rename -uid "101849D4-FC47-6828-CA4E-FDA82B4CA2F0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_pinky_hand1_scaleX";
+	rename -uid "37BCCADF-7B48-9C11-3806-CB8BB8DF156F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_pinky_hand1_rotateZ";
+	rename -uid "11142B82-4049-8FDC-FEE3-3CB6B43CB37E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 62.096983254506 2 62.096983254506 4 62.096983254506
+		 6 62.096983254506 8 62.096983254506 10 62.096983254506 24 62.096983254506;
+createNode animCurveTA -n "whiplash_right_pinky_hand1_rotateY";
+	rename -uid "CDDFD272-4143-B7D4-12AE-23B76ABC1494";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 18.969837028126722 2 18.969837028126722
+		 4 18.969837028126722 6 18.969837028126722 8 18.969837028126722 10 18.969837028126722
+		 24 18.969837028126722;
+createNode animCurveTA -n "whiplash_right_pinky_hand1_rotateX";
+	rename -uid "A6E06E10-8E41-BEFF-BF6F-8C8842C76AAE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -25.404176628645885 2 -25.404176628645885
+		 4 -25.404176628645885 6 -25.404176628645885 8 -25.404176628645885 10 -25.404176628645885
+		 24 -25.404176628645885;
+createNode animCurveTL -n "whiplash_right_pinky_hand1_translateZ";
+	rename -uid "13A88C5D-124F-04E5-8F85-2DAE94AC8BE8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.066685524043884017 2 -0.066685524043884017
+		 4 -0.066685524043884017 6 -0.066685524043884017 8 -0.066685524043884017 10 -0.066685524043884017
+		 24 -0.066685524043884017;
+createNode animCurveTL -n "whiplash_right_pinky_hand1_translateY";
+	rename -uid "920D308F-694E-9DD2-3BB9-2882736B9A7D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.063959663292897956 2 -0.063959663292897956
+		 4 -0.063959663292897956 6 -0.063959663292897956 8 -0.063959663292897956 10 -0.063959663292897956
+		 24 -0.063959663292897956;
+createNode animCurveTL -n "whiplash_right_pinky_hand1_translateX";
+	rename -uid "0CE510EA-5A49-94D1-1568-E1BE2AE9F858";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.18529119640035052 2 -0.18529119640035052
+		 4 -0.18529119640035052 6 -0.18529119640035052 8 -0.18529119640035052 10 -0.18529119640035052
+		 24 -0.18529119640035052;
+createNode animCurveTU -n "whiplash_right_pinky_hand_scaleZ";
+	rename -uid "EFA6F2DC-5746-766E-1D31-60A837BA74A5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_pinky_hand_scaleY";
+	rename -uid "9E2D51B1-724C-57D8-8413-C3B6AAD1CBDE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_pinky_hand_scaleX";
+	rename -uid "9E5DC2FD-5C42-B1A6-D6A0-BAB17E3C8CCC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_pinky_hand_rotateZ";
+	rename -uid "1D49FD34-9F4D-4CCA-CCCC-5DB811546BAA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 116.5555357656573 2 116.5555357656573
+		 4 116.5555357656573 6 116.5555357656573 8 116.5555357656573 10 116.5555357656573
+		 24 116.5555357656573;
+createNode animCurveTA -n "whiplash_right_pinky_hand_rotateY";
+	rename -uid "F230A81C-F14C-5B8B-6DEA-268996E50EF0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 5.2066609115886537 2 5.2066609115886537
+		 4 5.2066609115886537 6 5.2066609115886537 8 5.2066609115886537 10 5.2066609115886537
+		 24 5.2066609115886537;
+createNode animCurveTA -n "whiplash_right_pinky_hand_rotateX";
+	rename -uid "0E3CEDC1-B842-6DE3-CF60-688B48DF27E4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 4.1107523950332574 2 4.1107523950332574
+		 4 4.1107523950332574 6 4.1107523950332574 8 4.1107523950332574 10 4.1107523950332574
+		 24 4.1107523950332574;
+createNode animCurveTL -n "whiplash_right_pinky_hand_translateZ";
+	rename -uid "C3D3A1AF-D347-8421-DB47-9FB259AC26B9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.2869731081717446 2 -0.2869731081717446
+		 4 -0.2869731081717446 6 -0.2869731081717446 8 -0.2869731081717446 10 -0.2869731081717446
+		 24 -0.2869731081717446;
+createNode animCurveTL -n "whiplash_right_pinky_hand_translateY";
+	rename -uid "A98C5EF4-1E4C-3CF6-4033-DFA70B1C0BF2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.23506625459856956 2 -0.23506625459856956
+		 4 -0.23506625459856956 6 -0.23506625459856956 8 -0.23506625459856956 10 -0.23506625459856956
+		 24 -0.23506625459856956;
+createNode animCurveTL -n "whiplash_right_pinky_hand_translateX";
+	rename -uid "DACBE8AA-D149-E6B0-A8BD-7BBDD35CD466";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.54353405911818697 2 -0.54353405911818697
+		 4 -0.54353405911818697 6 -0.54353405911818697 8 -0.54353405911818697 10 -0.54353405911818697
+		 24 -0.54353405911818697;
+createNode animCurveTU -n "whiplash_right_wrist_scaleZ";
+	rename -uid "CE9BB82F-0C4A-76BF-2A02-4391E45451E9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_wrist_scaleY";
+	rename -uid "4470BD73-5E48-27F5-A473-6C816DFA4F5F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_wrist_scaleX";
+	rename -uid "02C24ECF-DB47-BB09-5239-0BABE9ED6F54";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_wrist_rotateZ";
+	rename -uid "CA24904F-9F48-C370-1A25-5AA2D59E5F1F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 12.42350179991411 2 12.42350179991411
+		 4 12.42350179991411 6 12.42350179991411 8 12.42350179991411 10 12.42350179991411
+		 24 12.42350179991411;
+createNode animCurveTA -n "whiplash_right_wrist_rotateY";
+	rename -uid "4B823B05-B648-E47F-EDEA-44B26192EB2A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_right_wrist_rotateX";
+	rename -uid "10B6BF1D-5B45-06B3-E911-5FA9C6566122";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_right_wrist_translateZ";
+	rename -uid "E248FEF2-0743-778F-9080-A0B2F8B75BFB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_right_wrist_translateY";
+	rename -uid "A5D65C24-8840-0BAE-3C1F-10BD414EFFFC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.48858671864865855 2 -0.48858671864865855
+		 4 -0.48858671864865855 6 -0.48858671864865855 8 -0.48858671864865855 10 -0.48858671864865855
+		 24 -0.48858671864865855;
+createNode animCurveTL -n "whiplash_right_wrist_translateX";
+	rename -uid "7C11AEAE-5748-2BF0-E5E6-82B39DA82820";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -1.1248223219159774 2 -1.1248223219159774
+		 4 -1.1248223219159774 6 -1.1248223219159774 8 -1.1248223219159774 10 -1.1248223219159774
+		 24 -1.1248223219159774;
+createNode animCurveTU -n "whiplash_right_elbow_scaleZ";
+	rename -uid "58F7FBF0-6B4C-2B1E-F601-2888088CDC1B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_elbow_scaleY";
+	rename -uid "C681BC8E-2E4B-306F-4EE9-BA8C7CCD8C47";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_elbow_scaleX";
+	rename -uid "7E570DED-1845-C0BC-77A2-D88D0C6E19B5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_elbow_rotateZ";
+	rename -uid "A227B030-C541-EA8D-19CC-ED8B4700FF3F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 14.431871776954255 2 14.431871776954255
+		 4 14.431871776954255 6 14.431871776954255 8 14.431871776954255 10 14.431871776954255
+		 24 14.431871776954255;
+createNode animCurveTA -n "whiplash_right_elbow_rotateY";
+	rename -uid "E2F7A3ED-B34B-9E17-0E34-AE806FF00549";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 65.36151923907839 2 65.36151923907839
+		 4 65.36151923907839 6 65.36151923907839 8 65.36151923907839 10 65.36151923907839
+		 24 65.36151923907839;
+createNode animCurveTA -n "whiplash_right_elbow_rotateX";
+	rename -uid "C8041377-8542-6CD3-C93E-EEB66D10F998";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 5.7219128623295254e-15 2 5.7219128623295254e-15
+		 4 5.7219128623295254e-15 6 5.7219128623295254e-15 8 5.7219128623295254e-15 10 5.7219128623295254e-15
+		 24 5.7219128623295254e-15;
+createNode animCurveTL -n "whiplash_right_elbow_translateZ";
+	rename -uid "D844D92D-164E-456C-DCC0-9F829DE0E73D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.22189563839171658 2 0.22189563839171658
+		 4 0.22189563839171658 6 0.22189563839171658 8 0.22189563839171658 10 0.22189563839171658
+		 24 0.22189563839171658;
+createNode animCurveTL -n "whiplash_right_elbow_translateY";
+	rename -uid "C4E600FC-3049-CA15-0A5A-A397BFBD40BA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.53881461327934765 2 -0.53881461327934765
+		 4 -0.53881461327934765 6 -0.53881461327934765 8 -0.53881461327934765 10 -0.53881461327934765
+		 24 -0.53881461327934765;
+createNode animCurveTL -n "whiplash_right_elbow_translateX";
+	rename -uid "F59F0297-1F4F-C3CD-F8F4-468B10B03B7F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -1.1338210220740053 2 -1.1338210220740053
+		 4 -1.1338210220740053 6 -1.1338210220740053 8 -1.1338210220740053 10 -1.1338210220740053
+		 24 -1.1338210220740053;
+createNode animCurveTU -n "whiplash_right_shoulder_scaleZ";
+	rename -uid "4617023D-CE40-26B3-145E-C1A0C33BBA3F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_shoulder_scaleY";
+	rename -uid "3324CA76-A54A-A581-63A4-5B9A78119F36";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_shoulder_scaleX";
+	rename -uid "4C3AD101-DF45-BA48-B46B-97A2A03F855E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_shoulder_rotateZ";
+	rename -uid "AC3742C5-9E4B-200F-685A-5AB625088E80";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 33.344520152411832 2 33.344520152411832
+		 4 33.344520152411832 6 33.344520152411832 8 33.344520152411832 10 33.344520152411832
+		 24 33.344520152411832;
+createNode animCurveTA -n "whiplash_right_shoulder_rotateY";
+	rename -uid "CA26D8DD-C147-D794-2447-ABA8BA4A28C0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -14.457683485237625 2 -14.457683485237625
+		 4 -14.457683485237625 6 -14.457683485237625 8 -14.457683485237625 10 -14.457683485237625
+		 24 -14.457683485237625;
+createNode animCurveTA -n "whiplash_right_shoulder_rotateX";
+	rename -uid "63C65279-3341-980C-E493-A1BA7B3678CC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_right_shoulder_translateZ";
+	rename -uid "CF994787-074D-27D4-1039-31AADFEDC6E5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.037095186234602284 2 0.037095186234602284
+		 4 0.037095186234602284 6 0.037095186234602284 8 0.037095186234602284 10 0.037095186234602284
+		 24 0.037095186234602284;
+createNode animCurveTL -n "whiplash_right_shoulder_translateY";
+	rename -uid "3523C1CD-9F4B-2573-5B6A-259A6C4A8FDC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.29692975213054495 2 -0.29692975213054495
+		 4 -0.29692975213054495 6 -0.29692975213054495 8 -0.29692975213054495 10 -0.29692975213054495
+		 24 -0.29692975213054495;
+createNode animCurveTL -n "whiplash_right_shoulder_translateX";
+	rename -uid "26B5346E-5241-D91D-145C-B783A179B2AD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.93376593104210848 2 -0.93376593104210848
+		 4 -0.93376593104210848 6 -0.93376593104210848 8 -0.93376593104210848 10 -0.93376593104210848
+		 24 -0.93376593104210848;
+createNode animCurveTU -n "whiplash_whip_joint_6_scaleZ";
+	rename -uid "E11D7842-3245-F3F7-8CE5-B689CCAE1508";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_joint_6_scaleY";
+	rename -uid "7B1F5E73-DF48-2F51-BFA4-CDA87DB44B27";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_joint_6_scaleX";
+	rename -uid "ACBA357D-DE45-4CF7-3468-3786B15CD210";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_whip_joint_6_rotateZ";
+	rename -uid "38C5E28D-7D40-7832-37A9-14834CCD8A61";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_whip_joint_6_rotateY";
+	rename -uid "B6A6078E-B740-9607-4797-C3A326CB1305";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_whip_joint_6_rotateX";
+	rename -uid "ED66BDC1-5E4F-ABC2-3B9A-C0B0791C0A33";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 60.397975556381738 2 60.397975556381738
+		 4 60.397975556381738 6 60.397975556381738 8 60.397975556381738 10 60.397975556381738
+		 24 60.397975556381738;
+createNode animCurveTL -n "whiplash_whip_joint_6_translateZ";
+	rename -uid "E88F4692-BD40-9218-056F-3E8BEB6A2B6E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_whip_joint_6_translateY";
+	rename -uid "24D0C809-E749-B7E5-C4F1-05A408217CDA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.67958809984616408 2 0.67958809984616408
+		 4 0.67958809984616408 6 0.67958809984616408 8 0.67958809984616408 10 0.67958809984616408
+		 24 0.67958809984616408;
+createNode animCurveTL -n "whiplash_whip_joint_6_translateX";
+	rename -uid "AFD51465-E449-E729-92A6-9080EE0ECB19";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTU -n "whiplash_whip_joint_5_scaleZ";
+	rename -uid "B001F7E0-4944-4ABC-954A-C3886D97145A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_joint_5_scaleY";
+	rename -uid "B97C4151-6242-299D-B9D5-D4982AB48AC8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_joint_5_scaleX";
+	rename -uid "A1E30E2C-6743-4079-1F05-E2B2E3B9E2CB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_whip_joint_5_rotateZ";
+	rename -uid "78BCA9DF-CD42-4FDE-8000-A8A83D78985E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_whip_joint_5_rotateY";
+	rename -uid "B48B568E-3941-AD4D-427A-CC8E9CD2D5FA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_whip_joint_5_rotateX";
+	rename -uid "13EFA52F-EC45-8600-E996-67A1E3AB9F7B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 43.175035362461941 2 43.175035362461941
+		 4 43.175035362461941 6 43.175035362461941 8 43.175035362461941 10 43.175035362461941
+		 24 43.175035362461941;
+createNode animCurveTL -n "whiplash_whip_joint_5_translateZ";
+	rename -uid "33A5B6AD-2A4D-772A-C255-A7AB4B57ECBA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_whip_joint_5_translateY";
+	rename -uid "0B24380A-DD40-58A0-0024-3F9345C303D6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.68758325396200171 2 0.68758325396200171
+		 4 0.68758325396200171 6 0.68758325396200171 8 0.68758325396200171 10 0.68758325396200171
+		 24 0.68758325396200171;
+createNode animCurveTL -n "whiplash_whip_joint_5_translateX";
+	rename -uid "2C794524-3A4D-2263-C447-E592A5BE8276";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTU -n "whiplash_whip_joint_4_scaleZ";
+	rename -uid "1D9F7ECD-0B4A-229E-1970-3EB15CBE510E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_joint_4_scaleY";
+	rename -uid "CBFDF9BA-FA4F-7CA9-278F-509D14730E52";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_joint_4_scaleX";
+	rename -uid "383B7778-D340-BD96-ADF0-7E91D0104049";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_whip_joint_4_rotateZ";
+	rename -uid "DE597F7D-6F43-F864-C5D1-78987DFEA7DE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -1.0128440407570103 2 -1.0128440407570103
+		 4 -1.0128440407570103 6 -1.0128440407570103 8 -1.0128440407570103 10 -1.0128440407570103
+		 24 -1.0128440407570103;
+createNode animCurveTA -n "whiplash_whip_joint_4_rotateY";
+	rename -uid "7061CB23-1749-EF93-4C0B-F5A6646C54DC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 9.9392333795734899e-17 2 9.9392333795734899e-17
+		 4 9.9392333795734899e-17 6 9.9392333795734899e-17 8 9.9392333795734899e-17 10 9.9392333795734899e-17
+		 24 9.9392333795734899e-17;
+createNode animCurveTA -n "whiplash_whip_joint_4_rotateX";
+	rename -uid "64807EC1-554B-9666-2DE4-909E9D2588F6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 34.257383484509525 2 34.257383484509525
+		 4 34.257383484509525 6 34.257383484509525 8 34.257383484509525 10 34.257383484509525
+		 24 34.257383484509525;
+createNode animCurveTL -n "whiplash_whip_joint_4_translateZ";
+	rename -uid "35DABD66-5540-E9D0-C24F-FBA12DE8819F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_whip_joint_4_translateY";
+	rename -uid "D75EC8CE-A64F-262F-CB1B-D481E9D2EF52";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.66359779161449062 2 0.66359779161449062
+		 4 0.66359779161449062 6 0.66359779161449062 8 0.66359779161449062 10 0.66359779161449062
+		 24 0.66359779161449062;
+createNode animCurveTL -n "whiplash_whip_joint_4_translateX";
+	rename -uid "7570D2C9-8A46-6652-BA2A-ECA971468033";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTU -n "whiplash_whip_joint_3_scaleZ";
+	rename -uid "EAA48F20-6846-45BB-D29E-3680F6A15514";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_joint_3_scaleY";
+	rename -uid "4D18E42E-E146-0867-C6FF-56ACB90D61AE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_joint_3_scaleX";
+	rename -uid "2B5FE586-EC46-FB45-1088-BF9FF8FC1F08";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_whip_joint_3_rotateZ";
+	rename -uid "399FFEE2-2D44-1220-11CA-619A19E7132E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 29.706294004254627 2 29.706294004254627
+		 4 29.706294004254627 6 29.706294004254627 8 29.706294004254627 10 29.706294004254627
+		 24 29.706294004254627;
+createNode animCurveTA -n "whiplash_whip_joint_3_rotateY";
+	rename -uid "C863CB98-BE41-F027-3598-3A9445A75394";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_whip_joint_3_rotateX";
+	rename -uid "A01A0595-AE44-D4B7-F730-A38ABFE79832";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 23.115413650884122 2 23.115413650884122
+		 4 23.115413650884122 6 23.115413650884122 8 23.115413650884122 10 23.115413650884122
+		 24 23.115413650884122;
+createNode animCurveTL -n "whiplash_whip_joint_3_translateZ";
+	rename -uid "5B846D63-F243-27A2-99A4-DCB642989894";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_whip_joint_3_translateY";
+	rename -uid "9FE51FA1-DD44-E376-4135-7CA03AC1069B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.67159294573032646 2 0.67159294573032646
+		 4 0.67159294573032646 6 0.67159294573032646 8 0.67159294573032646 10 0.67159294573032646
+		 24 0.67159294573032646;
+createNode animCurveTL -n "whiplash_whip_joint_3_translateX";
+	rename -uid "CBC22850-1449-ADCB-6D03-14B0D696B257";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTU -n "whiplash_whip_joint_2_scaleZ";
+	rename -uid "174308E0-C74D-ED69-8D7A-5B940DA90F4B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_joint_2_scaleY";
+	rename -uid "1AAB366F-1D48-AF73-4427-FBB1BAC4CBA4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_joint_2_scaleX";
+	rename -uid "EF759932-7E48-3C71-DEE7-D7BD6D01F839";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_whip_joint_2_rotateZ";
+	rename -uid "6559C661-B840-FAC1-0985-839F2A3D5F21";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 32.816977171985755 2 32.816977171985755
+		 4 32.816977171985755 6 32.816977171985755 8 32.816977171985755 10 32.816977171985755
+		 24 32.816977171985755;
+createNode animCurveTA -n "whiplash_whip_joint_2_rotateY";
+	rename -uid "6DD297F2-E947-8A56-9E15-2E9BF1451130";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_whip_joint_2_rotateX";
+	rename -uid "56C70FC4-834A-D0F5-07BE-13B158C2F9B6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_whip_joint_2_translateZ";
+	rename -uid "F06A0A07-9B40-F742-5021-1D814BFA2E8F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_whip_joint_2_translateY";
+	rename -uid "E4EAD088-B74B-92BD-00A5-538F512FE541";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.67958809984616275 2 0.67958809984616275
+		 4 0.67958809984616275 6 0.67958809984616275 8 0.67958809984616275 10 0.67958809984616275
+		 24 0.67958809984616275;
+createNode animCurveTL -n "whiplash_whip_joint_2_translateX";
+	rename -uid "88666CAE-9E41-CA69-6C99-71B3491E48B5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTU -n "whiplash_whip_joint_1_scaleZ";
+	rename -uid "C16AD370-324B-BAEE-42B6-8FB63D0DEED5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_joint_1_scaleY";
+	rename -uid "8C12D0CB-AC4B-180F-8F61-F7B0B920E199";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_joint_1_scaleX";
+	rename -uid "D6D27ED2-DA40-0927-60F7-80AAFF602D7D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_whip_joint_1_rotateZ";
+	rename -uid "0C6B5B67-4B49-0228-7405-ACBE5189C591";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -31.164999441277061 2 -31.164999441277061
+		 4 -31.164999441277061 6 -31.164999441277061 8 -31.164999441277061 10 -31.164999441277061
+		 24 -31.164999441277061;
+createNode animCurveTA -n "whiplash_whip_joint_1_rotateY";
+	rename -uid "11CE91DD-644B-6FDD-078E-00BDB7E33310";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_whip_joint_1_rotateX";
+	rename -uid "392B40F7-134B-4628-6FEC-7A9D7FBDC619";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_whip_joint_1_translateZ";
+	rename -uid "03B5308E-E744-04AB-E211-4D948F9223E6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_whip_joint_1_translateY";
+	rename -uid "BF72E8BC-C349-12B8-52B4-458C4FABAB9A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.6754354424493072 2 0.6754354424493072
+		 4 0.6754354424493072 6 0.6754354424493072 8 0.6754354424493072 10 0.6754354424493072
+		 24 0.6754354424493072;
+createNode animCurveTL -n "whiplash_whip_joint_1_translateX";
+	rename -uid "F57A474E-ED4C-7C4B-2736-5F86FBC70894";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTU -n "whiplash_whip_base_scaleZ";
+	rename -uid "6A2ED334-474D-B85D-96BC-BAA5DB4C5E25";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_base_scaleY";
+	rename -uid "B97FBE37-6843-8768-D223-628DA37D4C3D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_base_scaleX";
+	rename -uid "8D83D645-4947-2272-E5E0-A29034B9AB5F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_whip_base_rotateZ";
+	rename -uid "C08E1DB5-3B43-F84A-710E-8A9A88E33D21";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -30.684433109218343 2 -30.684433109218343
+		 4 -30.684433109218343 6 -30.684433109218343 8 -30.684433109218343 10 -30.684433109218343
+		 24 -30.684433109218343;
+createNode animCurveTA -n "whiplash_whip_base_rotateY";
+	rename -uid "394089D3-2340-31F9-F8A4-9DB65C79C51F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -30.505263103583573 2 -30.505263103583573
+		 4 -30.505263103583573 6 -30.505263103583573 8 -30.505263103583573 10 -30.505263103583573
+		 24 -30.505263103583573;
+createNode animCurveTA -n "whiplash_whip_base_rotateX";
+	rename -uid "EE084E47-7142-ED48-1366-E5B10F99B840";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 14.941272496522505 2 14.941272496522505
+		 4 14.941272496522505 6 14.941272496522505 8 14.941272496522505 10 14.941272496522505
+		 24 14.941272496522505;
+createNode animCurveTL -n "whiplash_whip_base_translateZ";
+	rename -uid "2977774A-BD46-E308-D09B-528345C12462";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_whip_base_translateY";
+	rename -uid "20126E5E-EF45-9793-CB35-85AE9D19BA43";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.65157636222150539 2 0.65157636222150539
+		 4 0.65157636222150539 6 0.65157636222150539 8 0.65157636222150539 10 0.65157636222150539
+		 24 0.65157636222150539;
+createNode animCurveTL -n "whiplash_whip_base_translateX";
+	rename -uid "0456907C-6442-8DF5-84BC-78992E56381C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTU -n "whiplash_whip_base1_scaleZ";
+	rename -uid "A04E52CE-5740-05B0-A9B6-8388A18D0316";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_base1_scaleY";
+	rename -uid "A2F1BFFC-384D-36CC-C5C1-BCA1BF4E0872";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_whip_base1_scaleX";
+	rename -uid "0160841D-3B46-0176-2E9E-79B75EED3844";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_whip_base1_rotateZ";
+	rename -uid "5BEC7162-6946-E040-212E-E4987270D4E5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.084247988161692336 2 -0.084247988161692336
+		 4 -0.084247988161692336 6 -0.084247988161692336 8 -0.084247988161692336 10 -0.084247988161692336
+		 24 -0.084247988161692336;
+createNode animCurveTA -n "whiplash_whip_base1_rotateY";
+	rename -uid "D3B81150-0443-9B09-A126-E7ABE1F3953B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.82269993540038455 2 -0.82269993540038455
+		 4 -0.82269993540038455 6 -0.82269993540038455 8 -0.82269993540038455 10 -0.82269993540038455
+		 24 -0.82269993540038455;
+createNode animCurveTA -n "whiplash_whip_base1_rotateX";
+	rename -uid "DE0572F0-8B46-A356-B698-D4B4F9FF61F5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 94.310100064061089 2 94.310100064061089
+		 4 94.310100064061089 6 94.310100064061089 8 94.310100064061089 10 94.310100064061089
+		 24 94.310100064061089;
+createNode animCurveTL -n "whiplash_whip_base1_translateZ";
+	rename -uid "59A6A9BF-AB40-C266-05A6-09BD6D9E2B6D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.037247208283367771 2 0.037247208283367771
+		 4 0.037247208283367771 6 0.037247208283367771 8 0.037247208283367771 10 0.037247208283367771
+		 24 0.037247208283367771;
+createNode animCurveTL -n "whiplash_whip_base1_translateY";
+	rename -uid "0E954B57-554E-EBE7-3EF2-D8AFDFDB4542";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.26819864253677417 2 -0.26819864253677417
+		 4 -0.26819864253677417 6 -0.26819864253677417 8 -0.26819864253677417 10 -0.26819864253677417
+		 24 -0.26819864253677417;
+createNode animCurveTL -n "whiplash_whip_base1_translateX";
+	rename -uid "8EEE425E-4A4F-B2F3-898E-B5A1B5F883F7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.028081604002813586 2 0.028081604002813586
+		 4 0.028081604002813586 6 0.028081604002813586 8 0.028081604002813586 10 0.028081604002813586
+		 24 0.028081604002813586;
+createNode animCurveTU -n "whiplash_joint1_scaleZ";
+	rename -uid "66BB748C-8C42-9187-DD09-AC968EB534DA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_joint1_scaleY";
+	rename -uid "48B94D2B-4347-2964-8A7D-FBA8BC2F7421";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_joint1_scaleX";
+	rename -uid "1A8AF588-CE40-8F2A-C638-B8A4C2A9D543";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_joint1_rotateZ";
+	rename -uid "B69A6C0A-6F4E-E4D9-E6FC-2C9AA85AA4CB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_joint1_rotateY";
+	rename -uid "70C13353-ED43-B416-B57F-4C8C4CB457FD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_joint1_rotateX";
+	rename -uid "B59521D1-8B4C-637A-52ED-D592D3B70ADC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_joint1_translateZ";
+	rename -uid "963E9F3C-DD4C-BDF6-410C-1AA30503E277";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.014724430945408923 2 -0.014724430945408923
+		 4 -0.014724430945408923 6 -0.014724430945408923 8 -0.014724430945408923 10 -0.014724430945408923
+		 24 -0.014724430945408923;
+createNode animCurveTL -n "whiplash_joint1_translateY";
+	rename -uid "C31FC23A-8E45-E486-4F67-55BC99963514";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.1622696211800807 2 -0.1622696211800807
+		 4 -0.1622696211800807 6 -0.1622696211800807 8 -0.1622696211800807 10 -0.1622696211800807
+		 24 -0.1622696211800807;
+createNode animCurveTL -n "whiplash_joint1_translateX";
+	rename -uid "D3A39ECF-6540-CE33-8F0B-CE9A11CFA826";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.32265790824993967 2 0.32265790824993967
+		 4 0.32265790824993967 6 0.32265790824993967 8 0.32265790824993967 10 0.32265790824993967
+		 24 0.32265790824993967;
+createNode animCurveTU -n "whiplash_left_thumb1_scaleZ";
+	rename -uid "2682E91B-5E42-B17F-DD74-BBA49C50E389";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_thumb1_scaleY";
+	rename -uid "29589145-4D41-58C8-C8CD-B9BDA17436AD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_thumb1_scaleX";
+	rename -uid "7A5CFE47-6F4F-A1BB-4171-95AEEA6E6819";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_thumb1_rotateZ";
+	rename -uid "6CBCDE0D-2841-08D9-78AB-ACA5CFBE3BB4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_thumb1_rotateY";
+	rename -uid "FEF4E3A4-C642-AC06-C4EB-4DB24047C953";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_thumb1_rotateX";
+	rename -uid "85E9B730-9B44-733F-4ED9-4A97D4567C64";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_thumb1_translateZ";
+	rename -uid "A6D175EF-B04F-DE16-31A3-AAB6F079BB01";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.18043977449480586 2 0.18043977449480586
+		 4 0.18043977449480586 6 0.18043977449480586 8 0.18043977449480586 10 0.18043977449480586
+		 24 0.18043977449480586;
+createNode animCurveTL -n "whiplash_left_thumb1_translateY";
+	rename -uid "213172BD-234A-5426-4377-0B824B4AB494";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.049265081982203363 2 -0.049265081982203363
+		 4 -0.049265081982203363 6 -0.049265081982203363 8 -0.049265081982203363 10 -0.049265081982203363
+		 24 -0.049265081982203363;
+createNode animCurveTL -n "whiplash_left_thumb1_translateX";
+	rename -uid "F1A0690E-254E-A71F-0F3C-B297164BC104";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.079909042990556678 2 0.079909042990556678
+		 4 0.079909042990556678 6 0.079909042990556678 8 0.079909042990556678 10 0.079909042990556678
+		 24 0.079909042990556678;
+createNode animCurveTU -n "whiplash_left_thumb_scaleZ";
+	rename -uid "29EA58A1-AC46-348E-4347-5390982E2D9A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_thumb_scaleY";
+	rename -uid "DA2C4758-5747-C5AE-C411-34B12B5E4CF3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_thumb_scaleX";
+	rename -uid "6E04E841-C446-E6E2-7E19-649C1CB321B2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_thumb_rotateZ";
+	rename -uid "59CBB435-A149-3828-5B0C-3CB1C4E0C1E0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 36.335546783371889 2 36.335546783371889
+		 4 36.335546783371889 6 36.335546783371889 8 36.335546783371889 10 36.335546783371889
+		 24 36.335546783371889;
+createNode animCurveTA -n "whiplash_left_thumb_rotateY";
+	rename -uid "87532657-5243-7790-CC00-53A739A91B64";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -23.195390022097779 2 -23.195390022097779
+		 4 -23.195390022097779 6 -23.195390022097779 8 -23.195390022097779 10 -23.195390022097779
+		 24 -23.195390022097779;
+createNode animCurveTA -n "whiplash_left_thumb_rotateX";
+	rename -uid "C77C43E3-4F48-24A6-DED3-D29362FA197D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -16.849424954911388 2 -16.849424954911388
+		 4 -16.849424954911388 6 -16.849424954911388 8 -16.849424954911388 10 -16.849424954911388
+		 24 -16.849424954911388;
+createNode animCurveTL -n "whiplash_left_thumb_translateZ";
+	rename -uid "C9CC38A3-5A47-4727-42D2-909EC9519A30";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.34283557154013033 2 0.34283557154013033
+		 4 0.34283557154013033 6 0.34283557154013033 8 0.34283557154013033 10 0.34283557154013033
+		 24 0.34283557154013033;
+createNode animCurveTL -n "whiplash_left_thumb_translateY";
+	rename -uid "C70C94FA-CE41-E5D7-B1E6-A283A2BE8AFC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.11559747601339998 2 -0.11559747601339998
+		 4 -0.11559747601339998 6 -0.11559747601339998 8 -0.11559747601339998 10 -0.11559747601339998
+		 24 -0.11559747601339998;
+createNode animCurveTL -n "whiplash_left_thumb_translateX";
+	rename -uid "BD5F9FAE-6A45-BFCF-76E8-4A994238B0B7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.27091108888712795 2 0.27091108888712795
+		 4 0.27091108888712795 6 0.27091108888712795 8 0.27091108888712795 10 0.27091108888712795
+		 24 0.27091108888712795;
+createNode animCurveTU -n "whiplash_left_pointer2_scaleZ";
+	rename -uid "2ED1E273-2847-B9A5-09A8-47AB780E3570";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_pointer2_scaleY";
+	rename -uid "2716640F-9045-D580-C89D-989373AD8B3F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_pointer2_scaleX";
+	rename -uid "02F9D847-4640-C9E5-1682-A99F1BE64077";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_pointer2_rotateZ";
+	rename -uid "074A1EAD-CA43-70BE-CEF1-4CA3D2325ADC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -5.7748261644095606 2 -5.7748261644095606
+		 4 -5.7748261644095606 6 -5.7748261644095606 8 -5.7748261644095606 10 -5.7748261644095606
+		 24 -5.7748261644095606;
+createNode animCurveTA -n "whiplash_left_pointer2_rotateY";
+	rename -uid "84D9959A-E045-006B-B6B8-17AB9D5F4656";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_pointer2_rotateX";
+	rename -uid "D9DDD2AB-1F4F-31BF-7C5F-A5A5F925B38E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_pointer2_translateZ";
+	rename -uid "50316275-5B41-C9B0-DFD3-ED966B3266E2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.038665665963172557 2 0.038665665963172557
+		 4 0.038665665963172557 6 0.038665665963172557 8 0.038665665963172557 10 0.038665665963172557
+		 24 0.038665665963172557;
+createNode animCurveTL -n "whiplash_left_pointer2_translateY";
+	rename -uid "E99F0E02-1148-9438-ACB0-8CB5B5BA99A5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.060212877978248258 2 -0.060212877978248258
+		 4 -0.060212877978248258 6 -0.060212877978248258 8 -0.060212877978248258 10 -0.060212877978248258
+		 24 -0.060212877978248258;
+createNode animCurveTL -n "whiplash_left_pointer2_translateX";
+	rename -uid "8C4DDBB0-4648-AC42-CECD-0385D31206FF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.11857470895372946 2 0.11857470895372946
+		 4 0.11857470895372946 6 0.11857470895372946 8 0.11857470895372946 10 0.11857470895372946
+		 24 0.11857470895372946;
+createNode animCurveTU -n "whiplash_left_pointer1_scaleZ";
+	rename -uid "BF71F805-EC44-D734-2F49-3793BC8775D3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_pointer1_scaleY";
+	rename -uid "866D8FF5-994B-A03A-EFC4-C8B9CAAC2B46";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_pointer1_scaleX";
+	rename -uid "22D3B766-9543-C0FC-DAAE-9D8FDEE9E8DD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_pointer1_rotateZ";
+	rename -uid "547B55E0-884F-9FCC-E13E-9A803A8E71FF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -42.342942178669304 2 -42.342942178669304
+		 4 -42.342942178669304 6 -42.342942178669304 8 -42.342942178669304 10 -42.342942178669304
+		 24 -42.342942178669304;
+createNode animCurveTA -n "whiplash_left_pointer1_rotateY";
+	rename -uid "1D20D5F2-A14A-B5C1-87F9-158FFABD5A2C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_pointer1_rotateX";
+	rename -uid "F311FE5D-4B41-6D3A-B6FD-FA9749DCB31B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_pointer1_translateZ";
+	rename -uid "3E63803A-9544-74D1-6577-38B2081D5766";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.059416370974226744 2 0.059416370974226744
+		 4 0.059416370974226744 6 0.059416370974226744 8 0.059416370974226744 10 0.059416370974226744
+		 24 0.059416370974226744;
+createNode animCurveTL -n "whiplash_left_pointer1_translateY";
+	rename -uid "590F8F82-FD4F-C311-A9BB-F5A082105493";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.080817588864847661 2 -0.080817588864847661
+		 4 -0.080817588864847661 6 -0.080817588864847661 8 -0.080817588864847661 10 -0.080817588864847661
+		 24 -0.080817588864847661;
+createNode animCurveTL -n "whiplash_left_pointer1_translateX";
+	rename -uid "63F4C28C-5647-58B8-993A-AC9CBB38FA06";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.22604543305984182 2 0.22604543305984182
+		 4 0.22604543305984182 6 0.22604543305984182 8 0.22604543305984182 10 0.22604543305984182
+		 24 0.22604543305984182;
+createNode animCurveTU -n "whiplash_left_pointer_scaleZ";
+	rename -uid "05850105-EA4A-5DBF-2E49-4EAF8C5A7F4B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_pointer_scaleY";
+	rename -uid "3E3E079F-C846-CE7A-E7CA-6E9D51F9858E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_pointer_scaleX";
+	rename -uid "D6967AD3-114D-EDF5-E492-D9A18A4AE7FD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_pointer_rotateZ";
+	rename -uid "AE2E93AB-D240-9218-7506-EEAD415AC625";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -36.463093168824813 2 -36.463093168824813
+		 4 -36.463093168824813 6 -36.463093168824813 8 -36.463093168824813 10 -36.463093168824813
+		 24 -36.463093168824813;
+createNode animCurveTA -n "whiplash_left_pointer_rotateY";
+	rename -uid "0BAB08BB-794B-623C-850D-0AAA9A65B1AB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_pointer_rotateX";
+	rename -uid "BEAD21A2-CF4B-9299-530B-A39AD79BBB7E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_pointer_translateZ";
+	rename -uid "8BF5002A-AA4C-1302-7DA0-5B80B742361F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.18043977449480497 2 0.18043977449480497
+		 4 0.18043977449480497 6 0.18043977449480497 8 0.18043977449480497 10 0.18043977449480497
+		 24 0.18043977449480497;
+createNode animCurveTL -n "whiplash_left_pointer_translateY";
+	rename -uid "E8D83FDE-3148-60D5-6DF9-2C9347D05F94";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.20865374197978293 2 -0.20865374197978293
+		 4 -0.20865374197978293 6 -0.20865374197978293 8 -0.20865374197978293 10 -0.20865374197978293
+		 24 -0.20865374197978293;
+createNode animCurveTL -n "whiplash_left_pointer_translateX";
+	rename -uid "C026819A-2E4D-20A2-9375-FE82EBE4A680";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.46376170489859148 2 0.46376170489859148
+		 4 0.46376170489859148 6 0.46376170489859148 8 0.46376170489859148 10 0.46376170489859148
+		 24 0.46376170489859148;
+createNode animCurveTU -n "whiplash_left_middle2_scaleZ";
+	rename -uid "66CEDE0E-CE4B-85B8-A8B4-15977F2506CC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_middle2_scaleY";
+	rename -uid "69BA6F84-F246-328C-D921-1796369366BD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_middle2_scaleX";
+	rename -uid "137F83DD-D647-1B56-A5D5-98A252F8390A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_middle2_rotateZ";
+	rename -uid "3E023E24-F041-A1C1-3DF6-9EB515E9E9F3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -9.2807289112852978 2 -9.2807289112852978
+		 4 -9.2807289112852978 6 -9.2807289112852978 8 -9.2807289112852978 10 -9.2807289112852978
+		 24 -9.2807289112852978;
+createNode animCurveTA -n "whiplash_left_middle2_rotateY";
+	rename -uid "9FEA44B0-D549-68BD-F256-2386FBA9363B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_middle2_rotateX";
+	rename -uid "5D4C313E-494A-C8FA-2C14-43BAA2A9B845";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_middle2_translateZ";
+	rename -uid "F3547C3B-2642-7833-CE96-69A3E2DD3761";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.0051554221284231261 2 0.0051554221284231261
+		 4 0.0051554221284231261 6 0.0051554221284231261 8 0.0051554221284231261 10 0.0051554221284231261
+		 24 0.0051554221284231261;
+createNode animCurveTL -n "whiplash_left_middle2_translateY";
+	rename -uid "99D094E7-FF4C-788F-D333-C8BCECD9B01D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.060212877978248258 2 -0.060212877978248258
+		 4 -0.060212877978248258 6 -0.060212877978248258 8 -0.060212877978248258 10 -0.060212877978248258
+		 24 -0.060212877978248258;
+createNode animCurveTL -n "whiplash_left_middle2_translateX";
+	rename -uid "ABA6B239-6A46-4979-4AC4-2F871400AB03";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.097953020440037175 2 0.097953020440037175
+		 4 0.097953020440037175 6 0.097953020440037175 8 0.097953020440037175 10 0.097953020440037175
+		 24 0.097953020440037175;
+createNode animCurveTU -n "whiplash_left_middle1_scaleZ";
+	rename -uid "48A7BACD-4A45-9A09-B977-4D88B9DF4BE4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_middle1_scaleY";
+	rename -uid "01BE6B92-4849-A268-E9C8-97BCFA3CAD91";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_middle1_scaleX";
+	rename -uid "208F3284-BE41-6219-724E-529CF9CA7BA0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_middle1_rotateZ";
+	rename -uid "C8042B85-2642-7A3B-AD64-CC95B833A57B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -24.113218484855423 2 -24.113218484855423
+		 4 -24.113218484855423 6 -24.113218484855423 8 -24.113218484855423 10 -24.113218484855423
+		 24 -24.113218484855423;
+createNode animCurveTA -n "whiplash_left_middle1_rotateY";
+	rename -uid "308DDC4E-EA42-A376-B127-F78BEC57FB9E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_middle1_rotateX";
+	rename -uid "D4129403-C84D-B4FA-25C7-318105B9B661";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_middle1_translateZ";
+	rename -uid "01600DBD-3245-2E9B-A22B-D2BF49A8844E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.039545316816025911 2 0.039545316816025911
+		 4 0.039545316816025911 6 0.039545316816025911 8 0.039545316816025911 10 0.039545316816025911
+		 24 0.039545316816025911;
+createNode animCurveTL -n "whiplash_left_middle1_translateY";
+	rename -uid "0CDA4C93-CD4D-83D8-FB51-C0B9A4D55AC9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.084624898379163926 2 -0.084624898379163926
+		 4 -0.084624898379163926 6 -0.084624898379163926 8 -0.084624898379163926 10 -0.084624898379163926
+		 24 -0.084624898379163926;
+createNode animCurveTL -n "whiplash_left_middle1_translateX";
+	rename -uid "06B414A3-F34E-648A-AE3F-7F9CC0F833C8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.22555436909509854 2 0.22555436909509854
+		 4 0.22555436909509854 6 0.22555436909509854 8 0.22555436909509854 10 0.22555436909509854
+		 24 0.22555436909509854;
+createNode animCurveTU -n "whiplash_left_middle_scaleZ";
+	rename -uid "265042A0-034A-F906-E774-22BE0F8DB78E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_middle_scaleY";
+	rename -uid "9497FA76-954B-D7D3-B050-6893F1394ABE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_middle_scaleX";
+	rename -uid "48D42EEE-604C-EBAA-1B9E-A190BEDFADB0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_middle_rotateZ";
+	rename -uid "6699977F-B847-4ECD-88ED-18A6364D7C83";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -54.096061743332754 2 -54.096061743332754
+		 4 -54.096061743332754 6 -54.096061743332754 8 -54.096061743332754 10 -54.096061743332754
+		 24 -54.096061743332754;
+createNode animCurveTA -n "whiplash_left_middle_rotateY";
+	rename -uid "4C87BC3C-A64E-1458-21D8-29BA242ED74B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_middle_rotateX";
+	rename -uid "DA9BFD74-CC44-2524-1B96-B48934C00B11";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_middle_translateZ";
+	rename -uid "AA1676CF-9743-4FC6-593A-6F9F1823505B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.028354821706326305 2 0.028354821706326305
+		 4 0.028354821706326305 6 0.028354821706326305 8 0.028354821706326305 10 0.028354821706326305
+		 24 0.028354821706326305;
+createNode animCurveTL -n "whiplash_left_middle_translateY";
+	rename -uid "3E14CFD0-3F44-0FE7-BCFF-71A9FA5C9327";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.20865374197978293 2 -0.20865374197978293
+		 4 -0.20865374197978293 6 -0.20865374197978293 8 -0.20865374197978293 10 -0.20865374197978293
+		 24 -0.20865374197978293;
+createNode animCurveTL -n "whiplash_left_middle_translateX";
+	rename -uid "F935E567-9F43-D681-5E96-F5B79E4B7576";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.54882617001757095 2 0.54882617001757095
+		 4 0.54882617001757095 6 0.54882617001757095 8 0.54882617001757095 10 0.54882617001757095
+		 24 0.54882617001757095;
+createNode animCurveTU -n "whiplash_left_ring2_scaleZ";
+	rename -uid "C0EA401B-4E44-1CB9-0122-B088BA875D48";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_ring2_scaleY";
+	rename -uid "CBF5E98F-0C48-66B6-6F62-3CA28FB5830D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_ring2_scaleX";
+	rename -uid "E2C31DA4-E745-9076-3089-A6B36946F7B0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_ring2_rotateZ";
+	rename -uid "89DA2D04-8F41-DA45-D231-9DBDFF42B24F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -20.271225861209796 2 -20.271225861209796
+		 4 -20.271225861209796 6 -20.271225861209796 8 -20.271225861209796 10 -20.271225861209796
+		 24 -20.271225861209796;
+createNode animCurveTA -n "whiplash_left_ring2_rotateY";
+	rename -uid "3EFB952C-644F-C81D-F780-3EA2B9564142";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_ring2_rotateX";
+	rename -uid "2882427E-CE46-B92F-8870-BB8DA830D32B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_ring2_translateZ";
+	rename -uid "899CB8AB-0B48-345D-B9C5-62B69DD889EC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.01174236276942902 2 0.01174236276942902
+		 4 0.01174236276942902 6 0.01174236276942902 8 0.01174236276942902 10 0.01174236276942902
+		 24 0.01174236276942902;
+createNode animCurveTL -n "whiplash_left_ring2_translateY";
+	rename -uid "7721A15D-EE45-A828-771E-15A859D273D4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.063909898805612944 2 -0.063909898805612944
+		 4 -0.063909898805612944 6 -0.063909898805612944 8 -0.063909898805612944 10 -0.063909898805612944
+		 24 -0.063909898805612944;
+createNode animCurveTL -n "whiplash_left_ring2_translateX";
+	rename -uid "2941A89F-B64F-C107-2698-298330244235";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.11801362652653537 2 0.11801362652653537
+		 4 0.11801362652653537 6 0.11801362652653537 8 0.11801362652653537 10 0.11801362652653537
+		 24 0.11801362652653537;
+createNode animCurveTU -n "whiplash_left_ring1_scaleZ";
+	rename -uid "3917F8DF-7844-DDB7-63AE-95B2BFEE73B0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_ring1_scaleY";
+	rename -uid "CC9AFADE-EC4C-50A5-2F06-548BC512E0CA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_ring1_scaleX";
+	rename -uid "660DA1B2-BE49-FD7E-6318-908A0AB6AB58";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_ring1_rotateZ";
+	rename -uid "38240E9F-E347-C701-61BF-B3820360D890";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -20.787915035392228 2 -20.787915035392228
+		 4 -20.787915035392228 6 -20.787915035392228 8 -20.787915035392228 10 -20.787915035392228
+		 24 -20.787915035392228;
+createNode animCurveTA -n "whiplash_left_ring1_rotateY";
+	rename -uid "C59F9962-C646-BE71-81F1-F6BAD31834D2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_ring1_rotateX";
+	rename -uid "E1667ACD-CF43-05B1-F89A-69A970DC0F96";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_ring1_translateZ";
+	rename -uid "623046B1-DF4A-4985-EA12-7F8F234B309F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.034227189195342095 2 0.034227189195342095
+		 4 0.034227189195342095 6 0.034227189195342095 8 0.034227189195342095 10 0.034227189195342095
+		 24 0.034227189195342095;
+createNode animCurveTL -n "whiplash_left_ring1_translateY";
+	rename -uid "4C990D35-5F4D-038D-5E5E-D78A2B9BF723";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.082123882706995027 2 -0.082123882706995027
+		 4 -0.082123882706995027 6 -0.082123882706995027 8 -0.082123882706995027 10 -0.082123882706995027
+		 24 -0.082123882706995027;
+createNode animCurveTL -n "whiplash_left_ring1_translateX";
+	rename -uid "62358072-7042-4EAA-8700-439C724EC30C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.21316013026918265 2 0.21316013026918265
+		 4 0.21316013026918265 6 0.21316013026918265 8 0.21316013026918265 10 0.21316013026918265
+		 24 0.21316013026918265;
+createNode animCurveTU -n "whiplash_left_ring_scaleZ";
+	rename -uid "0C09E517-EB49-9ADC-B456-899E913891A7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_ring_scaleY";
+	rename -uid "F12795D2-8640-26BC-98EB-B5A0DB6EA029";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_ring_scaleX";
+	rename -uid "CA1DA0D7-7344-9FC6-54E6-7086D896D18A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_ring_rotateZ";
+	rename -uid "55C44924-B14C-2004-4A4F-A9B128117884";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -52.082740323391583 2 -52.082740323391583
+		 4 -52.082740323391583 6 -52.082740323391583 8 -52.082740323391583 10 -52.082740323391583
+		 24 -52.082740323391583;
+createNode animCurveTA -n "whiplash_left_ring_rotateY";
+	rename -uid "A67C2174-B048-28DD-EABE-50A30BF14727";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_ring_rotateX";
+	rename -uid "F1C2C9B2-5A46-FE8E-65C4-A988FB7A45CC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_ring_translateZ";
+	rename -uid "D9C40BE8-F747-FCA3-89C9-83897E2AAC50";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.13404097533899861 2 -0.13404097533899861
+		 4 -0.13404097533899861 6 -0.13404097533899861 8 -0.13404097533899861 10 -0.13404097533899861
+		 24 -0.13404097533899861;
+createNode animCurveTL -n "whiplash_left_ring_translateY";
+	rename -uid "7CF31236-A74F-7F5D-6B90-9AB3AFABF1B9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.20865374197978293 2 -0.20865374197978293
+		 4 -0.20865374197978293 6 -0.20865374197978293 8 -0.20865374197978293 10 -0.20865374197978293
+		 24 -0.20865374197978293;
+createNode animCurveTL -n "whiplash_left_ring_translateX";
+	rename -uid "4E55248B-5548-7D4A-1F84-D28E53658523";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.54882617001757095 2 0.54882617001757095
+		 4 0.54882617001757095 6 0.54882617001757095 8 0.54882617001757095 10 0.54882617001757095
+		 24 0.54882617001757095;
+createNode animCurveTU -n "whiplash_left_pinky2_scaleZ";
+	rename -uid "2C8445FB-C64C-D3C5-B164-CCBD224F8161";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_pinky2_scaleY";
+	rename -uid "9D46810C-C340-43FC-FED7-7B8F5F760741";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_pinky2_scaleX";
+	rename -uid "C854DFC7-BF49-480A-3643-04910DF5861C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_pinky2_rotateZ";
+	rename -uid "4D35CEFB-D143-0455-1350-C3B29B635913";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -11.507329033004888 2 -11.507329033004888
+		 4 -11.507329033004888 6 -11.507329033004888 8 -11.507329033004888 10 -11.507329033004888
+		 24 -11.507329033004888;
+createNode animCurveTA -n "whiplash_left_pinky2_rotateY";
+	rename -uid "FD6D3F85-6C4C-2B89-3D6E-769AD2600F72";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_pinky2_rotateX";
+	rename -uid "D33B1716-0A4C-82BD-E055-2E8800B7E256";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_pinky2_translateZ";
+	rename -uid "AF09D7BD-A143-47B8-B8AF-1886DF407370";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.015911102095210492 2 -0.015911102095210492
+		 4 -0.015911102095210492 6 -0.015911102095210492 8 -0.015911102095210492 10 -0.015911102095210492
+		 24 -0.015911102095210492;
+createNode animCurveTL -n "whiplash_left_pinky2_translateY";
+	rename -uid "808CC3C7-F142-DCAA-1C2E-0C904955AC11";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.060295114496366091 2 -0.060295114496366091
+		 4 -0.060295114496366091 6 -0.060295114496366091 8 -0.060295114496366091 10 -0.060295114496366091
+		 24 -0.060295114496366091;
+createNode animCurveTL -n "whiplash_left_pinky2_translateX";
+	rename -uid "E50A7307-DB43-D3E3-BE4F-11A8FFDD99D6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.1116096523853253 2 0.1116096523853253
+		 4 0.1116096523853253 6 0.1116096523853253 8 0.1116096523853253 10 0.1116096523853253
+		 24 0.1116096523853253;
+createNode animCurveTU -n "whiplash_left_pinky1_scaleZ";
+	rename -uid "B26CE5FE-6746-BF05-3DAC-BC9B025FF7A8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_pinky1_scaleY";
+	rename -uid "158F464A-5341-6494-2EB2-ADBEED76D0C0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_pinky1_scaleX";
+	rename -uid "E1FCCA00-034F-D937-E8E0-6CA5721DC170";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_pinky1_rotateZ";
+	rename -uid "CBA4FA4A-0B40-11CC-EEE2-689BE35C727C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -22.702391569197744 2 -22.702391569197744
+		 4 -22.702391569197744 6 -22.702391569197744 8 -22.702391569197744 10 -22.702391569197744
+		 24 -22.702391569197744;
+createNode animCurveTA -n "whiplash_left_pinky1_rotateY";
+	rename -uid "174DD233-2D4C-1A5D-18BF-5C8C69E6385C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_pinky1_rotateX";
+	rename -uid "48892B93-D541-788D-1976-A98E28F1E1FF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_pinky1_translateZ";
+	rename -uid "82EDE3C2-BA4D-9DD9-E201-5BAC111ED51C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.030341522480198967 2 -0.030341522480198967
+		 4 -0.030341522480198967 6 -0.030341522480198967 8 -0.030341522480198967 10 -0.030341522480198967
+		 24 -0.030341522480198967;
+createNode animCurveTL -n "whiplash_left_pinky1_translateY";
+	rename -uid "87C0238A-5140-6A16-3518-D4BE424EBA95";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.082265469206657046 2 -0.082265469206657046
+		 4 -0.082265469206657046 6 -0.082265469206657046 8 -0.082265469206657046 10 -0.082265469206657046
+		 24 -0.082265469206657046;
+createNode animCurveTL -n "whiplash_left_pinky1_translateX";
+	rename -uid "AE950032-9749-B0C9-31E6-918B3FA44B7D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.17197463698318005 2 0.17197463698318005
+		 4 0.17197463698318005 6 0.17197463698318005 8 0.17197463698318005 10 0.17197463698318005
+		 24 0.17197463698318005;
+createNode animCurveTU -n "whiplash_left_pinky_scaleZ";
+	rename -uid "1FDDD87C-F442-D630-2AC7-2BAD1EFA5EB6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_pinky_scaleY";
+	rename -uid "DA55F0D1-0C45-9EE5-E031-0ABF54D56041";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_pinky_scaleX";
+	rename -uid "F091ECED-4545-3241-DC98-86B594F6A23B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_pinky_rotateZ";
+	rename -uid "9969023A-6D4E-4FF5-3739-D29F99E5FAEB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -38.920630561961097 2 -38.920630561961097
+		 4 -38.920630561961097 6 -38.920630561961097 8 -38.920630561961097 10 -38.920630561961097
+		 24 -38.920630561961097;
+createNode animCurveTA -n "whiplash_left_pinky_rotateY";
+	rename -uid "479AFD47-6144-4528-9EF7-2590CBA11AAE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -8.1719704318629969 2 -8.1719704318629969
+		 4 -8.1719704318629969 6 -8.1719704318629969 8 -8.1719704318629969 10 -8.1719704318629969
+		 24 -8.1719704318629969;
+createNode animCurveTA -n "whiplash_left_pinky_rotateX";
+	rename -uid "56383661-EB46-C7EA-4E1E-EA81D195AC2F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1.0228056576713942 2 1.0228056576713942
+		 4 1.0228056576713942 6 1.0228056576713942 8 1.0228056576713942 10 1.0228056576713942
+		 24 1.0228056576713942;
+createNode animCurveTL -n "whiplash_left_pinky_translateZ";
+	rename -uid "8BD489AC-D840-BD91-2BAB-9196928A2288";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.27323737280641991 2 -0.27323737280641991
+		 4 -0.27323737280641991 6 -0.27323737280641991 8 -0.27323737280641991 10 -0.27323737280641991
+		 24 -0.27323737280641991;
+createNode animCurveTL -n "whiplash_left_pinky_translateY";
+	rename -uid "5A3FF8BD-9447-3742-89B3-149F53308082";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.20865374197978293 2 -0.20865374197978293
+		 4 -0.20865374197978293 6 -0.20865374197978293 8 -0.20865374197978293 10 -0.20865374197978293
+		 24 -0.20865374197978293;
+createNode animCurveTL -n "whiplash_left_pinky_translateX";
+	rename -uid "5F9A58C8-C44D-F372-3B02-56BD696739AA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.52047134831124398 2 0.52047134831124398
+		 4 0.52047134831124398 6 0.52047134831124398 8 0.52047134831124398 10 0.52047134831124398
+		 24 0.52047134831124398;
+createNode animCurveTU -n "whiplash_left_wrist_scaleZ";
+	rename -uid "0434FE0C-894D-30BB-CDA3-C1BACE08EA11";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_wrist_scaleY";
+	rename -uid "CABAA954-D349-88C3-1C13-539AB70DEB8E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_wrist_scaleX";
+	rename -uid "02E2A3A3-1240-DBFD-0A71-6FB76B361026";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_wrist_rotateZ";
+	rename -uid "098CD597-384B-C632-2E16-3B88FADC7950";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -20.090730726954391 2 -20.090730726954391
+		 4 -20.090730726954391 6 -20.090730726954391 8 -20.090730726954391 10 -20.090730726954391
+		 24 -20.090730726954391;
+createNode animCurveTA -n "whiplash_left_wrist_rotateY";
+	rename -uid "00E330D2-8448-DEC6-6914-3086356BECB6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_wrist_rotateX";
+	rename -uid "DCCCCC67-A94A-A30A-4BB6-BA85E602DB30";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_wrist_translateZ";
+	rename -uid "4D0ABC94-324D-6730-D94A-249EE5B2A284";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_wrist_translateY";
+	rename -uid "312BBD17-AE43-5D89-9952-3A9F19CAE4E6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.50030762991696953 2 -0.50030762991696953
+		 4 -0.50030762991696953 6 -0.50030762991696953 8 -0.50030762991696953 10 -0.50030762991696953
+		 24 -0.50030762991696953;
+createNode animCurveTL -n "whiplash_left_wrist_translateX";
+	rename -uid "3F4114C7-F94F-3712-C765-80BBF54FD42D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1.1733194812943935 2 1.1733194812943935
+		 4 1.1733194812943935 6 1.1733194812943935 8 1.1733194812943935 10 1.1733194812943935
+		 24 1.1733194812943935;
+createNode animCurveTU -n "whiplash_left_elbow_scaleZ";
+	rename -uid "C95CC130-0144-03AE-8D0A-0CBE7CFCF9E5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_elbow_scaleY";
+	rename -uid "9841E456-DB4B-0B2E-669B-1F8DFA89F862";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_elbow_scaleX";
+	rename -uid "2184B9D6-0F40-20C9-0EBC-C69481428845";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_elbow_rotateZ";
+	rename -uid "A09E284C-304E-59D3-B80C-2B87A32024CF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_elbow_rotateY";
+	rename -uid "09C939FE-AE45-3053-D0F8-C1A99A374817";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -31.413350432296504 2 -31.413350432296504
+		 4 -31.413350432296504 6 -31.413350432296504 8 -31.413350432296504 10 -31.413350432296504
+		 24 -31.413350432296504;
+createNode animCurveTA -n "whiplash_left_elbow_rotateX";
+	rename -uid "22AF1100-9B4D-9355-8C17-91B78DBB2A5E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_elbow_translateZ";
+	rename -uid "347F8951-774B-578A-4B57-F2A3CE935188";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.00463689827932523 2 0.00463689827932523
+		 4 0.00463689827932523 6 0.00463689827932523 8 0.00463689827932523 10 0.00463689827932523
+		 24 0.00463689827932523;
+createNode animCurveTL -n "whiplash_left_elbow_translateY";
+	rename -uid "4FB85F7D-C147-077F-6673-FC82E4FB3005";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.54697585918784553 2 -0.54697585918784553
+		 4 -0.54697585918784553 6 -0.54697585918784553 8 -0.54697585918784553 10 -0.54697585918784553
+		 24 -0.54697585918784553;
+createNode animCurveTL -n "whiplash_left_elbow_translateX";
+	rename -uid "68959893-6F4D-B148-0224-419F6458A125";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1.1486493042944748 2 1.1486493042944748
+		 4 1.1486493042944748 6 1.1486493042944748 8 1.1486493042944748 10 1.1486493042944748
+		 24 1.1486493042944748;
+createNode animCurveTU -n "whiplash_left_shoulder_scaleZ";
+	rename -uid "A7A4F824-3841-839F-E454-71B17EBAE3DA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_shoulder_scaleY";
+	rename -uid "5A737D7E-A646-CBA3-1A63-2C9A8E057831";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_shoulder_scaleX";
+	rename -uid "B66FFD63-CD45-EDF2-1367-D390267C28CA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_shoulder_rotateZ";
+	rename -uid "E47BEB67-2A45-F55F-8873-0CABE6965A15";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -37.611728591937336 2 -37.611728591937336
+		 4 -37.611728591937336 6 -37.611728591937336 8 -37.611728591937336 10 -37.611728591937336
+		 24 -37.611728591937336;
+createNode animCurveTA -n "whiplash_left_shoulder_rotateY";
+	rename -uid "8AD3F0D1-DD49-F1FD-E879-91A546E3B112";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 32.794904385565914 2 32.794904385565914
+		 4 32.794904385565914 6 32.794904385565914 8 32.794904385565914 10 32.794904385565914
+		 24 32.794904385565914;
+createNode animCurveTA -n "whiplash_left_shoulder_rotateX";
+	rename -uid "A5A9244C-8D49-AC62-BEDA-389BB4B572B7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -1.8918027424744665e-15 2 -1.8918027424744665e-15
+		 4 -1.8918027424744665e-15 6 -1.8918027424744665e-15 8 -1.8918027424744665e-15 10 -1.8918027424744665e-15
+		 24 -1.8918027424744665e-15;
+createNode animCurveTL -n "whiplash_left_shoulder_translateZ";
+	rename -uid "7ACCF70F-B647-1CAF-B0E2-A8B21027CEBF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.037095186234602284 2 0.037095186234602284
+		 4 0.037095186234602284 6 0.037095186234602284 8 0.037095186234602284 10 0.037095186234602284
+		 24 0.037095186234602284;
+createNode animCurveTL -n "whiplash_left_shoulder_translateY";
+	rename -uid "3016E079-FF48-97FD-B2BA-C590A9F9FC57";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.29692975213054495 2 -0.29692975213054495
+		 4 -0.29692975213054495 6 -0.29692975213054495 8 -0.29692975213054495 10 -0.29692975213054495
+		 24 -0.29692975213054495;
+createNode animCurveTL -n "whiplash_left_shoulder_translateX";
+	rename -uid "64802B9C-8D46-0240-6F46-F5B7BB660E8E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.96502169442426888 2 0.96502169442426888
+		 4 0.96502169442426888 6 0.96502169442426888 8 0.96502169442426888 10 0.96502169442426888
+		 24 0.96502169442426888;
+createNode animCurveTU -n "whiplash_left_eyebrow_scaleZ";
+	rename -uid "27BC091B-194B-5669-1C96-84939CDA6283";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_eyebrow_scaleY";
+	rename -uid "16169588-344B-AC3F-CE2A-CC9AEDA3404C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_eyebrow_scaleX";
+	rename -uid "207D15B8-CB4A-8621-06C0-A7A506DCAB45";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_eyebrow_rotateZ";
+	rename -uid "CF39E267-1847-8B28-911C-24BB04C4C60A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_eyebrow_rotateY";
+	rename -uid "07CD7033-C64B-320C-D21D-D288DFE96754";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_left_eyebrow_rotateX";
+	rename -uid "13A467C4-EA49-D5A3-E832-F6A3903166BA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_eyebrow_translateZ";
+	rename -uid "E5C85D44-634D-73FC-D928-BDBAE11725E6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1.0620487816273871 2 1.0620487816273871
+		 4 1.0620487816273871 6 1.0620487816273871 8 1.0620487816273871 10 1.0620487816273871
+		 24 1.0620487816273871;
+createNode animCurveTL -n "whiplash_left_eyebrow_translateY";
+	rename -uid "FCDE9274-B448-76B9-8797-7798CD90454C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.30482501115881355 2 0.30482501115881355
+		 4 0.30482501115881355 6 0.30482501115881355 8 0.30482501115881355 10 0.30482501115881355
+		 24 0.30482501115881355;
+createNode animCurveTL -n "whiplash_left_eyebrow_translateX";
+	rename -uid "5CDAB11C-BE40-5B65-82FE-1DBC1953091E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.48772001785410168 2 0.48772001785410168
+		 4 0.48772001785410168 6 0.48772001785410168 8 0.48772001785410168 10 0.48772001785410168
+		 24 0.48772001785410168;
+createNode animCurveTU -n "whiplash_right_eyebrow_scaleZ";
+	rename -uid "FAB20EB1-DB42-7AD0-80D8-A4979C2901DD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_eyebrow_scaleY";
+	rename -uid "CC45B719-094F-1936-DAF0-1396FE3C90E4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_eyebrow_scaleX";
+	rename -uid "FBF61FD5-4545-E250-7400-3B97BEFB12C8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_eyebrow_rotateZ";
+	rename -uid "C00D3E86-8240-5C51-63CF-EE9A88C38F61";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_right_eyebrow_rotateY";
+	rename -uid "52112A80-B94F-776F-C8DE-AAB096CD41B4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_right_eyebrow_rotateX";
+	rename -uid "A4BF0DC0-D645-057A-B8D2-FBAD22D6BF88";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_right_eyebrow_translateZ";
+	rename -uid "4D636762-7B4A-C254-C2CE-31A66DDE9D3B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1.0620487816273871 2 1.0620487816273871
+		 4 1.0620487816273871 6 1.0620487816273871 8 1.0620487816273871 10 1.0620487816273871
+		 24 1.0620487816273871;
+createNode animCurveTL -n "whiplash_right_eyebrow_translateY";
+	rename -uid "6159C982-394F-D02D-BF31-82B9248DACA4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.30482501115881355 2 0.30482501115881355
+		 4 0.30482501115881355 6 0.30482501115881355 8 0.30482501115881355 10 0.30482501115881355
+		 24 0.30482501115881355;
+createNode animCurveTL -n "whiplash_right_eyebrow_translateX";
+	rename -uid "E069DA9B-114E-F394-E4E6-F28522419713";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.48690037256883834 2 -0.48690037256883834
+		 4 -0.48690037256883834 6 -0.48690037256883834 8 -0.48690037256883834 10 -0.48690037256883834
+		 24 -0.48690037256883834;
+createNode animCurveTU -n "whiplash_head_scaleZ";
+	rename -uid "16A49BF3-1649-CA04-76BC-B8AAF0F4715B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_head_scaleY";
+	rename -uid "7C23E17B-3A4A-10BA-08DF-67AC5B7D47AD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_head_scaleX";
+	rename -uid "205AD5A5-9F4E-C1DB-6848-48BE7A5A95A2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_head_rotateZ";
+	rename -uid "9B08FEA8-C340-ED13-D7A1-FAB2567510D5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_head_rotateY";
+	rename -uid "DE863FE1-4146-EE41-DA9B-27836279094C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_head_rotateX";
+	rename -uid "030688E9-4742-5AB1-9047-FB945B158129";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 11.484145566373682 2 11.484145566373682
+		 4 11.484145566373682 6 11.484145566373682 8 11.484145566373682 10 11.484145566373682
+		 24 11.484145566373682;
+createNode animCurveTL -n "whiplash_head_translateZ";
+	rename -uid "BB8963EC-FA4B-3205-8F8C-D3A2689C0D1F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_head_translateY";
+	rename -uid "687B6206-4746-AFCA-CCC3-40A4C35E37FA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1.0385488557663756 2 1.0385488557663756
+		 4 1.0385488557663756 6 1.0385488557663756 8 1.0385488557663756 10 1.0385488557663756
+		 24 1.0385488557663756;
+createNode animCurveTL -n "whiplash_head_translateX";
+	rename -uid "56C57F27-A54F-32A4-5F23-ECACFB2DF1B7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTU -n "whiplash_neck_head_connection_scaleZ";
+	rename -uid "7A837880-FE49-BEA6-7EC7-BDBD64750E33";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_neck_head_connection_scaleY";
+	rename -uid "FA7213C2-8B45-15AE-B8E8-CE93EB84BF6C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_neck_head_connection_scaleX";
+	rename -uid "A38DAD12-B04D-7275-87ED-18B26655A0E5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_neck_head_connection_rotateZ";
+	rename -uid "EA052759-D842-49FC-9E30-F0BCA09BF4EB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1.0947155578370753 2 1.0947155578370753
+		 4 1.0947155578370753 6 1.0947155578370753 8 1.0947155578370753 10 1.0947155578370753
+		 24 1.0947155578370753;
+createNode animCurveTA -n "whiplash_neck_head_connection_rotateY";
+	rename -uid "72CF89FF-C74F-3A03-1BEB-938A06D73DB3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -10.257449453569139 2 -10.257449453569139
+		 4 -10.257449453569139 6 -10.257449453569139 8 -10.257449453569139 10 -10.257449453569139
+		 24 -10.257449453569139;
+createNode animCurveTA -n "whiplash_neck_head_connection_rotateX";
+	rename -uid "AD731776-BA45-A153-C350-37A0F4ED9985";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -6.1249283292161127 2 -6.1249283292161127
+		 4 -6.1249283292161127 6 -6.1249283292161127 8 -6.1249283292161127 10 -6.1249283292161127
+		 24 -6.1249283292161127;
+createNode animCurveTL -n "whiplash_neck_head_connection_translateZ";
+	rename -uid "C8506B01-BD44-2B1D-6949-53B6ED7174A2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_neck_head_connection_translateY";
+	rename -uid "D0935D5B-1D4D-3466-7C55-4680511DC14C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.50985647560937775 2 0.50985647560937775
+		 4 0.50985647560937775 6 0.50985647560937775 8 0.50985647560937775 10 0.50985647560937775
+		 24 0.50985647560937775;
+createNode animCurveTL -n "whiplash_neck_head_connection_translateX";
+	rename -uid "FECECA84-4146-50E7-AA4F-31BA4830CE3C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTU -n "whiplash_neck_body_connection_scaleZ";
+	rename -uid "64176705-E949-3B33-A32D-4982249A2845";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_neck_body_connection_scaleY";
+	rename -uid "438F291B-5C4B-E3F7-8D24-8E9392B8D557";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_neck_body_connection_scaleX";
+	rename -uid "ECFB037B-3F45-9173-B0A7-D68235285535";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_neck_body_connection_rotateZ";
+	rename -uid "E042755B-E643-5CD3-FBCB-8F899C9047EB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_neck_body_connection_rotateY";
+	rename -uid "AB44C938-7B41-E61A-127F-2487367208C7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_neck_body_connection_rotateX";
+	rename -uid "B4B94DFB-C748-0414-5988-798793ABCA7E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_neck_body_connection_translateZ";
+	rename -uid "B6FCDAF1-C148-D2E9-2DAE-78B6733DC1CF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.060279677631229323 2 -0.060279677631229323
+		 4 -0.060279677631229323 6 -0.060279677631229323 8 -0.060279677631229323 10 -0.060279677631229323
+		 24 -0.060279677631229323;
+createNode animCurveTL -n "whiplash_neck_body_connection_translateY";
+	rename -uid "60AECB44-F446-6155-1B76-CB9FF3099286";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.955233235585629 2 0.955233235585629
+		 4 0.955233235585629 6 0.955233235585629 8 0.955233235585629 10 0.955233235585629
+		 24 0.955233235585629;
+createNode animCurveTL -n "whiplash_neck_body_connection_translateX";
+	rename -uid "C605D83F-C048-F931-DA4A-82B4CB014FB8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTU -n "whiplash_mid_body_scaleZ";
+	rename -uid "51D9A2F6-2C4F-DA16-EBBA-6D9567323186";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_mid_body_scaleY";
+	rename -uid "31D4637E-F24B-8C56-EBFB-789177B6E75D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_mid_body_scaleX";
+	rename -uid "24E4BBCF-BC40-A416-22BA-B18BCBAC2D17";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_mid_body_rotateZ";
+	rename -uid "9BF1AED4-AD42-5059-1B90-F8BA01D8FBC6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_mid_body_rotateY";
+	rename -uid "FEB45233-554D-E8A1-4C69-7A9502E1D83B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_mid_body_rotateX";
+	rename -uid "D8F43B29-A140-5C4F-2C73-86B9EA9A06DE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 10.363436138108414 2 10.363436138108414
+		 4 10.363436138108414 6 10.363436138108414 8 10.363436138108414 10 10.363436138108414
+		 24 10.363436138108414;
+createNode animCurveTL -n "whiplash_mid_body_translateZ";
+	rename -uid "70107D16-0746-8ED7-7FF3-57BC6C87B4EB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_mid_body_translateY";
+	rename -uid "ED8664C0-8F44-9D5D-CAB9-779DA75A7E24";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.87828093259909323 2 0.87828093259909323
+		 4 0.87828093259909323 6 0.87828093259909323 8 0.87828093259909323 10 0.87828093259909323
+		 24 0.87828093259909323;
+createNode animCurveTL -n "whiplash_mid_body_translateX";
+	rename -uid "9BDD2B85-4346-2E30-4BD4-C5B6E22BEF7D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.0031369446746469798 2 -0.0031369446746469798
+		 4 -0.0031369446746469798 6 -0.0031369446746469798 8 -0.0031369446746469798 10 -0.0031369446746469798
+		 24 -0.0031369446746469798;
+createNode animCurveTU -n "whiplash_right_ancle_scaleZ";
+	rename -uid "667DB3E1-1C4B-502E-C836-47A066C89B42";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_ancle_scaleY";
+	rename -uid "01303D78-464A-1022-EAD5-7D9938CF83FD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_ancle_scaleX";
+	rename -uid "5F98C3E2-504D-47D5-FDE2-04A22CD25E49";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_ancle_rotateZ";
+	rename -uid "A75BBA33-F549-07D0-90B9-4E9BBC2CEFB0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -2.0334139924335944e-16 2 -2.0334139924335944e-16
+		 4 -2.0334139924335944e-16 6 -2.0334139924335944e-16 8 -2.0334139924335944e-16 10 -2.0334139924335944e-16
+		 24 -2.0334139924335944e-16;
+createNode animCurveTA -n "whiplash_right_ancle_rotateY";
+	rename -uid "C39B888F-AB47-0F25-6ABE-40B9BA808860";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -12.15250544238784 2 -12.15250544238784
+		 4 -12.15250544238784 6 -12.15250544238784 8 -12.15250544238784 10 -12.15250544238784
+		 24 -12.15250544238784;
+createNode animCurveTA -n "whiplash_right_ancle_rotateX";
+	rename -uid "A1F86260-6B4B-AE46-2EB1-8EB8E6A7E52D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -12.482415969177694 2 -12.482415969177694
+		 4 -12.482415969177694 6 -12.482415969177694 8 -12.482415969177694 10 -12.482415969177694
+		 24 -12.482415969177694;
+createNode animCurveTL -n "whiplash_right_ancle_translateZ";
+	rename -uid "89B721E3-934B-163C-6A4B-1998E00695F1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_right_ancle_translateY";
+	rename -uid "6913DAA2-3543-AB0D-694B-FB91290C7F10";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.76657571374186095 2 -0.76657571374186095
+		 4 -0.76657571374186095 6 -0.76657571374186095 8 -0.76657571374186095 10 -0.76657571374186095
+		 24 -0.76657571374186095;
+createNode animCurveTL -n "whiplash_right_ancle_translateX";
+	rename -uid "D80EA437-7E4B-C2F2-2572-75BEFC2D8782";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTU -n "whiplash_right_knee_scaleZ";
+	rename -uid "F2981D30-A34B-4EBB-73AE-6F92CC70A1C4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_knee_scaleY";
+	rename -uid "BC67BA32-8C42-4B4D-EDFB-7998011FA185";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_right_knee_scaleX";
+	rename -uid "94D52D75-F447-0844-ACE5-8EA2416E5B43";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_right_knee_rotateZ";
+	rename -uid "EEE5C34C-BA4C-AAA2-A20E-1794D109FB80";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 7.318870388764692 2 7.318870388764692
+		 4 7.318870388764692 6 7.318870388764692 8 7.318870388764692 10 7.318870388764692
+		 24 7.318870388764692;
+createNode animCurveTA -n "whiplash_right_knee_rotateY";
+	rename -uid "37E8136A-2343-2F16-6C54-2DAD321BF1AC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -1.7214726220330401 2 -1.7214726220330401
+		 4 -1.7214726220330401 6 -1.7214726220330401 8 -1.7214726220330401 10 -1.7214726220330401
+		 24 -1.7214726220330401;
+createNode animCurveTA -n "whiplash_right_knee_rotateX";
+	rename -uid "2F7CCA49-0249-9D68-7D20-61AB7B17BFA7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 13.1644972474677 2 13.1644972474677 4 13.1644972474677
+		 6 13.1644972474677 8 13.1644972474677 10 13.1644972474677 24 13.1644972474677;
+createNode animCurveTL -n "whiplash_right_knee_translateZ";
+	rename -uid "B9279FE9-A248-8F23-3FA9-888696833B00";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_right_knee_translateY";
+	rename -uid "0101F08A-BD49-8B7F-5665-2AA5E8829438";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.88035496756316256 2 -0.88035496756316256
+		 4 -0.88035496756316256 6 -0.88035496756316256 8 -0.88035496756316256 10 -0.88035496756316256
+		 24 -0.88035496756316256;
+createNode animCurveTL -n "whiplash_right_knee_translateX";
+	rename -uid "D930513C-6348-35D8-7066-FCBFAE0CEA98";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.0063143462930259631 2 -0.0063143462930259631
+		 4 -0.0063143462930259631 6 -0.0063143462930259631 8 -0.0063143462930259631 10 -0.0063143462930259631
+		 24 -0.0063143462930259631;
+createNode animCurveTU -n "whiplash_hip_right_leg_scaleZ";
+	rename -uid "7CA410B6-4141-AB50-33FA-9EB8B734BB7F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_hip_right_leg_scaleY";
+	rename -uid "CF822D18-6E48-08CD-5962-5782632A88B3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_hip_right_leg_scaleX";
+	rename -uid "41A3AA3A-8041-A7A4-93E1-D1AC6AA6B2C2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_hip_right_leg_rotateZ";
+	rename -uid "CE400AF9-0D43-97B3-8636-BBB302D2FF89";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -5.3291115178460284 2 -5.3291115178460284
+		 4 -5.3291115178460284 6 -5.3291115178460284 8 -5.3291115178460284 10 -5.3291115178460284
+		 24 -5.3291115178460284;
+createNode animCurveTA -n "whiplash_hip_right_leg_rotateY";
+	rename -uid "AF61230B-BC47-C575-AB52-8B94F9CBC489";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_hip_right_leg_rotateX";
+	rename -uid "103B8CDA-7D42-4B33-5416-139EC9818EA3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 3.41172261520527 2 3.41172261520527 4 3.41172261520527
+		 6 3.41172261520527 8 3.41172261520527 10 3.41172261520527 24 3.41172261520527;
+createNode animCurveTL -n "whiplash_hip_right_leg_translateZ";
+	rename -uid "BAE104E3-5845-2878-D74E-9D83EEB69672";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_hip_right_leg_translateY";
+	rename -uid "93028AB5-EF44-0F62-C0EB-62934FC12444";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.20785684493105672 2 -0.20785684493105672
+		 4 -0.20785684493105672 6 -0.20785684493105672 8 -0.20785684493105672 10 -0.20785684493105672
+		 24 -0.20785684493105672;
+createNode animCurveTL -n "whiplash_hip_right_leg_translateX";
+	rename -uid "3D02CEC6-2C4F-613B-6567-288D4D51AB79";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.46565904911406042 2 -0.46565904911406042
+		 4 -0.46565904911406042 6 -0.46565904911406042 8 -0.46565904911406042 10 -0.46565904911406042
+		 24 -0.46565904911406042;
+createNode animCurveTU -n "whiplash_left_ancle_scaleZ";
+	rename -uid "88F88ED6-F14A-39C0-5B25-B09DB2C33AED";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_ancle_scaleY";
+	rename -uid "24614FF6-6647-6F14-9E11-CA806941ADB9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_ancle_scaleX";
+	rename -uid "22761B7D-3945-8485-756B-04BD4B1B4AEB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_ancle_rotateZ";
+	rename -uid "1A112DE9-4E4B-C3E8-6C7E-E3B79FBD4463";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -2.0167302820156539e-16 2 -2.0167302820156539e-16
+		 4 -2.0167302820156539e-16 6 -2.0167302820156539e-16 8 -2.0167302820156539e-16 10 -2.0167302820156539e-16
+		 24 -2.0167302820156539e-16;
+createNode animCurveTA -n "whiplash_left_ancle_rotateY";
+	rename -uid "2C6AD2C0-004A-6993-66E8-CBA82D852843";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 9.7086562415300914 2 9.7086562415300914
+		 4 9.7086562415300914 6 9.7086562415300914 8 9.7086562415300914 10 9.7086562415300914
+		 24 9.7086562415300914;
+createNode animCurveTA -n "whiplash_left_ancle_rotateX";
+	rename -uid "9B5D8905-7048-76FD-6938-CBA655B484B1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -12.482415969177698 2 -12.482415969177698
+		 4 -12.482415969177698 6 -12.482415969177698 8 -12.482415969177698 10 -12.482415969177698
+		 24 -12.482415969177698;
+createNode animCurveTL -n "whiplash_left_ancle_translateZ";
+	rename -uid "11A238CD-0844-3355-02A5-20B9FC365F8F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_ancle_translateY";
+	rename -uid "83896DA2-3C4C-0B91-C1C3-938A162F3780";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.76657571374186095 2 -0.76657571374186095
+		 4 -0.76657571374186095 6 -0.76657571374186095 8 -0.76657571374186095 10 -0.76657571374186095
+		 24 -0.76657571374186095;
+createNode animCurveTL -n "whiplash_left_ancle_translateX";
+	rename -uid "B681F1FF-6C4C-668D-674D-DD85548B9DC7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTU -n "whiplash_left_knee_scaleZ";
+	rename -uid "B43EEE38-BC4F-9240-8469-48B59F1D6B3B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_knee_scaleY";
+	rename -uid "6B74D806-3A4A-1BB1-30BE-BCAC2385B065";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_left_knee_scaleX";
+	rename -uid "657927E7-2649-750F-EA55-B59CAB75AFBA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_left_knee_rotateZ";
+	rename -uid "F66294F7-AD4D-7C8B-BF23-028B5ADBF225";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -6.07149068926525 2 -6.07149068926525
+		 4 -6.07149068926525 6 -6.07149068926525 8 -6.07149068926525 10 -6.07149068926525
+		 24 -6.07149068926525;
+createNode animCurveTA -n "whiplash_left_knee_rotateY";
+	rename -uid "1EC54098-114D-B6E9-0131-D692EB0414C1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1.4294224891899385 2 1.4294224891899385
+		 4 1.4294224891899385 6 1.4294224891899385 8 1.4294224891899385 10 1.4294224891899385
+		 24 1.4294224891899385;
+createNode animCurveTA -n "whiplash_left_knee_rotateX";
+	rename -uid "200B288D-5443-2FE6-91F1-65AC28E50D48";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 13.198793274600197 2 13.198793274600197
+		 4 13.198793274600197 6 13.198793274600197 8 13.198793274600197 10 13.198793274600197
+		 24 13.198793274600197;
+createNode animCurveTL -n "whiplash_left_knee_translateZ";
+	rename -uid "6D726E95-6B4A-77B0-CB9D-17B3E694B572";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_left_knee_translateY";
+	rename -uid "00A8B281-1C48-0352-2B65-AAA1DC1B64B0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.88035496756316256 2 -0.88035496756316256
+		 4 -0.88035496756316256 6 -0.88035496756316256 8 -0.88035496756316256 10 -0.88035496756316256
+		 24 -0.88035496756316256;
+createNode animCurveTL -n "whiplash_left_knee_translateX";
+	rename -uid "FFB3DF75-BE45-1E91-1550-AB9312CD10F8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.0078139408455411008 2 0.0078139408455411008
+		 4 0.0078139408455411008 6 0.0078139408455411008 8 0.0078139408455411008 10 0.0078139408455411008
+		 24 0.0078139408455411008;
+createNode animCurveTU -n "whiplash_hip_left_leg_scaleZ";
+	rename -uid "251BAB5F-F942-7E35-9345-0898147B7D01";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_hip_left_leg_scaleY";
+	rename -uid "D1990220-C644-BF77-0610-58A08B7B2726";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_hip_left_leg_scaleX";
+	rename -uid "89519727-F341-1DDB-25C6-DD90F8A0A311";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_hip_left_leg_rotateZ";
+	rename -uid "1A81CF94-FD40-B04B-0F3E-64AED00A70DF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 4.4438603001868389 2 4.4438603001868389
+		 4 4.4438603001868389 6 4.4438603001868389 8 4.4438603001868389 10 4.4438603001868389
+		 24 4.4438603001868389;
+createNode animCurveTA -n "whiplash_hip_left_leg_rotateY";
+	rename -uid "42EB09ED-2D41-5CF3-5956-92A794C70770";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 2.4848083448933719e-17 2 2.4848083448933719e-17
+		 4 2.4848083448933719e-17 6 2.4848083448933719e-17 8 2.4848083448933719e-17 10 2.4848083448933719e-17
+		 24 2.4848083448933719e-17;
+createNode animCurveTA -n "whiplash_hip_left_leg_rotateX";
+	rename -uid "9D77CA0B-344C-6BC7-D1A5-A589163FE8D1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 3.4117226152052669 2 3.4117226152052669
+		 4 3.4117226152052669 6 3.4117226152052669 8 3.4117226152052669 10 3.4117226152052669
+		 24 3.4117226152052669;
+createNode animCurveTL -n "whiplash_hip_left_leg_translateZ";
+	rename -uid "B7DBC849-594D-2564-98C9-579DB0DD89B5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_hip_left_leg_translateY";
+	rename -uid "72936DC8-DF4A-2A82-6FFA-9BA5A67B0BFE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.20785684493105672 2 -0.20785684493105672
+		 4 -0.20785684493105672 6 -0.20785684493105672 8 -0.20785684493105672 10 -0.20785684493105672
+		 24 -0.20785684493105672;
+createNode animCurveTL -n "whiplash_hip_left_leg_translateX";
+	rename -uid "783DDCCC-8742-1826-B1F1-7EBEFFD9A495";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.46569950605779153 2 0.46569950605779153
+		 4 0.46569950605779153 6 0.46569950605779153 8 0.46569950605779153 10 0.46569950605779153
+		 24 0.46569950605779153;
+createNode animCurveTU -n "whiplash_hip_body_scaleZ";
+	rename -uid "C2D2397A-564C-C62A-0E59-9695C8FEEBBB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_hip_body_scaleY";
+	rename -uid "08DC9B23-1845-AF79-DAA0-5D843964F739";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_hip_body_scaleX";
+	rename -uid "9BD067F9-BB4F-BE9A-3724-84895CF33687";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_hip_body_rotateZ";
+	rename -uid "045F4DEE-7145-F149-3376-169F01825097";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_hip_body_rotateY";
+	rename -uid "2C469126-4748-958E-50F7-C69C4461D72E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_hip_body_rotateX";
+	rename -uid "EE4E1740-8B47-45C2-0005-298CAB5DE208";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -4.3972762361223898 2 -4.3972762361223898
+		 4 -4.3972762361223898 6 -4.3972762361223898 8 -4.3972762361223898 10 -4.3972762361223898
+		 24 -4.3972762361223898;
+createNode animCurveTL -n "whiplash_hip_body_translateZ";
+	rename -uid "1666392E-3C42-B86A-FF7C-F7AFC4DB611A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.033610406459638309 2 -0.033610406459638309
+		 4 -0.033610406459638309 6 -0.033610406459638309 8 -0.033610406459638309 10 -0.033610406459638309
+		 24 -0.033610406459638309;
+createNode animCurveTL -n "whiplash_hip_body_translateY";
+	rename -uid "4EF9E784-5942-5301-ADC3-C4AFC399CF3B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 2.4742959040831582 2 2.4742959040831582
+		 4 2.4742959040831582 6 2.4742959040831582 8 2.4742959040831582 10 2.4742959040831582
+		 24 2.4742959040831582;
+createNode animCurveTL -n "whiplash_hip_body_translateX";
+	rename -uid "A71ECB51-FE4B-B67D-204D-E489083752D2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.003877104448288371 2 -0.003877104448288371
+		 4 -0.003877104448288371 6 -0.003877104448288371 8 -0.003877104448288371 10 -0.003877104448288371
+		 24 -0.003877104448288371;
+createNode animCurveTU -n "whiplash_root_scaleZ";
+	rename -uid "DB946F32-5546-E5BB-8A10-DBB7FDC0F1A4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_root_scaleY";
+	rename -uid "CE1C84AC-EF47-1EDC-851F-B39DE8ACAB74";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTU -n "whiplash_root_scaleX";
+	rename -uid "9B9B91C2-9144-1DCB-4477-AD989CB1426B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 1 2 1 4 1 6 1 8 1 10 1 24 1;
+createNode animCurveTA -n "whiplash_root_rotateZ";
+	rename -uid "71DF0B58-AA4A-CD6F-89D2-5E9CCAA15FCF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTA -n "whiplash_root_rotateY";
+	rename -uid "EA85FFC8-AE41-5C5E-5251-CF8B890E87E0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 19.374287681362603 4 33.933379802379413
+		 6 53.902595224612362 8 80.146038816096763 10 101.88245449759725 24 323.39601085521008;
+createNode animCurveTA -n "whiplash_root_rotateX";
+	rename -uid "BC023197-B342-1D27-E34D-BA88965A0556";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_root_translateZ";
+	rename -uid "3683AC36-F74C-4553-1EB3-B991B5BEEF73";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.014756993951775321 2 -0.014756993951775321
+		 4 -0.014756993951775321 6 -0.014756993951775321 8 -0.014756993951775321 10 -0.014756993951775321
+		 24 -0.014756993951775321;
+createNode animCurveTL -n "whiplash_root_translateY";
+	rename -uid "40BBF973-F642-1067-713A-0B808A6C2F78";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0 2 0 4 0 6 0 8 0 10 0 24 0;
+createNode animCurveTL -n "whiplash_root_translateX";
+	rename -uid "A86DD1F3-2243-08AF-F1EF-18937D31F9A2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 0.016240619780109711 2 0.016240619780109711
+		 4 0.016240619780109711 6 0.016240619780109711 8 0.016240619780109711 10 0.016240619780109711
+		 24 0.016240619780109711;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -21831,6 +25340,7 @@ select -ne :hardwareRenderGlobals;
 	setAttr -cb on ".hwdp";
 	setAttr -cb on ".hwql";
 	setAttr -k on ".hwfr";
+select -ne :characterPartition;
 select -ne :ikSystem;
 	setAttr -s 4 ".sol";
 connectAttr "no_touch.di" "pCylinder1.do";
@@ -21942,60 +25452,575 @@ connectAttr "skinCluster15Set.mwc" "pCylinderShape3.iog.og[6].gco";
 connectAttr "groupId44.id" "pCylinderShape3.iog.og[7].gid";
 connectAttr "tweakSet15.mwc" "pCylinderShape3.iog.og[7].gco";
 connectAttr "tweak15.vl[0].vt[0]" "pCylinderShape3.twl";
+connectAttr "whiplash.uv[169]" "root.sz";
+connectAttr "whiplash.uv[170]" "root.sy";
+connectAttr "whiplash.uv[171]" "root.sx";
+connectAttr "whiplash.av[169]" "root.rz";
+connectAttr "whiplash.av[170]" "root.ry";
+connectAttr "whiplash.av[171]" "root.rx";
+connectAttr "whiplash.lv[169]" "root.tz";
+connectAttr "whiplash.lv[170]" "root.ty";
+connectAttr "whiplash.lv[171]" "root.tx";
 connectAttr "root.s" "hip_body.is";
+connectAttr "whiplash.uv[166]" "hip_body.sz";
+connectAttr "whiplash.uv[167]" "hip_body.sy";
+connectAttr "whiplash.uv[168]" "hip_body.sx";
+connectAttr "whiplash.av[166]" "hip_body.rz";
+connectAttr "whiplash.av[167]" "hip_body.ry";
+connectAttr "whiplash.av[168]" "hip_body.rx";
+connectAttr "whiplash.lv[166]" "hip_body.tz";
+connectAttr "whiplash.lv[167]" "hip_body.ty";
+connectAttr "whiplash.lv[168]" "hip_body.tx";
 connectAttr "hip_body.s" "hip_left_leg.is";
+connectAttr "whiplash.uv[163]" "hip_left_leg.sz";
+connectAttr "whiplash.uv[164]" "hip_left_leg.sy";
+connectAttr "whiplash.uv[165]" "hip_left_leg.sx";
+connectAttr "whiplash.av[163]" "hip_left_leg.rz";
+connectAttr "whiplash.av[164]" "hip_left_leg.ry";
+connectAttr "whiplash.av[165]" "hip_left_leg.rx";
+connectAttr "whiplash.lv[163]" "hip_left_leg.tz";
+connectAttr "whiplash.lv[164]" "hip_left_leg.ty";
+connectAttr "whiplash.lv[165]" "hip_left_leg.tx";
 connectAttr "hip_left_leg.s" "left_knee.is";
+connectAttr "whiplash.uv[160]" "left_knee.sz";
+connectAttr "whiplash.uv[161]" "left_knee.sy";
+connectAttr "whiplash.uv[162]" "left_knee.sx";
+connectAttr "whiplash.av[160]" "left_knee.rz";
+connectAttr "whiplash.av[161]" "left_knee.ry";
+connectAttr "whiplash.av[162]" "left_knee.rx";
+connectAttr "whiplash.lv[160]" "left_knee.tz";
+connectAttr "whiplash.lv[161]" "left_knee.ty";
+connectAttr "whiplash.lv[162]" "left_knee.tx";
 connectAttr "left_knee.s" "left_ancle.is";
+connectAttr "whiplash.uv[157]" "left_ancle.sz";
+connectAttr "whiplash.uv[158]" "left_ancle.sy";
+connectAttr "whiplash.uv[159]" "left_ancle.sx";
+connectAttr "whiplash.av[157]" "left_ancle.rz";
+connectAttr "whiplash.av[158]" "left_ancle.ry";
+connectAttr "whiplash.av[159]" "left_ancle.rx";
+connectAttr "whiplash.lv[157]" "left_ancle.tz";
+connectAttr "whiplash.lv[158]" "left_ancle.ty";
+connectAttr "whiplash.lv[159]" "left_ancle.tx";
 connectAttr "hip_body.s" "hip_right_leg.is";
+connectAttr "whiplash.uv[154]" "hip_right_leg.sz";
+connectAttr "whiplash.uv[155]" "hip_right_leg.sy";
+connectAttr "whiplash.uv[156]" "hip_right_leg.sx";
+connectAttr "whiplash.av[154]" "hip_right_leg.rz";
+connectAttr "whiplash.av[155]" "hip_right_leg.ry";
+connectAttr "whiplash.av[156]" "hip_right_leg.rx";
+connectAttr "whiplash.lv[154]" "hip_right_leg.tz";
+connectAttr "whiplash.lv[155]" "hip_right_leg.ty";
+connectAttr "whiplash.lv[156]" "hip_right_leg.tx";
 connectAttr "hip_right_leg.s" "right_knee.is";
+connectAttr "whiplash.uv[151]" "right_knee.sz";
+connectAttr "whiplash.uv[152]" "right_knee.sy";
+connectAttr "whiplash.uv[153]" "right_knee.sx";
+connectAttr "whiplash.av[151]" "right_knee.rz";
+connectAttr "whiplash.av[152]" "right_knee.ry";
+connectAttr "whiplash.av[153]" "right_knee.rx";
+connectAttr "whiplash.lv[151]" "right_knee.tz";
+connectAttr "whiplash.lv[152]" "right_knee.ty";
+connectAttr "whiplash.lv[153]" "right_knee.tx";
 connectAttr "right_knee.s" "right_ancle.is";
+connectAttr "whiplash.uv[148]" "right_ancle.sz";
+connectAttr "whiplash.uv[149]" "right_ancle.sy";
+connectAttr "whiplash.uv[150]" "right_ancle.sx";
+connectAttr "whiplash.av[148]" "right_ancle.rz";
+connectAttr "whiplash.av[149]" "right_ancle.ry";
+connectAttr "whiplash.av[150]" "right_ancle.rx";
+connectAttr "whiplash.lv[148]" "right_ancle.tz";
+connectAttr "whiplash.lv[149]" "right_ancle.ty";
+connectAttr "whiplash.lv[150]" "right_ancle.tx";
 connectAttr "hip_body.s" "mid_body.is";
+connectAttr "whiplash.uv[145]" "mid_body.sz";
+connectAttr "whiplash.uv[146]" "mid_body.sy";
+connectAttr "whiplash.uv[147]" "mid_body.sx";
+connectAttr "whiplash.av[145]" "mid_body.rz";
+connectAttr "whiplash.av[146]" "mid_body.ry";
+connectAttr "whiplash.av[147]" "mid_body.rx";
+connectAttr "whiplash.lv[145]" "mid_body.tz";
+connectAttr "whiplash.lv[146]" "mid_body.ty";
+connectAttr "whiplash.lv[147]" "mid_body.tx";
 connectAttr "mid_body.s" "neck_body_connection.is";
+connectAttr "whiplash.uv[142]" "neck_body_connection.sz";
+connectAttr "whiplash.uv[143]" "neck_body_connection.sy";
+connectAttr "whiplash.uv[144]" "neck_body_connection.sx";
+connectAttr "whiplash.av[142]" "neck_body_connection.rz";
+connectAttr "whiplash.av[143]" "neck_body_connection.ry";
+connectAttr "whiplash.av[144]" "neck_body_connection.rx";
+connectAttr "whiplash.lv[142]" "neck_body_connection.tz";
+connectAttr "whiplash.lv[143]" "neck_body_connection.ty";
+connectAttr "whiplash.lv[144]" "neck_body_connection.tx";
 connectAttr "neck_body_connection.s" "neck_head_connection.is";
+connectAttr "whiplash.uv[139]" "neck_head_connection.sz";
+connectAttr "whiplash.uv[140]" "neck_head_connection.sy";
+connectAttr "whiplash.uv[141]" "neck_head_connection.sx";
+connectAttr "whiplash.av[139]" "neck_head_connection.rz";
+connectAttr "whiplash.av[140]" "neck_head_connection.ry";
+connectAttr "whiplash.av[141]" "neck_head_connection.rx";
+connectAttr "whiplash.lv[139]" "neck_head_connection.tz";
+connectAttr "whiplash.lv[140]" "neck_head_connection.ty";
+connectAttr "whiplash.lv[141]" "neck_head_connection.tx";
 connectAttr "neck_head_connection.s" "head.is";
+connectAttr "whiplash.uv[136]" "head.sz";
+connectAttr "whiplash.uv[137]" "head.sy";
+connectAttr "whiplash.uv[138]" "head.sx";
+connectAttr "whiplash.av[136]" "head.rz";
+connectAttr "whiplash.av[137]" "head.ry";
+connectAttr "whiplash.av[138]" "head.rx";
+connectAttr "whiplash.lv[136]" "head.tz";
+connectAttr "whiplash.lv[137]" "head.ty";
+connectAttr "whiplash.lv[138]" "head.tx";
 connectAttr "head.s" "right_eyebrow.is";
+connectAttr "whiplash.uv[133]" "right_eyebrow.sz";
+connectAttr "whiplash.uv[134]" "right_eyebrow.sy";
+connectAttr "whiplash.uv[135]" "right_eyebrow.sx";
+connectAttr "whiplash.av[133]" "right_eyebrow.rz";
+connectAttr "whiplash.av[134]" "right_eyebrow.ry";
+connectAttr "whiplash.av[135]" "right_eyebrow.rx";
+connectAttr "whiplash.lv[133]" "right_eyebrow.tz";
+connectAttr "whiplash.lv[134]" "right_eyebrow.ty";
+connectAttr "whiplash.lv[135]" "right_eyebrow.tx";
 connectAttr "head.s" "left_eyebrow.is";
+connectAttr "whiplash.uv[130]" "left_eyebrow.sz";
+connectAttr "whiplash.uv[131]" "left_eyebrow.sy";
+connectAttr "whiplash.uv[132]" "left_eyebrow.sx";
+connectAttr "whiplash.av[130]" "left_eyebrow.rz";
+connectAttr "whiplash.av[131]" "left_eyebrow.ry";
+connectAttr "whiplash.av[132]" "left_eyebrow.rx";
+connectAttr "whiplash.lv[130]" "left_eyebrow.tz";
+connectAttr "whiplash.lv[131]" "left_eyebrow.ty";
+connectAttr "whiplash.lv[132]" "left_eyebrow.tx";
 connectAttr "neck_body_connection.s" "left_shoulder.is";
+connectAttr "whiplash.uv[127]" "left_shoulder.sz";
+connectAttr "whiplash.uv[128]" "left_shoulder.sy";
+connectAttr "whiplash.uv[129]" "left_shoulder.sx";
+connectAttr "whiplash.av[127]" "left_shoulder.rz";
+connectAttr "whiplash.av[128]" "left_shoulder.ry";
+connectAttr "whiplash.av[129]" "left_shoulder.rx";
+connectAttr "whiplash.lv[127]" "left_shoulder.tz";
+connectAttr "whiplash.lv[128]" "left_shoulder.ty";
+connectAttr "whiplash.lv[129]" "left_shoulder.tx";
 connectAttr "left_shoulder.s" "left_elbow.is";
+connectAttr "whiplash.uv[124]" "left_elbow.sz";
+connectAttr "whiplash.uv[125]" "left_elbow.sy";
+connectAttr "whiplash.uv[126]" "left_elbow.sx";
+connectAttr "whiplash.av[124]" "left_elbow.rz";
+connectAttr "whiplash.av[125]" "left_elbow.ry";
+connectAttr "whiplash.av[126]" "left_elbow.rx";
+connectAttr "whiplash.lv[124]" "left_elbow.tz";
+connectAttr "whiplash.lv[125]" "left_elbow.ty";
+connectAttr "whiplash.lv[126]" "left_elbow.tx";
 connectAttr "left_elbow.s" "left_wrist.is";
+connectAttr "whiplash.uv[121]" "left_wrist.sz";
+connectAttr "whiplash.uv[122]" "left_wrist.sy";
+connectAttr "whiplash.uv[123]" "left_wrist.sx";
+connectAttr "whiplash.av[121]" "left_wrist.rz";
+connectAttr "whiplash.av[122]" "left_wrist.ry";
+connectAttr "whiplash.av[123]" "left_wrist.rx";
+connectAttr "whiplash.lv[121]" "left_wrist.tz";
+connectAttr "whiplash.lv[122]" "left_wrist.ty";
+connectAttr "whiplash.lv[123]" "left_wrist.tx";
 connectAttr "left_wrist.s" "left_pinky.is";
+connectAttr "whiplash.uv[118]" "left_pinky.sz";
+connectAttr "whiplash.uv[119]" "left_pinky.sy";
+connectAttr "whiplash.uv[120]" "left_pinky.sx";
+connectAttr "whiplash.av[118]" "left_pinky.rz";
+connectAttr "whiplash.av[119]" "left_pinky.ry";
+connectAttr "whiplash.av[120]" "left_pinky.rx";
+connectAttr "whiplash.lv[118]" "left_pinky.tz";
+connectAttr "whiplash.lv[119]" "left_pinky.ty";
+connectAttr "whiplash.lv[120]" "left_pinky.tx";
 connectAttr "left_pinky.s" "left_pinky1.is";
+connectAttr "whiplash.uv[115]" "left_pinky1.sz";
+connectAttr "whiplash.uv[116]" "left_pinky1.sy";
+connectAttr "whiplash.uv[117]" "left_pinky1.sx";
+connectAttr "whiplash.av[115]" "left_pinky1.rz";
+connectAttr "whiplash.av[116]" "left_pinky1.ry";
+connectAttr "whiplash.av[117]" "left_pinky1.rx";
+connectAttr "whiplash.lv[115]" "left_pinky1.tz";
+connectAttr "whiplash.lv[116]" "left_pinky1.ty";
+connectAttr "whiplash.lv[117]" "left_pinky1.tx";
 connectAttr "left_pinky1.s" "left_pinky2.is";
+connectAttr "whiplash.uv[112]" "left_pinky2.sz";
+connectAttr "whiplash.uv[113]" "left_pinky2.sy";
+connectAttr "whiplash.uv[114]" "left_pinky2.sx";
+connectAttr "whiplash.av[112]" "left_pinky2.rz";
+connectAttr "whiplash.av[113]" "left_pinky2.ry";
+connectAttr "whiplash.av[114]" "left_pinky2.rx";
+connectAttr "whiplash.lv[112]" "left_pinky2.tz";
+connectAttr "whiplash.lv[113]" "left_pinky2.ty";
+connectAttr "whiplash.lv[114]" "left_pinky2.tx";
 connectAttr "left_wrist.s" "left_ring.is";
+connectAttr "whiplash.uv[109]" "left_ring.sz";
+connectAttr "whiplash.uv[110]" "left_ring.sy";
+connectAttr "whiplash.uv[111]" "left_ring.sx";
+connectAttr "whiplash.av[109]" "left_ring.rz";
+connectAttr "whiplash.av[110]" "left_ring.ry";
+connectAttr "whiplash.av[111]" "left_ring.rx";
+connectAttr "whiplash.lv[109]" "left_ring.tz";
+connectAttr "whiplash.lv[110]" "left_ring.ty";
+connectAttr "whiplash.lv[111]" "left_ring.tx";
 connectAttr "left_ring.s" "left_ring1.is";
+connectAttr "whiplash.uv[106]" "left_ring1.sz";
+connectAttr "whiplash.uv[107]" "left_ring1.sy";
+connectAttr "whiplash.uv[108]" "left_ring1.sx";
+connectAttr "whiplash.av[106]" "left_ring1.rz";
+connectAttr "whiplash.av[107]" "left_ring1.ry";
+connectAttr "whiplash.av[108]" "left_ring1.rx";
+connectAttr "whiplash.lv[106]" "left_ring1.tz";
+connectAttr "whiplash.lv[107]" "left_ring1.ty";
+connectAttr "whiplash.lv[108]" "left_ring1.tx";
 connectAttr "left_ring1.s" "left_ring2.is";
+connectAttr "whiplash.uv[103]" "left_ring2.sz";
+connectAttr "whiplash.uv[104]" "left_ring2.sy";
+connectAttr "whiplash.uv[105]" "left_ring2.sx";
+connectAttr "whiplash.av[103]" "left_ring2.rz";
+connectAttr "whiplash.av[104]" "left_ring2.ry";
+connectAttr "whiplash.av[105]" "left_ring2.rx";
+connectAttr "whiplash.lv[103]" "left_ring2.tz";
+connectAttr "whiplash.lv[104]" "left_ring2.ty";
+connectAttr "whiplash.lv[105]" "left_ring2.tx";
 connectAttr "left_wrist.s" "left_middle.is";
+connectAttr "whiplash.uv[100]" "left_middle.sz";
+connectAttr "whiplash.uv[101]" "left_middle.sy";
+connectAttr "whiplash.uv[102]" "left_middle.sx";
+connectAttr "whiplash.av[100]" "left_middle.rz";
+connectAttr "whiplash.av[101]" "left_middle.ry";
+connectAttr "whiplash.av[102]" "left_middle.rx";
+connectAttr "whiplash.lv[100]" "left_middle.tz";
+connectAttr "whiplash.lv[101]" "left_middle.ty";
+connectAttr "whiplash.lv[102]" "left_middle.tx";
 connectAttr "left_middle.s" "left_middle1.is";
+connectAttr "whiplash.uv[97]" "left_middle1.sz";
+connectAttr "whiplash.uv[98]" "left_middle1.sy";
+connectAttr "whiplash.uv[99]" "left_middle1.sx";
+connectAttr "whiplash.av[97]" "left_middle1.rz";
+connectAttr "whiplash.av[98]" "left_middle1.ry";
+connectAttr "whiplash.av[99]" "left_middle1.rx";
+connectAttr "whiplash.lv[97]" "left_middle1.tz";
+connectAttr "whiplash.lv[98]" "left_middle1.ty";
+connectAttr "whiplash.lv[99]" "left_middle1.tx";
 connectAttr "left_middle1.s" "left_middle2.is";
+connectAttr "whiplash.uv[94]" "left_middle2.sz";
+connectAttr "whiplash.uv[95]" "left_middle2.sy";
+connectAttr "whiplash.uv[96]" "left_middle2.sx";
+connectAttr "whiplash.av[94]" "left_middle2.rz";
+connectAttr "whiplash.av[95]" "left_middle2.ry";
+connectAttr "whiplash.av[96]" "left_middle2.rx";
+connectAttr "whiplash.lv[94]" "left_middle2.tz";
+connectAttr "whiplash.lv[95]" "left_middle2.ty";
+connectAttr "whiplash.lv[96]" "left_middle2.tx";
 connectAttr "left_wrist.s" "left_pointer.is";
+connectAttr "whiplash.uv[91]" "left_pointer.sz";
+connectAttr "whiplash.uv[92]" "left_pointer.sy";
+connectAttr "whiplash.uv[93]" "left_pointer.sx";
+connectAttr "whiplash.av[91]" "left_pointer.rz";
+connectAttr "whiplash.av[92]" "left_pointer.ry";
+connectAttr "whiplash.av[93]" "left_pointer.rx";
+connectAttr "whiplash.lv[91]" "left_pointer.tz";
+connectAttr "whiplash.lv[92]" "left_pointer.ty";
+connectAttr "whiplash.lv[93]" "left_pointer.tx";
 connectAttr "left_pointer.s" "left_pointer1.is";
+connectAttr "whiplash.uv[88]" "left_pointer1.sz";
+connectAttr "whiplash.uv[89]" "left_pointer1.sy";
+connectAttr "whiplash.uv[90]" "left_pointer1.sx";
+connectAttr "whiplash.av[88]" "left_pointer1.rz";
+connectAttr "whiplash.av[89]" "left_pointer1.ry";
+connectAttr "whiplash.av[90]" "left_pointer1.rx";
+connectAttr "whiplash.lv[88]" "left_pointer1.tz";
+connectAttr "whiplash.lv[89]" "left_pointer1.ty";
+connectAttr "whiplash.lv[90]" "left_pointer1.tx";
 connectAttr "left_pointer1.s" "left_pointer2.is";
+connectAttr "whiplash.uv[85]" "left_pointer2.sz";
+connectAttr "whiplash.uv[86]" "left_pointer2.sy";
+connectAttr "whiplash.uv[87]" "left_pointer2.sx";
+connectAttr "whiplash.av[85]" "left_pointer2.rz";
+connectAttr "whiplash.av[86]" "left_pointer2.ry";
+connectAttr "whiplash.av[87]" "left_pointer2.rx";
+connectAttr "whiplash.lv[85]" "left_pointer2.tz";
+connectAttr "whiplash.lv[86]" "left_pointer2.ty";
+connectAttr "whiplash.lv[87]" "left_pointer2.tx";
 connectAttr "left_wrist.s" "left_thumb.is";
+connectAttr "whiplash.uv[82]" "left_thumb.sz";
+connectAttr "whiplash.uv[83]" "left_thumb.sy";
+connectAttr "whiplash.uv[84]" "left_thumb.sx";
+connectAttr "whiplash.av[82]" "left_thumb.rz";
+connectAttr "whiplash.av[83]" "left_thumb.ry";
+connectAttr "whiplash.av[84]" "left_thumb.rx";
+connectAttr "whiplash.lv[82]" "left_thumb.tz";
+connectAttr "whiplash.lv[83]" "left_thumb.ty";
+connectAttr "whiplash.lv[84]" "left_thumb.tx";
 connectAttr "left_thumb.s" "left_thumb1.is";
-connectAttr "neck_body_connection.s" "right_shoulder.is";
-connectAttr "right_shoulder.s" "right_elbow.is";
-connectAttr "right_elbow.s" "right_wrist.is";
-connectAttr "right_wrist.s" "right_pinky_hand.is";
-connectAttr "right_pinky_hand.s" "right_pinky_hand1.is";
-connectAttr "right_pinky_hand1.s" "right_pinky_hand2.is";
-connectAttr "right_wrist.s" "right_ring_hand.is";
-connectAttr "right_ring_hand.s" "right_ring_hand1.is";
-connectAttr "right_ring_hand1.s" "right_ring_hand2.is";
-connectAttr "right_wrist.s" "right_middle_hand.is";
-connectAttr "right_middle_hand.s" "right_middle_hand1.is";
-connectAttr "right_middle_hand1.s" "right_middle_hand2.is";
-connectAttr "right_wrist.s" "right_pointer_hand.is";
-connectAttr "right_pointer_hand.s" "right_pointer_hand1.is";
-connectAttr "right_pointer_hand1.s" "right_pointer_hand2.is";
-connectAttr "right_wrist.s" "right_thumb_hand.is";
-connectAttr "right_thumb_hand.s" "right_thumb_hand1.is";
+connectAttr "whiplash.uv[79]" "left_thumb1.sz";
+connectAttr "whiplash.uv[80]" "left_thumb1.sy";
+connectAttr "whiplash.uv[81]" "left_thumb1.sx";
+connectAttr "whiplash.av[79]" "left_thumb1.rz";
+connectAttr "whiplash.av[80]" "left_thumb1.ry";
+connectAttr "whiplash.av[81]" "left_thumb1.rx";
+connectAttr "whiplash.lv[79]" "left_thumb1.tz";
+connectAttr "whiplash.lv[80]" "left_thumb1.ty";
+connectAttr "whiplash.lv[81]" "left_thumb1.tx";
+connectAttr "whiplash.uv[76]" "joint1.sz";
+connectAttr "whiplash.uv[77]" "joint1.sy";
+connectAttr "whiplash.uv[78]" "joint1.sx";
+connectAttr "left_wrist.s" "joint1.is";
+connectAttr "whiplash.av[76]" "joint1.rz";
+connectAttr "whiplash.av[77]" "joint1.ry";
+connectAttr "whiplash.av[78]" "joint1.rx";
+connectAttr "whiplash.lv[76]" "joint1.tz";
+connectAttr "whiplash.lv[77]" "joint1.ty";
+connectAttr "whiplash.lv[78]" "joint1.tx";
+connectAttr "whiplash.uv[73]" "whip_base1.sz";
+connectAttr "whiplash.uv[74]" "whip_base1.sy";
+connectAttr "whiplash.uv[75]" "whip_base1.sx";
+connectAttr "joint1.s" "whip_base1.is";
+connectAttr "whiplash.av[73]" "whip_base1.rz";
+connectAttr "whiplash.av[74]" "whip_base1.ry";
+connectAttr "whiplash.av[75]" "whip_base1.rx";
+connectAttr "whiplash.lv[73]" "whip_base1.tz";
+connectAttr "whiplash.lv[74]" "whip_base1.ty";
+connectAttr "whiplash.lv[75]" "whip_base1.tx";
 connectAttr "whip_base1.s" "whip_base.is";
+connectAttr "whiplash.uv[70]" "whip_base.sz";
+connectAttr "whiplash.uv[71]" "whip_base.sy";
+connectAttr "whiplash.uv[72]" "whip_base.sx";
+connectAttr "whiplash.av[70]" "whip_base.rz";
+connectAttr "whiplash.av[71]" "whip_base.ry";
+connectAttr "whiplash.av[72]" "whip_base.rx";
+connectAttr "whiplash.lv[70]" "whip_base.tz";
+connectAttr "whiplash.lv[71]" "whip_base.ty";
+connectAttr "whiplash.lv[72]" "whip_base.tx";
 connectAttr "whip_base.s" "whip_joint_1.is";
+connectAttr "whiplash.uv[67]" "whip_joint_1.sz";
+connectAttr "whiplash.uv[68]" "whip_joint_1.sy";
+connectAttr "whiplash.uv[69]" "whip_joint_1.sx";
+connectAttr "whiplash.av[67]" "whip_joint_1.rz";
+connectAttr "whiplash.av[68]" "whip_joint_1.ry";
+connectAttr "whiplash.av[69]" "whip_joint_1.rx";
+connectAttr "whiplash.lv[67]" "whip_joint_1.tz";
+connectAttr "whiplash.lv[68]" "whip_joint_1.ty";
+connectAttr "whiplash.lv[69]" "whip_joint_1.tx";
 connectAttr "whip_joint_1.s" "whip_joint_2.is";
+connectAttr "whiplash.uv[64]" "whip_joint_2.sz";
+connectAttr "whiplash.uv[65]" "whip_joint_2.sy";
+connectAttr "whiplash.uv[66]" "whip_joint_2.sx";
+connectAttr "whiplash.av[64]" "whip_joint_2.rz";
+connectAttr "whiplash.av[65]" "whip_joint_2.ry";
+connectAttr "whiplash.av[66]" "whip_joint_2.rx";
+connectAttr "whiplash.lv[64]" "whip_joint_2.tz";
+connectAttr "whiplash.lv[65]" "whip_joint_2.ty";
+connectAttr "whiplash.lv[66]" "whip_joint_2.tx";
 connectAttr "whip_joint_2.s" "whip_joint_3.is";
+connectAttr "whiplash.uv[61]" "whip_joint_3.sz";
+connectAttr "whiplash.uv[62]" "whip_joint_3.sy";
+connectAttr "whiplash.uv[63]" "whip_joint_3.sx";
+connectAttr "whiplash.av[61]" "whip_joint_3.rz";
+connectAttr "whiplash.av[62]" "whip_joint_3.ry";
+connectAttr "whiplash.av[63]" "whip_joint_3.rx";
+connectAttr "whiplash.lv[61]" "whip_joint_3.tz";
+connectAttr "whiplash.lv[62]" "whip_joint_3.ty";
+connectAttr "whiplash.lv[63]" "whip_joint_3.tx";
 connectAttr "whip_joint_3.s" "whip_joint_4.is";
+connectAttr "whiplash.uv[58]" "whip_joint_4.sz";
+connectAttr "whiplash.uv[59]" "whip_joint_4.sy";
+connectAttr "whiplash.uv[60]" "whip_joint_4.sx";
+connectAttr "whiplash.av[58]" "whip_joint_4.rz";
+connectAttr "whiplash.av[59]" "whip_joint_4.ry";
+connectAttr "whiplash.av[60]" "whip_joint_4.rx";
+connectAttr "whiplash.lv[58]" "whip_joint_4.tz";
+connectAttr "whiplash.lv[59]" "whip_joint_4.ty";
+connectAttr "whiplash.lv[60]" "whip_joint_4.tx";
 connectAttr "whip_joint_4.s" "whip_joint_5.is";
+connectAttr "whiplash.uv[55]" "whip_joint_5.sz";
+connectAttr "whiplash.uv[56]" "whip_joint_5.sy";
+connectAttr "whiplash.uv[57]" "whip_joint_5.sx";
+connectAttr "whiplash.av[55]" "whip_joint_5.rz";
+connectAttr "whiplash.av[56]" "whip_joint_5.ry";
+connectAttr "whiplash.av[57]" "whip_joint_5.rx";
+connectAttr "whiplash.lv[55]" "whip_joint_5.tz";
+connectAttr "whiplash.lv[56]" "whip_joint_5.ty";
+connectAttr "whiplash.lv[57]" "whip_joint_5.tx";
 connectAttr "whip_joint_5.s" "whip_joint_6.is";
+connectAttr "whiplash.uv[52]" "whip_joint_6.sz";
+connectAttr "whiplash.uv[53]" "whip_joint_6.sy";
+connectAttr "whiplash.uv[54]" "whip_joint_6.sx";
+connectAttr "whiplash.av[52]" "whip_joint_6.rz";
+connectAttr "whiplash.av[53]" "whip_joint_6.ry";
+connectAttr "whiplash.av[54]" "whip_joint_6.rx";
+connectAttr "whiplash.lv[52]" "whip_joint_6.tz";
+connectAttr "whiplash.lv[53]" "whip_joint_6.ty";
+connectAttr "whiplash.lv[54]" "whip_joint_6.tx";
+connectAttr "neck_body_connection.s" "right_shoulder.is";
+connectAttr "whiplash.uv[49]" "right_shoulder.sz";
+connectAttr "whiplash.uv[50]" "right_shoulder.sy";
+connectAttr "whiplash.uv[51]" "right_shoulder.sx";
+connectAttr "whiplash.av[49]" "right_shoulder.rz";
+connectAttr "whiplash.av[50]" "right_shoulder.ry";
+connectAttr "whiplash.av[51]" "right_shoulder.rx";
+connectAttr "whiplash.lv[49]" "right_shoulder.tz";
+connectAttr "whiplash.lv[50]" "right_shoulder.ty";
+connectAttr "whiplash.lv[51]" "right_shoulder.tx";
+connectAttr "right_shoulder.s" "right_elbow.is";
+connectAttr "whiplash.uv[46]" "right_elbow.sz";
+connectAttr "whiplash.uv[47]" "right_elbow.sy";
+connectAttr "whiplash.uv[48]" "right_elbow.sx";
+connectAttr "whiplash.av[46]" "right_elbow.rz";
+connectAttr "whiplash.av[47]" "right_elbow.ry";
+connectAttr "whiplash.av[48]" "right_elbow.rx";
+connectAttr "whiplash.lv[46]" "right_elbow.tz";
+connectAttr "whiplash.lv[47]" "right_elbow.ty";
+connectAttr "whiplash.lv[48]" "right_elbow.tx";
+connectAttr "right_elbow.s" "right_wrist.is";
+connectAttr "whiplash.uv[43]" "right_wrist.sz";
+connectAttr "whiplash.uv[44]" "right_wrist.sy";
+connectAttr "whiplash.uv[45]" "right_wrist.sx";
+connectAttr "whiplash.av[43]" "right_wrist.rz";
+connectAttr "whiplash.av[44]" "right_wrist.ry";
+connectAttr "whiplash.av[45]" "right_wrist.rx";
+connectAttr "whiplash.lv[43]" "right_wrist.tz";
+connectAttr "whiplash.lv[44]" "right_wrist.ty";
+connectAttr "whiplash.lv[45]" "right_wrist.tx";
+connectAttr "right_wrist.s" "right_pinky_hand.is";
+connectAttr "whiplash.uv[40]" "right_pinky_hand.sz";
+connectAttr "whiplash.uv[41]" "right_pinky_hand.sy";
+connectAttr "whiplash.uv[42]" "right_pinky_hand.sx";
+connectAttr "whiplash.av[40]" "right_pinky_hand.rz";
+connectAttr "whiplash.av[41]" "right_pinky_hand.ry";
+connectAttr "whiplash.av[42]" "right_pinky_hand.rx";
+connectAttr "whiplash.lv[40]" "right_pinky_hand.tz";
+connectAttr "whiplash.lv[41]" "right_pinky_hand.ty";
+connectAttr "whiplash.lv[42]" "right_pinky_hand.tx";
+connectAttr "right_pinky_hand.s" "right_pinky_hand1.is";
+connectAttr "whiplash.uv[37]" "right_pinky_hand1.sz";
+connectAttr "whiplash.uv[38]" "right_pinky_hand1.sy";
+connectAttr "whiplash.uv[39]" "right_pinky_hand1.sx";
+connectAttr "whiplash.av[37]" "right_pinky_hand1.rz";
+connectAttr "whiplash.av[38]" "right_pinky_hand1.ry";
+connectAttr "whiplash.av[39]" "right_pinky_hand1.rx";
+connectAttr "whiplash.lv[37]" "right_pinky_hand1.tz";
+connectAttr "whiplash.lv[38]" "right_pinky_hand1.ty";
+connectAttr "whiplash.lv[39]" "right_pinky_hand1.tx";
+connectAttr "right_pinky_hand1.s" "right_pinky_hand2.is";
+connectAttr "whiplash.uv[34]" "right_pinky_hand2.sz";
+connectAttr "whiplash.uv[35]" "right_pinky_hand2.sy";
+connectAttr "whiplash.uv[36]" "right_pinky_hand2.sx";
+connectAttr "whiplash.av[34]" "right_pinky_hand2.rz";
+connectAttr "whiplash.av[35]" "right_pinky_hand2.ry";
+connectAttr "whiplash.av[36]" "right_pinky_hand2.rx";
+connectAttr "whiplash.lv[34]" "right_pinky_hand2.tz";
+connectAttr "whiplash.lv[35]" "right_pinky_hand2.ty";
+connectAttr "whiplash.lv[36]" "right_pinky_hand2.tx";
+connectAttr "right_wrist.s" "right_ring_hand.is";
+connectAttr "whiplash.uv[31]" "right_ring_hand.sz";
+connectAttr "whiplash.uv[32]" "right_ring_hand.sy";
+connectAttr "whiplash.uv[33]" "right_ring_hand.sx";
+connectAttr "whiplash.av[31]" "right_ring_hand.rz";
+connectAttr "whiplash.av[32]" "right_ring_hand.ry";
+connectAttr "whiplash.av[33]" "right_ring_hand.rx";
+connectAttr "whiplash.lv[31]" "right_ring_hand.tz";
+connectAttr "whiplash.lv[32]" "right_ring_hand.ty";
+connectAttr "whiplash.lv[33]" "right_ring_hand.tx";
+connectAttr "right_ring_hand.s" "right_ring_hand1.is";
+connectAttr "whiplash.uv[28]" "right_ring_hand1.sz";
+connectAttr "whiplash.uv[29]" "right_ring_hand1.sy";
+connectAttr "whiplash.uv[30]" "right_ring_hand1.sx";
+connectAttr "whiplash.av[28]" "right_ring_hand1.rz";
+connectAttr "whiplash.av[29]" "right_ring_hand1.ry";
+connectAttr "whiplash.av[30]" "right_ring_hand1.rx";
+connectAttr "whiplash.lv[28]" "right_ring_hand1.tz";
+connectAttr "whiplash.lv[29]" "right_ring_hand1.ty";
+connectAttr "whiplash.lv[30]" "right_ring_hand1.tx";
+connectAttr "right_ring_hand1.s" "right_ring_hand2.is";
+connectAttr "whiplash.uv[25]" "right_ring_hand2.sz";
+connectAttr "whiplash.uv[26]" "right_ring_hand2.sy";
+connectAttr "whiplash.uv[27]" "right_ring_hand2.sx";
+connectAttr "whiplash.av[25]" "right_ring_hand2.rz";
+connectAttr "whiplash.av[26]" "right_ring_hand2.ry";
+connectAttr "whiplash.av[27]" "right_ring_hand2.rx";
+connectAttr "whiplash.lv[25]" "right_ring_hand2.tz";
+connectAttr "whiplash.lv[26]" "right_ring_hand2.ty";
+connectAttr "whiplash.lv[27]" "right_ring_hand2.tx";
+connectAttr "right_wrist.s" "right_middle_hand.is";
+connectAttr "whiplash.uv[22]" "right_middle_hand.sz";
+connectAttr "whiplash.uv[23]" "right_middle_hand.sy";
+connectAttr "whiplash.uv[24]" "right_middle_hand.sx";
+connectAttr "whiplash.av[22]" "right_middle_hand.rz";
+connectAttr "whiplash.av[23]" "right_middle_hand.ry";
+connectAttr "whiplash.av[24]" "right_middle_hand.rx";
+connectAttr "whiplash.lv[22]" "right_middle_hand.tz";
+connectAttr "whiplash.lv[23]" "right_middle_hand.ty";
+connectAttr "whiplash.lv[24]" "right_middle_hand.tx";
+connectAttr "right_middle_hand.s" "right_middle_hand1.is";
+connectAttr "whiplash.uv[19]" "right_middle_hand1.sz";
+connectAttr "whiplash.uv[20]" "right_middle_hand1.sy";
+connectAttr "whiplash.uv[21]" "right_middle_hand1.sx";
+connectAttr "whiplash.av[19]" "right_middle_hand1.rz";
+connectAttr "whiplash.av[20]" "right_middle_hand1.ry";
+connectAttr "whiplash.av[21]" "right_middle_hand1.rx";
+connectAttr "whiplash.lv[19]" "right_middle_hand1.tz";
+connectAttr "whiplash.lv[20]" "right_middle_hand1.ty";
+connectAttr "whiplash.lv[21]" "right_middle_hand1.tx";
+connectAttr "right_middle_hand1.s" "right_middle_hand2.is";
+connectAttr "whiplash.uv[16]" "right_middle_hand2.sz";
+connectAttr "whiplash.uv[17]" "right_middle_hand2.sy";
+connectAttr "whiplash.uv[18]" "right_middle_hand2.sx";
+connectAttr "whiplash.av[16]" "right_middle_hand2.rz";
+connectAttr "whiplash.av[17]" "right_middle_hand2.ry";
+connectAttr "whiplash.av[18]" "right_middle_hand2.rx";
+connectAttr "whiplash.lv[16]" "right_middle_hand2.tz";
+connectAttr "whiplash.lv[17]" "right_middle_hand2.ty";
+connectAttr "whiplash.lv[18]" "right_middle_hand2.tx";
+connectAttr "right_wrist.s" "right_pointer_hand.is";
+connectAttr "whiplash.uv[13]" "right_pointer_hand.sz";
+connectAttr "whiplash.uv[14]" "right_pointer_hand.sy";
+connectAttr "whiplash.uv[15]" "right_pointer_hand.sx";
+connectAttr "whiplash.av[13]" "right_pointer_hand.rz";
+connectAttr "whiplash.av[14]" "right_pointer_hand.ry";
+connectAttr "whiplash.av[15]" "right_pointer_hand.rx";
+connectAttr "whiplash.lv[13]" "right_pointer_hand.tz";
+connectAttr "whiplash.lv[14]" "right_pointer_hand.ty";
+connectAttr "whiplash.lv[15]" "right_pointer_hand.tx";
+connectAttr "right_pointer_hand.s" "right_pointer_hand1.is";
+connectAttr "whiplash.uv[10]" "right_pointer_hand1.sz";
+connectAttr "whiplash.uv[11]" "right_pointer_hand1.sy";
+connectAttr "whiplash.uv[12]" "right_pointer_hand1.sx";
+connectAttr "whiplash.av[10]" "right_pointer_hand1.rz";
+connectAttr "whiplash.av[11]" "right_pointer_hand1.ry";
+connectAttr "whiplash.av[12]" "right_pointer_hand1.rx";
+connectAttr "whiplash.lv[10]" "right_pointer_hand1.tz";
+connectAttr "whiplash.lv[11]" "right_pointer_hand1.ty";
+connectAttr "whiplash.lv[12]" "right_pointer_hand1.tx";
+connectAttr "right_pointer_hand1.s" "right_pointer_hand2.is";
+connectAttr "whiplash.uv[7]" "right_pointer_hand2.sz";
+connectAttr "whiplash.uv[8]" "right_pointer_hand2.sy";
+connectAttr "whiplash.uv[9]" "right_pointer_hand2.sx";
+connectAttr "whiplash.av[7]" "right_pointer_hand2.rz";
+connectAttr "whiplash.av[8]" "right_pointer_hand2.ry";
+connectAttr "whiplash.av[9]" "right_pointer_hand2.rx";
+connectAttr "whiplash.lv[7]" "right_pointer_hand2.tz";
+connectAttr "whiplash.lv[8]" "right_pointer_hand2.ty";
+connectAttr "whiplash.lv[9]" "right_pointer_hand2.tx";
+connectAttr "right_wrist.s" "right_thumb_hand.is";
+connectAttr "whiplash.uv[4]" "right_thumb_hand.sz";
+connectAttr "whiplash.uv[5]" "right_thumb_hand.sy";
+connectAttr "whiplash.uv[6]" "right_thumb_hand.sx";
+connectAttr "whiplash.av[4]" "right_thumb_hand.rz";
+connectAttr "whiplash.av[5]" "right_thumb_hand.ry";
+connectAttr "whiplash.av[6]" "right_thumb_hand.rx";
+connectAttr "whiplash.lv[4]" "right_thumb_hand.tz";
+connectAttr "whiplash.lv[5]" "right_thumb_hand.ty";
+connectAttr "whiplash.lv[6]" "right_thumb_hand.tx";
+connectAttr "right_thumb_hand.s" "right_thumb_hand1.is";
+connectAttr "whiplash.uv[1]" "right_thumb_hand1.sz";
+connectAttr "whiplash.uv[2]" "right_thumb_hand1.sy";
+connectAttr "whiplash.uv[3]" "right_thumb_hand1.sx";
+connectAttr "whiplash.av[1]" "right_thumb_hand1.rz";
+connectAttr "whiplash.av[2]" "right_thumb_hand1.ry";
+connectAttr "whiplash.av[3]" "right_thumb_hand1.rx";
+connectAttr "whiplash.lv[1]" "right_thumb_hand1.tz";
+connectAttr "whiplash.lv[2]" "right_thumb_hand1.ty";
+connectAttr "whiplash.lv[3]" "right_thumb_hand1.tx";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
@@ -22481,7 +26506,7 @@ connectAttr "right_pointer_hand2.obcc" "skinCluster1.ifcl[45]";
 connectAttr "right_thumb_hand.obcc" "skinCluster1.ifcl[46]";
 connectAttr "right_thumb_hand1.obcc" "skinCluster1.ifcl[47]";
 connectAttr "geomBind1.scs" "skinCluster1.gb";
-connectAttr "right_thumb_hand1.msg" "skinCluster1.ptt";
+connectAttr "left_shoulder.msg" "skinCluster1.ptt";
 connectAttr "groupParts2.og" "tweak1.ip[0].ig";
 connectAttr "groupId16.id" "tweak1.ip[0].gi";
 connectAttr "skinCluster1GroupId.msg" "skinCluster1Set.gn" -na;
@@ -23302,6 +27327,1032 @@ connectAttr "file2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].d
 		;
 connectAttr "place2dTexture1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
 		;
+connectAttr "right_thumb_hand1.sz" "whiplash.dnsm[0]";
+connectAttr "right_thumb_hand1.sy" "whiplash.dnsm[1]";
+connectAttr "right_thumb_hand1.sx" "whiplash.dnsm[2]";
+connectAttr "right_thumb_hand1.rz" "whiplash.dnsm[3]";
+connectAttr "right_thumb_hand1.ry" "whiplash.dnsm[4]";
+connectAttr "right_thumb_hand1.rx" "whiplash.dnsm[5]";
+connectAttr "right_thumb_hand1.tz" "whiplash.dnsm[6]";
+connectAttr "right_thumb_hand1.ty" "whiplash.dnsm[7]";
+connectAttr "right_thumb_hand1.tx" "whiplash.dnsm[8]";
+connectAttr "right_thumb_hand.sz" "whiplash.dnsm[9]";
+connectAttr "right_thumb_hand.sy" "whiplash.dnsm[10]";
+connectAttr "right_thumb_hand.sx" "whiplash.dnsm[11]";
+connectAttr "right_thumb_hand.rz" "whiplash.dnsm[12]";
+connectAttr "right_thumb_hand.ry" "whiplash.dnsm[13]";
+connectAttr "right_thumb_hand.rx" "whiplash.dnsm[14]";
+connectAttr "right_thumb_hand.tz" "whiplash.dnsm[15]";
+connectAttr "right_thumb_hand.ty" "whiplash.dnsm[16]";
+connectAttr "right_thumb_hand.tx" "whiplash.dnsm[17]";
+connectAttr "right_pointer_hand2.sz" "whiplash.dnsm[18]";
+connectAttr "right_pointer_hand2.sy" "whiplash.dnsm[19]";
+connectAttr "right_pointer_hand2.sx" "whiplash.dnsm[20]";
+connectAttr "right_pointer_hand2.rz" "whiplash.dnsm[21]";
+connectAttr "right_pointer_hand2.ry" "whiplash.dnsm[22]";
+connectAttr "right_pointer_hand2.rx" "whiplash.dnsm[23]";
+connectAttr "right_pointer_hand2.tz" "whiplash.dnsm[24]";
+connectAttr "right_pointer_hand2.ty" "whiplash.dnsm[25]";
+connectAttr "right_pointer_hand2.tx" "whiplash.dnsm[26]";
+connectAttr "right_pointer_hand1.sz" "whiplash.dnsm[27]";
+connectAttr "right_pointer_hand1.sy" "whiplash.dnsm[28]";
+connectAttr "right_pointer_hand1.sx" "whiplash.dnsm[29]";
+connectAttr "right_pointer_hand1.rz" "whiplash.dnsm[30]";
+connectAttr "right_pointer_hand1.ry" "whiplash.dnsm[31]";
+connectAttr "right_pointer_hand1.rx" "whiplash.dnsm[32]";
+connectAttr "right_pointer_hand1.tz" "whiplash.dnsm[33]";
+connectAttr "right_pointer_hand1.ty" "whiplash.dnsm[34]";
+connectAttr "right_pointer_hand1.tx" "whiplash.dnsm[35]";
+connectAttr "right_pointer_hand.sz" "whiplash.dnsm[36]";
+connectAttr "right_pointer_hand.sy" "whiplash.dnsm[37]";
+connectAttr "right_pointer_hand.sx" "whiplash.dnsm[38]";
+connectAttr "right_pointer_hand.rz" "whiplash.dnsm[39]";
+connectAttr "right_pointer_hand.ry" "whiplash.dnsm[40]";
+connectAttr "right_pointer_hand.rx" "whiplash.dnsm[41]";
+connectAttr "right_pointer_hand.tz" "whiplash.dnsm[42]";
+connectAttr "right_pointer_hand.ty" "whiplash.dnsm[43]";
+connectAttr "right_pointer_hand.tx" "whiplash.dnsm[44]";
+connectAttr "right_middle_hand2.sz" "whiplash.dnsm[45]";
+connectAttr "right_middle_hand2.sy" "whiplash.dnsm[46]";
+connectAttr "right_middle_hand2.sx" "whiplash.dnsm[47]";
+connectAttr "right_middle_hand2.rz" "whiplash.dnsm[48]";
+connectAttr "right_middle_hand2.ry" "whiplash.dnsm[49]";
+connectAttr "right_middle_hand2.rx" "whiplash.dnsm[50]";
+connectAttr "right_middle_hand2.tz" "whiplash.dnsm[51]";
+connectAttr "right_middle_hand2.ty" "whiplash.dnsm[52]";
+connectAttr "right_middle_hand2.tx" "whiplash.dnsm[53]";
+connectAttr "right_middle_hand1.sz" "whiplash.dnsm[54]";
+connectAttr "right_middle_hand1.sy" "whiplash.dnsm[55]";
+connectAttr "right_middle_hand1.sx" "whiplash.dnsm[56]";
+connectAttr "right_middle_hand1.rz" "whiplash.dnsm[57]";
+connectAttr "right_middle_hand1.ry" "whiplash.dnsm[58]";
+connectAttr "right_middle_hand1.rx" "whiplash.dnsm[59]";
+connectAttr "right_middle_hand1.tz" "whiplash.dnsm[60]";
+connectAttr "right_middle_hand1.ty" "whiplash.dnsm[61]";
+connectAttr "right_middle_hand1.tx" "whiplash.dnsm[62]";
+connectAttr "right_middle_hand.sz" "whiplash.dnsm[63]";
+connectAttr "right_middle_hand.sy" "whiplash.dnsm[64]";
+connectAttr "right_middle_hand.sx" "whiplash.dnsm[65]";
+connectAttr "right_middle_hand.rz" "whiplash.dnsm[66]";
+connectAttr "right_middle_hand.ry" "whiplash.dnsm[67]";
+connectAttr "right_middle_hand.rx" "whiplash.dnsm[68]";
+connectAttr "right_middle_hand.tz" "whiplash.dnsm[69]";
+connectAttr "right_middle_hand.ty" "whiplash.dnsm[70]";
+connectAttr "right_middle_hand.tx" "whiplash.dnsm[71]";
+connectAttr "right_ring_hand2.sz" "whiplash.dnsm[72]";
+connectAttr "right_ring_hand2.sy" "whiplash.dnsm[73]";
+connectAttr "right_ring_hand2.sx" "whiplash.dnsm[74]";
+connectAttr "right_ring_hand2.rz" "whiplash.dnsm[75]";
+connectAttr "right_ring_hand2.ry" "whiplash.dnsm[76]";
+connectAttr "right_ring_hand2.rx" "whiplash.dnsm[77]";
+connectAttr "right_ring_hand2.tz" "whiplash.dnsm[78]";
+connectAttr "right_ring_hand2.ty" "whiplash.dnsm[79]";
+connectAttr "right_ring_hand2.tx" "whiplash.dnsm[80]";
+connectAttr "right_ring_hand1.sz" "whiplash.dnsm[81]";
+connectAttr "right_ring_hand1.sy" "whiplash.dnsm[82]";
+connectAttr "right_ring_hand1.sx" "whiplash.dnsm[83]";
+connectAttr "right_ring_hand1.rz" "whiplash.dnsm[84]";
+connectAttr "right_ring_hand1.ry" "whiplash.dnsm[85]";
+connectAttr "right_ring_hand1.rx" "whiplash.dnsm[86]";
+connectAttr "right_ring_hand1.tz" "whiplash.dnsm[87]";
+connectAttr "right_ring_hand1.ty" "whiplash.dnsm[88]";
+connectAttr "right_ring_hand1.tx" "whiplash.dnsm[89]";
+connectAttr "right_ring_hand.sz" "whiplash.dnsm[90]";
+connectAttr "right_ring_hand.sy" "whiplash.dnsm[91]";
+connectAttr "right_ring_hand.sx" "whiplash.dnsm[92]";
+connectAttr "right_ring_hand.rz" "whiplash.dnsm[93]";
+connectAttr "right_ring_hand.ry" "whiplash.dnsm[94]";
+connectAttr "right_ring_hand.rx" "whiplash.dnsm[95]";
+connectAttr "right_ring_hand.tz" "whiplash.dnsm[96]";
+connectAttr "right_ring_hand.ty" "whiplash.dnsm[97]";
+connectAttr "right_ring_hand.tx" "whiplash.dnsm[98]";
+connectAttr "right_pinky_hand2.sz" "whiplash.dnsm[99]";
+connectAttr "right_pinky_hand2.sy" "whiplash.dnsm[100]";
+connectAttr "right_pinky_hand2.sx" "whiplash.dnsm[101]";
+connectAttr "right_pinky_hand2.rz" "whiplash.dnsm[102]";
+connectAttr "right_pinky_hand2.ry" "whiplash.dnsm[103]";
+connectAttr "right_pinky_hand2.rx" "whiplash.dnsm[104]";
+connectAttr "right_pinky_hand2.tz" "whiplash.dnsm[105]";
+connectAttr "right_pinky_hand2.ty" "whiplash.dnsm[106]";
+connectAttr "right_pinky_hand2.tx" "whiplash.dnsm[107]";
+connectAttr "right_pinky_hand1.sz" "whiplash.dnsm[108]";
+connectAttr "right_pinky_hand1.sy" "whiplash.dnsm[109]";
+connectAttr "right_pinky_hand1.sx" "whiplash.dnsm[110]";
+connectAttr "right_pinky_hand1.rz" "whiplash.dnsm[111]";
+connectAttr "right_pinky_hand1.ry" "whiplash.dnsm[112]";
+connectAttr "right_pinky_hand1.rx" "whiplash.dnsm[113]";
+connectAttr "right_pinky_hand1.tz" "whiplash.dnsm[114]";
+connectAttr "right_pinky_hand1.ty" "whiplash.dnsm[115]";
+connectAttr "right_pinky_hand1.tx" "whiplash.dnsm[116]";
+connectAttr "right_pinky_hand.sz" "whiplash.dnsm[117]";
+connectAttr "right_pinky_hand.sy" "whiplash.dnsm[118]";
+connectAttr "right_pinky_hand.sx" "whiplash.dnsm[119]";
+connectAttr "right_pinky_hand.rz" "whiplash.dnsm[120]";
+connectAttr "right_pinky_hand.ry" "whiplash.dnsm[121]";
+connectAttr "right_pinky_hand.rx" "whiplash.dnsm[122]";
+connectAttr "right_pinky_hand.tz" "whiplash.dnsm[123]";
+connectAttr "right_pinky_hand.ty" "whiplash.dnsm[124]";
+connectAttr "right_pinky_hand.tx" "whiplash.dnsm[125]";
+connectAttr "right_wrist.sz" "whiplash.dnsm[126]";
+connectAttr "right_wrist.sy" "whiplash.dnsm[127]";
+connectAttr "right_wrist.sx" "whiplash.dnsm[128]";
+connectAttr "right_wrist.rz" "whiplash.dnsm[129]";
+connectAttr "right_wrist.ry" "whiplash.dnsm[130]";
+connectAttr "right_wrist.rx" "whiplash.dnsm[131]";
+connectAttr "right_wrist.tz" "whiplash.dnsm[132]";
+connectAttr "right_wrist.ty" "whiplash.dnsm[133]";
+connectAttr "right_wrist.tx" "whiplash.dnsm[134]";
+connectAttr "right_elbow.sz" "whiplash.dnsm[135]";
+connectAttr "right_elbow.sy" "whiplash.dnsm[136]";
+connectAttr "right_elbow.sx" "whiplash.dnsm[137]";
+connectAttr "right_elbow.rz" "whiplash.dnsm[138]";
+connectAttr "right_elbow.ry" "whiplash.dnsm[139]";
+connectAttr "right_elbow.rx" "whiplash.dnsm[140]";
+connectAttr "right_elbow.tz" "whiplash.dnsm[141]";
+connectAttr "right_elbow.ty" "whiplash.dnsm[142]";
+connectAttr "right_elbow.tx" "whiplash.dnsm[143]";
+connectAttr "right_shoulder.sz" "whiplash.dnsm[144]";
+connectAttr "right_shoulder.sy" "whiplash.dnsm[145]";
+connectAttr "right_shoulder.sx" "whiplash.dnsm[146]";
+connectAttr "right_shoulder.rz" "whiplash.dnsm[147]";
+connectAttr "right_shoulder.ry" "whiplash.dnsm[148]";
+connectAttr "right_shoulder.rx" "whiplash.dnsm[149]";
+connectAttr "right_shoulder.tz" "whiplash.dnsm[150]";
+connectAttr "right_shoulder.ty" "whiplash.dnsm[151]";
+connectAttr "right_shoulder.tx" "whiplash.dnsm[152]";
+connectAttr "whip_joint_6.sz" "whiplash.dnsm[153]";
+connectAttr "whip_joint_6.sy" "whiplash.dnsm[154]";
+connectAttr "whip_joint_6.sx" "whiplash.dnsm[155]";
+connectAttr "whip_joint_6.rz" "whiplash.dnsm[156]";
+connectAttr "whip_joint_6.ry" "whiplash.dnsm[157]";
+connectAttr "whip_joint_6.rx" "whiplash.dnsm[158]";
+connectAttr "whip_joint_6.tz" "whiplash.dnsm[159]";
+connectAttr "whip_joint_6.ty" "whiplash.dnsm[160]";
+connectAttr "whip_joint_6.tx" "whiplash.dnsm[161]";
+connectAttr "whip_joint_5.sz" "whiplash.dnsm[162]";
+connectAttr "whip_joint_5.sy" "whiplash.dnsm[163]";
+connectAttr "whip_joint_5.sx" "whiplash.dnsm[164]";
+connectAttr "whip_joint_5.rz" "whiplash.dnsm[165]";
+connectAttr "whip_joint_5.ry" "whiplash.dnsm[166]";
+connectAttr "whip_joint_5.rx" "whiplash.dnsm[167]";
+connectAttr "whip_joint_5.tz" "whiplash.dnsm[168]";
+connectAttr "whip_joint_5.ty" "whiplash.dnsm[169]";
+connectAttr "whip_joint_5.tx" "whiplash.dnsm[170]";
+connectAttr "whip_joint_4.sz" "whiplash.dnsm[171]";
+connectAttr "whip_joint_4.sy" "whiplash.dnsm[172]";
+connectAttr "whip_joint_4.sx" "whiplash.dnsm[173]";
+connectAttr "whip_joint_4.rz" "whiplash.dnsm[174]";
+connectAttr "whip_joint_4.ry" "whiplash.dnsm[175]";
+connectAttr "whip_joint_4.rx" "whiplash.dnsm[176]";
+connectAttr "whip_joint_4.tz" "whiplash.dnsm[177]";
+connectAttr "whip_joint_4.ty" "whiplash.dnsm[178]";
+connectAttr "whip_joint_4.tx" "whiplash.dnsm[179]";
+connectAttr "whip_joint_3.sz" "whiplash.dnsm[180]";
+connectAttr "whip_joint_3.sy" "whiplash.dnsm[181]";
+connectAttr "whip_joint_3.sx" "whiplash.dnsm[182]";
+connectAttr "whip_joint_3.rz" "whiplash.dnsm[183]";
+connectAttr "whip_joint_3.ry" "whiplash.dnsm[184]";
+connectAttr "whip_joint_3.rx" "whiplash.dnsm[185]";
+connectAttr "whip_joint_3.tz" "whiplash.dnsm[186]";
+connectAttr "whip_joint_3.ty" "whiplash.dnsm[187]";
+connectAttr "whip_joint_3.tx" "whiplash.dnsm[188]";
+connectAttr "whip_joint_2.sz" "whiplash.dnsm[189]";
+connectAttr "whip_joint_2.sy" "whiplash.dnsm[190]";
+connectAttr "whip_joint_2.sx" "whiplash.dnsm[191]";
+connectAttr "whip_joint_2.rz" "whiplash.dnsm[192]";
+connectAttr "whip_joint_2.ry" "whiplash.dnsm[193]";
+connectAttr "whip_joint_2.rx" "whiplash.dnsm[194]";
+connectAttr "whip_joint_2.tz" "whiplash.dnsm[195]";
+connectAttr "whip_joint_2.ty" "whiplash.dnsm[196]";
+connectAttr "whip_joint_2.tx" "whiplash.dnsm[197]";
+connectAttr "whip_joint_1.sz" "whiplash.dnsm[198]";
+connectAttr "whip_joint_1.sy" "whiplash.dnsm[199]";
+connectAttr "whip_joint_1.sx" "whiplash.dnsm[200]";
+connectAttr "whip_joint_1.rz" "whiplash.dnsm[201]";
+connectAttr "whip_joint_1.ry" "whiplash.dnsm[202]";
+connectAttr "whip_joint_1.rx" "whiplash.dnsm[203]";
+connectAttr "whip_joint_1.tz" "whiplash.dnsm[204]";
+connectAttr "whip_joint_1.ty" "whiplash.dnsm[205]";
+connectAttr "whip_joint_1.tx" "whiplash.dnsm[206]";
+connectAttr "whip_base.sz" "whiplash.dnsm[207]";
+connectAttr "whip_base.sy" "whiplash.dnsm[208]";
+connectAttr "whip_base.sx" "whiplash.dnsm[209]";
+connectAttr "whip_base.rz" "whiplash.dnsm[210]";
+connectAttr "whip_base.ry" "whiplash.dnsm[211]";
+connectAttr "whip_base.rx" "whiplash.dnsm[212]";
+connectAttr "whip_base.tz" "whiplash.dnsm[213]";
+connectAttr "whip_base.ty" "whiplash.dnsm[214]";
+connectAttr "whip_base.tx" "whiplash.dnsm[215]";
+connectAttr "whip_base1.sz" "whiplash.dnsm[216]";
+connectAttr "whip_base1.sy" "whiplash.dnsm[217]";
+connectAttr "whip_base1.sx" "whiplash.dnsm[218]";
+connectAttr "whip_base1.rz" "whiplash.dnsm[219]";
+connectAttr "whip_base1.ry" "whiplash.dnsm[220]";
+connectAttr "whip_base1.rx" "whiplash.dnsm[221]";
+connectAttr "whip_base1.tz" "whiplash.dnsm[222]";
+connectAttr "whip_base1.ty" "whiplash.dnsm[223]";
+connectAttr "whip_base1.tx" "whiplash.dnsm[224]";
+connectAttr "joint1.sz" "whiplash.dnsm[225]";
+connectAttr "joint1.sy" "whiplash.dnsm[226]";
+connectAttr "joint1.sx" "whiplash.dnsm[227]";
+connectAttr "joint1.rz" "whiplash.dnsm[228]";
+connectAttr "joint1.ry" "whiplash.dnsm[229]";
+connectAttr "joint1.rx" "whiplash.dnsm[230]";
+connectAttr "joint1.tz" "whiplash.dnsm[231]";
+connectAttr "joint1.ty" "whiplash.dnsm[232]";
+connectAttr "joint1.tx" "whiplash.dnsm[233]";
+connectAttr "left_thumb1.sz" "whiplash.dnsm[234]";
+connectAttr "left_thumb1.sy" "whiplash.dnsm[235]";
+connectAttr "left_thumb1.sx" "whiplash.dnsm[236]";
+connectAttr "left_thumb1.rz" "whiplash.dnsm[237]";
+connectAttr "left_thumb1.ry" "whiplash.dnsm[238]";
+connectAttr "left_thumb1.rx" "whiplash.dnsm[239]";
+connectAttr "left_thumb1.tz" "whiplash.dnsm[240]";
+connectAttr "left_thumb1.ty" "whiplash.dnsm[241]";
+connectAttr "left_thumb1.tx" "whiplash.dnsm[242]";
+connectAttr "left_thumb.sz" "whiplash.dnsm[243]";
+connectAttr "left_thumb.sy" "whiplash.dnsm[244]";
+connectAttr "left_thumb.sx" "whiplash.dnsm[245]";
+connectAttr "left_thumb.rz" "whiplash.dnsm[246]";
+connectAttr "left_thumb.ry" "whiplash.dnsm[247]";
+connectAttr "left_thumb.rx" "whiplash.dnsm[248]";
+connectAttr "left_thumb.tz" "whiplash.dnsm[249]";
+connectAttr "left_thumb.ty" "whiplash.dnsm[250]";
+connectAttr "left_thumb.tx" "whiplash.dnsm[251]";
+connectAttr "left_pointer2.sz" "whiplash.dnsm[252]";
+connectAttr "left_pointer2.sy" "whiplash.dnsm[253]";
+connectAttr "left_pointer2.sx" "whiplash.dnsm[254]";
+connectAttr "left_pointer2.rz" "whiplash.dnsm[255]";
+connectAttr "left_pointer2.ry" "whiplash.dnsm[256]";
+connectAttr "left_pointer2.rx" "whiplash.dnsm[257]";
+connectAttr "left_pointer2.tz" "whiplash.dnsm[258]";
+connectAttr "left_pointer2.ty" "whiplash.dnsm[259]";
+connectAttr "left_pointer2.tx" "whiplash.dnsm[260]";
+connectAttr "left_pointer1.sz" "whiplash.dnsm[261]";
+connectAttr "left_pointer1.sy" "whiplash.dnsm[262]";
+connectAttr "left_pointer1.sx" "whiplash.dnsm[263]";
+connectAttr "left_pointer1.rz" "whiplash.dnsm[264]";
+connectAttr "left_pointer1.ry" "whiplash.dnsm[265]";
+connectAttr "left_pointer1.rx" "whiplash.dnsm[266]";
+connectAttr "left_pointer1.tz" "whiplash.dnsm[267]";
+connectAttr "left_pointer1.ty" "whiplash.dnsm[268]";
+connectAttr "left_pointer1.tx" "whiplash.dnsm[269]";
+connectAttr "left_pointer.sz" "whiplash.dnsm[270]";
+connectAttr "left_pointer.sy" "whiplash.dnsm[271]";
+connectAttr "left_pointer.sx" "whiplash.dnsm[272]";
+connectAttr "left_pointer.rz" "whiplash.dnsm[273]";
+connectAttr "left_pointer.ry" "whiplash.dnsm[274]";
+connectAttr "left_pointer.rx" "whiplash.dnsm[275]";
+connectAttr "left_pointer.tz" "whiplash.dnsm[276]";
+connectAttr "left_pointer.ty" "whiplash.dnsm[277]";
+connectAttr "left_pointer.tx" "whiplash.dnsm[278]";
+connectAttr "left_middle2.sz" "whiplash.dnsm[279]";
+connectAttr "left_middle2.sy" "whiplash.dnsm[280]";
+connectAttr "left_middle2.sx" "whiplash.dnsm[281]";
+connectAttr "left_middle2.rz" "whiplash.dnsm[282]";
+connectAttr "left_middle2.ry" "whiplash.dnsm[283]";
+connectAttr "left_middle2.rx" "whiplash.dnsm[284]";
+connectAttr "left_middle2.tz" "whiplash.dnsm[285]";
+connectAttr "left_middle2.ty" "whiplash.dnsm[286]";
+connectAttr "left_middle2.tx" "whiplash.dnsm[287]";
+connectAttr "left_middle1.sz" "whiplash.dnsm[288]";
+connectAttr "left_middle1.sy" "whiplash.dnsm[289]";
+connectAttr "left_middle1.sx" "whiplash.dnsm[290]";
+connectAttr "left_middle1.rz" "whiplash.dnsm[291]";
+connectAttr "left_middle1.ry" "whiplash.dnsm[292]";
+connectAttr "left_middle1.rx" "whiplash.dnsm[293]";
+connectAttr "left_middle1.tz" "whiplash.dnsm[294]";
+connectAttr "left_middle1.ty" "whiplash.dnsm[295]";
+connectAttr "left_middle1.tx" "whiplash.dnsm[296]";
+connectAttr "left_middle.sz" "whiplash.dnsm[297]";
+connectAttr "left_middle.sy" "whiplash.dnsm[298]";
+connectAttr "left_middle.sx" "whiplash.dnsm[299]";
+connectAttr "left_middle.rz" "whiplash.dnsm[300]";
+connectAttr "left_middle.ry" "whiplash.dnsm[301]";
+connectAttr "left_middle.rx" "whiplash.dnsm[302]";
+connectAttr "left_middle.tz" "whiplash.dnsm[303]";
+connectAttr "left_middle.ty" "whiplash.dnsm[304]";
+connectAttr "left_middle.tx" "whiplash.dnsm[305]";
+connectAttr "left_ring2.sz" "whiplash.dnsm[306]";
+connectAttr "left_ring2.sy" "whiplash.dnsm[307]";
+connectAttr "left_ring2.sx" "whiplash.dnsm[308]";
+connectAttr "left_ring2.rz" "whiplash.dnsm[309]";
+connectAttr "left_ring2.ry" "whiplash.dnsm[310]";
+connectAttr "left_ring2.rx" "whiplash.dnsm[311]";
+connectAttr "left_ring2.tz" "whiplash.dnsm[312]";
+connectAttr "left_ring2.ty" "whiplash.dnsm[313]";
+connectAttr "left_ring2.tx" "whiplash.dnsm[314]";
+connectAttr "left_ring1.sz" "whiplash.dnsm[315]";
+connectAttr "left_ring1.sy" "whiplash.dnsm[316]";
+connectAttr "left_ring1.sx" "whiplash.dnsm[317]";
+connectAttr "left_ring1.rz" "whiplash.dnsm[318]";
+connectAttr "left_ring1.ry" "whiplash.dnsm[319]";
+connectAttr "left_ring1.rx" "whiplash.dnsm[320]";
+connectAttr "left_ring1.tz" "whiplash.dnsm[321]";
+connectAttr "left_ring1.ty" "whiplash.dnsm[322]";
+connectAttr "left_ring1.tx" "whiplash.dnsm[323]";
+connectAttr "left_ring.sz" "whiplash.dnsm[324]";
+connectAttr "left_ring.sy" "whiplash.dnsm[325]";
+connectAttr "left_ring.sx" "whiplash.dnsm[326]";
+connectAttr "left_ring.rz" "whiplash.dnsm[327]";
+connectAttr "left_ring.ry" "whiplash.dnsm[328]";
+connectAttr "left_ring.rx" "whiplash.dnsm[329]";
+connectAttr "left_ring.tz" "whiplash.dnsm[330]";
+connectAttr "left_ring.ty" "whiplash.dnsm[331]";
+connectAttr "left_ring.tx" "whiplash.dnsm[332]";
+connectAttr "left_pinky2.sz" "whiplash.dnsm[333]";
+connectAttr "left_pinky2.sy" "whiplash.dnsm[334]";
+connectAttr "left_pinky2.sx" "whiplash.dnsm[335]";
+connectAttr "left_pinky2.rz" "whiplash.dnsm[336]";
+connectAttr "left_pinky2.ry" "whiplash.dnsm[337]";
+connectAttr "left_pinky2.rx" "whiplash.dnsm[338]";
+connectAttr "left_pinky2.tz" "whiplash.dnsm[339]";
+connectAttr "left_pinky2.ty" "whiplash.dnsm[340]";
+connectAttr "left_pinky2.tx" "whiplash.dnsm[341]";
+connectAttr "left_pinky1.sz" "whiplash.dnsm[342]";
+connectAttr "left_pinky1.sy" "whiplash.dnsm[343]";
+connectAttr "left_pinky1.sx" "whiplash.dnsm[344]";
+connectAttr "left_pinky1.rz" "whiplash.dnsm[345]";
+connectAttr "left_pinky1.ry" "whiplash.dnsm[346]";
+connectAttr "left_pinky1.rx" "whiplash.dnsm[347]";
+connectAttr "left_pinky1.tz" "whiplash.dnsm[348]";
+connectAttr "left_pinky1.ty" "whiplash.dnsm[349]";
+connectAttr "left_pinky1.tx" "whiplash.dnsm[350]";
+connectAttr "left_pinky.sz" "whiplash.dnsm[351]";
+connectAttr "left_pinky.sy" "whiplash.dnsm[352]";
+connectAttr "left_pinky.sx" "whiplash.dnsm[353]";
+connectAttr "left_pinky.rz" "whiplash.dnsm[354]";
+connectAttr "left_pinky.ry" "whiplash.dnsm[355]";
+connectAttr "left_pinky.rx" "whiplash.dnsm[356]";
+connectAttr "left_pinky.tz" "whiplash.dnsm[357]";
+connectAttr "left_pinky.ty" "whiplash.dnsm[358]";
+connectAttr "left_pinky.tx" "whiplash.dnsm[359]";
+connectAttr "left_wrist.sz" "whiplash.dnsm[360]";
+connectAttr "left_wrist.sy" "whiplash.dnsm[361]";
+connectAttr "left_wrist.sx" "whiplash.dnsm[362]";
+connectAttr "left_wrist.rz" "whiplash.dnsm[363]";
+connectAttr "left_wrist.ry" "whiplash.dnsm[364]";
+connectAttr "left_wrist.rx" "whiplash.dnsm[365]";
+connectAttr "left_wrist.tz" "whiplash.dnsm[366]";
+connectAttr "left_wrist.ty" "whiplash.dnsm[367]";
+connectAttr "left_wrist.tx" "whiplash.dnsm[368]";
+connectAttr "left_elbow.sz" "whiplash.dnsm[369]";
+connectAttr "left_elbow.sy" "whiplash.dnsm[370]";
+connectAttr "left_elbow.sx" "whiplash.dnsm[371]";
+connectAttr "left_elbow.rz" "whiplash.dnsm[372]";
+connectAttr "left_elbow.ry" "whiplash.dnsm[373]";
+connectAttr "left_elbow.rx" "whiplash.dnsm[374]";
+connectAttr "left_elbow.tz" "whiplash.dnsm[375]";
+connectAttr "left_elbow.ty" "whiplash.dnsm[376]";
+connectAttr "left_elbow.tx" "whiplash.dnsm[377]";
+connectAttr "left_shoulder.sz" "whiplash.dnsm[378]";
+connectAttr "left_shoulder.sy" "whiplash.dnsm[379]";
+connectAttr "left_shoulder.sx" "whiplash.dnsm[380]";
+connectAttr "left_shoulder.rz" "whiplash.dnsm[381]";
+connectAttr "left_shoulder.ry" "whiplash.dnsm[382]";
+connectAttr "left_shoulder.rx" "whiplash.dnsm[383]";
+connectAttr "left_shoulder.tz" "whiplash.dnsm[384]";
+connectAttr "left_shoulder.ty" "whiplash.dnsm[385]";
+connectAttr "left_shoulder.tx" "whiplash.dnsm[386]";
+connectAttr "left_eyebrow.sz" "whiplash.dnsm[387]";
+connectAttr "left_eyebrow.sy" "whiplash.dnsm[388]";
+connectAttr "left_eyebrow.sx" "whiplash.dnsm[389]";
+connectAttr "left_eyebrow.rz" "whiplash.dnsm[390]";
+connectAttr "left_eyebrow.ry" "whiplash.dnsm[391]";
+connectAttr "left_eyebrow.rx" "whiplash.dnsm[392]";
+connectAttr "left_eyebrow.tz" "whiplash.dnsm[393]";
+connectAttr "left_eyebrow.ty" "whiplash.dnsm[394]";
+connectAttr "left_eyebrow.tx" "whiplash.dnsm[395]";
+connectAttr "right_eyebrow.sz" "whiplash.dnsm[396]";
+connectAttr "right_eyebrow.sy" "whiplash.dnsm[397]";
+connectAttr "right_eyebrow.sx" "whiplash.dnsm[398]";
+connectAttr "right_eyebrow.rz" "whiplash.dnsm[399]";
+connectAttr "right_eyebrow.ry" "whiplash.dnsm[400]";
+connectAttr "right_eyebrow.rx" "whiplash.dnsm[401]";
+connectAttr "right_eyebrow.tz" "whiplash.dnsm[402]";
+connectAttr "right_eyebrow.ty" "whiplash.dnsm[403]";
+connectAttr "right_eyebrow.tx" "whiplash.dnsm[404]";
+connectAttr "head.sz" "whiplash.dnsm[405]";
+connectAttr "head.sy" "whiplash.dnsm[406]";
+connectAttr "head.sx" "whiplash.dnsm[407]";
+connectAttr "head.rz" "whiplash.dnsm[408]";
+connectAttr "head.ry" "whiplash.dnsm[409]";
+connectAttr "head.rx" "whiplash.dnsm[410]";
+connectAttr "head.tz" "whiplash.dnsm[411]";
+connectAttr "head.ty" "whiplash.dnsm[412]";
+connectAttr "head.tx" "whiplash.dnsm[413]";
+connectAttr "neck_head_connection.sz" "whiplash.dnsm[414]";
+connectAttr "neck_head_connection.sy" "whiplash.dnsm[415]";
+connectAttr "neck_head_connection.sx" "whiplash.dnsm[416]";
+connectAttr "neck_head_connection.rz" "whiplash.dnsm[417]";
+connectAttr "neck_head_connection.ry" "whiplash.dnsm[418]";
+connectAttr "neck_head_connection.rx" "whiplash.dnsm[419]";
+connectAttr "neck_head_connection.tz" "whiplash.dnsm[420]";
+connectAttr "neck_head_connection.ty" "whiplash.dnsm[421]";
+connectAttr "neck_head_connection.tx" "whiplash.dnsm[422]";
+connectAttr "neck_body_connection.sz" "whiplash.dnsm[423]";
+connectAttr "neck_body_connection.sy" "whiplash.dnsm[424]";
+connectAttr "neck_body_connection.sx" "whiplash.dnsm[425]";
+connectAttr "neck_body_connection.rz" "whiplash.dnsm[426]";
+connectAttr "neck_body_connection.ry" "whiplash.dnsm[427]";
+connectAttr "neck_body_connection.rx" "whiplash.dnsm[428]";
+connectAttr "neck_body_connection.tz" "whiplash.dnsm[429]";
+connectAttr "neck_body_connection.ty" "whiplash.dnsm[430]";
+connectAttr "neck_body_connection.tx" "whiplash.dnsm[431]";
+connectAttr "mid_body.sz" "whiplash.dnsm[432]";
+connectAttr "mid_body.sy" "whiplash.dnsm[433]";
+connectAttr "mid_body.sx" "whiplash.dnsm[434]";
+connectAttr "mid_body.rz" "whiplash.dnsm[435]";
+connectAttr "mid_body.ry" "whiplash.dnsm[436]";
+connectAttr "mid_body.rx" "whiplash.dnsm[437]";
+connectAttr "mid_body.tz" "whiplash.dnsm[438]";
+connectAttr "mid_body.ty" "whiplash.dnsm[439]";
+connectAttr "mid_body.tx" "whiplash.dnsm[440]";
+connectAttr "right_ancle.sz" "whiplash.dnsm[441]";
+connectAttr "right_ancle.sy" "whiplash.dnsm[442]";
+connectAttr "right_ancle.sx" "whiplash.dnsm[443]";
+connectAttr "right_ancle.rz" "whiplash.dnsm[444]";
+connectAttr "right_ancle.ry" "whiplash.dnsm[445]";
+connectAttr "right_ancle.rx" "whiplash.dnsm[446]";
+connectAttr "right_ancle.tz" "whiplash.dnsm[447]";
+connectAttr "right_ancle.ty" "whiplash.dnsm[448]";
+connectAttr "right_ancle.tx" "whiplash.dnsm[449]";
+connectAttr "right_knee.sz" "whiplash.dnsm[450]";
+connectAttr "right_knee.sy" "whiplash.dnsm[451]";
+connectAttr "right_knee.sx" "whiplash.dnsm[452]";
+connectAttr "right_knee.rz" "whiplash.dnsm[453]";
+connectAttr "right_knee.ry" "whiplash.dnsm[454]";
+connectAttr "right_knee.rx" "whiplash.dnsm[455]";
+connectAttr "right_knee.tz" "whiplash.dnsm[456]";
+connectAttr "right_knee.ty" "whiplash.dnsm[457]";
+connectAttr "right_knee.tx" "whiplash.dnsm[458]";
+connectAttr "hip_right_leg.sz" "whiplash.dnsm[459]";
+connectAttr "hip_right_leg.sy" "whiplash.dnsm[460]";
+connectAttr "hip_right_leg.sx" "whiplash.dnsm[461]";
+connectAttr "hip_right_leg.rz" "whiplash.dnsm[462]";
+connectAttr "hip_right_leg.ry" "whiplash.dnsm[463]";
+connectAttr "hip_right_leg.rx" "whiplash.dnsm[464]";
+connectAttr "hip_right_leg.tz" "whiplash.dnsm[465]";
+connectAttr "hip_right_leg.ty" "whiplash.dnsm[466]";
+connectAttr "hip_right_leg.tx" "whiplash.dnsm[467]";
+connectAttr "left_ancle.sz" "whiplash.dnsm[468]";
+connectAttr "left_ancle.sy" "whiplash.dnsm[469]";
+connectAttr "left_ancle.sx" "whiplash.dnsm[470]";
+connectAttr "left_ancle.rz" "whiplash.dnsm[471]";
+connectAttr "left_ancle.ry" "whiplash.dnsm[472]";
+connectAttr "left_ancle.rx" "whiplash.dnsm[473]";
+connectAttr "left_ancle.tz" "whiplash.dnsm[474]";
+connectAttr "left_ancle.ty" "whiplash.dnsm[475]";
+connectAttr "left_ancle.tx" "whiplash.dnsm[476]";
+connectAttr "left_knee.sz" "whiplash.dnsm[477]";
+connectAttr "left_knee.sy" "whiplash.dnsm[478]";
+connectAttr "left_knee.sx" "whiplash.dnsm[479]";
+connectAttr "left_knee.rz" "whiplash.dnsm[480]";
+connectAttr "left_knee.ry" "whiplash.dnsm[481]";
+connectAttr "left_knee.rx" "whiplash.dnsm[482]";
+connectAttr "left_knee.tz" "whiplash.dnsm[483]";
+connectAttr "left_knee.ty" "whiplash.dnsm[484]";
+connectAttr "left_knee.tx" "whiplash.dnsm[485]";
+connectAttr "hip_left_leg.sz" "whiplash.dnsm[486]";
+connectAttr "hip_left_leg.sy" "whiplash.dnsm[487]";
+connectAttr "hip_left_leg.sx" "whiplash.dnsm[488]";
+connectAttr "hip_left_leg.rz" "whiplash.dnsm[489]";
+connectAttr "hip_left_leg.ry" "whiplash.dnsm[490]";
+connectAttr "hip_left_leg.rx" "whiplash.dnsm[491]";
+connectAttr "hip_left_leg.tz" "whiplash.dnsm[492]";
+connectAttr "hip_left_leg.ty" "whiplash.dnsm[493]";
+connectAttr "hip_left_leg.tx" "whiplash.dnsm[494]";
+connectAttr "hip_body.sz" "whiplash.dnsm[495]";
+connectAttr "hip_body.sy" "whiplash.dnsm[496]";
+connectAttr "hip_body.sx" "whiplash.dnsm[497]";
+connectAttr "hip_body.rz" "whiplash.dnsm[498]";
+connectAttr "hip_body.ry" "whiplash.dnsm[499]";
+connectAttr "hip_body.rx" "whiplash.dnsm[500]";
+connectAttr "hip_body.tz" "whiplash.dnsm[501]";
+connectAttr "hip_body.ty" "whiplash.dnsm[502]";
+connectAttr "hip_body.tx" "whiplash.dnsm[503]";
+connectAttr "root.sz" "whiplash.dnsm[504]";
+connectAttr "root.sy" "whiplash.dnsm[505]";
+connectAttr "root.sx" "whiplash.dnsm[506]";
+connectAttr "root.rz" "whiplash.dnsm[507]";
+connectAttr "root.ry" "whiplash.dnsm[508]";
+connectAttr "root.rx" "whiplash.dnsm[509]";
+connectAttr "root.tz" "whiplash.dnsm[510]";
+connectAttr "root.ty" "whiplash.dnsm[511]";
+connectAttr "root.tx" "whiplash.dnsm[512]";
+connectAttr "whiplash_right_thumb_hand1_scaleZ.o" "whiplash.uv[1]";
+connectAttr "whiplash_right_thumb_hand1_scaleY.o" "whiplash.uv[2]";
+connectAttr "whiplash_right_thumb_hand1_scaleX.o" "whiplash.uv[3]";
+connectAttr "whiplash_right_thumb_hand_scaleZ.o" "whiplash.uv[4]";
+connectAttr "whiplash_right_thumb_hand_scaleY.o" "whiplash.uv[5]";
+connectAttr "whiplash_right_thumb_hand_scaleX.o" "whiplash.uv[6]";
+connectAttr "whiplash_right_pointer_hand2_scaleZ.o" "whiplash.uv[7]";
+connectAttr "whiplash_right_pointer_hand2_scaleY.o" "whiplash.uv[8]";
+connectAttr "whiplash_right_pointer_hand2_scaleX.o" "whiplash.uv[9]";
+connectAttr "whiplash_right_pointer_hand1_scaleZ.o" "whiplash.uv[10]";
+connectAttr "whiplash_right_pointer_hand1_scaleY.o" "whiplash.uv[11]";
+connectAttr "whiplash_right_pointer_hand1_scaleX.o" "whiplash.uv[12]";
+connectAttr "whiplash_right_pointer_hand_scaleZ.o" "whiplash.uv[13]";
+connectAttr "whiplash_right_pointer_hand_scaleY.o" "whiplash.uv[14]";
+connectAttr "whiplash_right_pointer_hand_scaleX.o" "whiplash.uv[15]";
+connectAttr "whiplash_right_middle_hand2_scaleZ.o" "whiplash.uv[16]";
+connectAttr "whiplash_right_middle_hand2_scaleY.o" "whiplash.uv[17]";
+connectAttr "whiplash_right_middle_hand2_scaleX.o" "whiplash.uv[18]";
+connectAttr "whiplash_right_middle_hand1_scaleZ.o" "whiplash.uv[19]";
+connectAttr "whiplash_right_middle_hand1_scaleY.o" "whiplash.uv[20]";
+connectAttr "whiplash_right_middle_hand1_scaleX.o" "whiplash.uv[21]";
+connectAttr "whiplash_right_middle_hand_scaleZ.o" "whiplash.uv[22]";
+connectAttr "whiplash_right_middle_hand_scaleY.o" "whiplash.uv[23]";
+connectAttr "whiplash_right_middle_hand_scaleX.o" "whiplash.uv[24]";
+connectAttr "whiplash_right_ring_hand2_scaleZ.o" "whiplash.uv[25]";
+connectAttr "whiplash_right_ring_hand2_scaleY.o" "whiplash.uv[26]";
+connectAttr "whiplash_right_ring_hand2_scaleX.o" "whiplash.uv[27]";
+connectAttr "whiplash_right_ring_hand1_scaleZ.o" "whiplash.uv[28]";
+connectAttr "whiplash_right_ring_hand1_scaleY.o" "whiplash.uv[29]";
+connectAttr "whiplash_right_ring_hand1_scaleX.o" "whiplash.uv[30]";
+connectAttr "whiplash_right_ring_hand_scaleZ.o" "whiplash.uv[31]";
+connectAttr "whiplash_right_ring_hand_scaleY.o" "whiplash.uv[32]";
+connectAttr "whiplash_right_ring_hand_scaleX.o" "whiplash.uv[33]";
+connectAttr "whiplash_right_pinky_hand2_scaleZ.o" "whiplash.uv[34]";
+connectAttr "whiplash_right_pinky_hand2_scaleY.o" "whiplash.uv[35]";
+connectAttr "whiplash_right_pinky_hand2_scaleX.o" "whiplash.uv[36]";
+connectAttr "whiplash_right_pinky_hand1_scaleZ.o" "whiplash.uv[37]";
+connectAttr "whiplash_right_pinky_hand1_scaleY.o" "whiplash.uv[38]";
+connectAttr "whiplash_right_pinky_hand1_scaleX.o" "whiplash.uv[39]";
+connectAttr "whiplash_right_pinky_hand_scaleZ.o" "whiplash.uv[40]";
+connectAttr "whiplash_right_pinky_hand_scaleY.o" "whiplash.uv[41]";
+connectAttr "whiplash_right_pinky_hand_scaleX.o" "whiplash.uv[42]";
+connectAttr "whiplash_right_wrist_scaleZ.o" "whiplash.uv[43]";
+connectAttr "whiplash_right_wrist_scaleY.o" "whiplash.uv[44]";
+connectAttr "whiplash_right_wrist_scaleX.o" "whiplash.uv[45]";
+connectAttr "whiplash_right_elbow_scaleZ.o" "whiplash.uv[46]";
+connectAttr "whiplash_right_elbow_scaleY.o" "whiplash.uv[47]";
+connectAttr "whiplash_right_elbow_scaleX.o" "whiplash.uv[48]";
+connectAttr "whiplash_right_shoulder_scaleZ.o" "whiplash.uv[49]";
+connectAttr "whiplash_right_shoulder_scaleY.o" "whiplash.uv[50]";
+connectAttr "whiplash_right_shoulder_scaleX.o" "whiplash.uv[51]";
+connectAttr "whiplash_whip_joint_6_scaleZ.o" "whiplash.uv[52]";
+connectAttr "whiplash_whip_joint_6_scaleY.o" "whiplash.uv[53]";
+connectAttr "whiplash_whip_joint_6_scaleX.o" "whiplash.uv[54]";
+connectAttr "whiplash_whip_joint_5_scaleZ.o" "whiplash.uv[55]";
+connectAttr "whiplash_whip_joint_5_scaleY.o" "whiplash.uv[56]";
+connectAttr "whiplash_whip_joint_5_scaleX.o" "whiplash.uv[57]";
+connectAttr "whiplash_whip_joint_4_scaleZ.o" "whiplash.uv[58]";
+connectAttr "whiplash_whip_joint_4_scaleY.o" "whiplash.uv[59]";
+connectAttr "whiplash_whip_joint_4_scaleX.o" "whiplash.uv[60]";
+connectAttr "whiplash_whip_joint_3_scaleZ.o" "whiplash.uv[61]";
+connectAttr "whiplash_whip_joint_3_scaleY.o" "whiplash.uv[62]";
+connectAttr "whiplash_whip_joint_3_scaleX.o" "whiplash.uv[63]";
+connectAttr "whiplash_whip_joint_2_scaleZ.o" "whiplash.uv[64]";
+connectAttr "whiplash_whip_joint_2_scaleY.o" "whiplash.uv[65]";
+connectAttr "whiplash_whip_joint_2_scaleX.o" "whiplash.uv[66]";
+connectAttr "whiplash_whip_joint_1_scaleZ.o" "whiplash.uv[67]";
+connectAttr "whiplash_whip_joint_1_scaleY.o" "whiplash.uv[68]";
+connectAttr "whiplash_whip_joint_1_scaleX.o" "whiplash.uv[69]";
+connectAttr "whiplash_whip_base_scaleZ.o" "whiplash.uv[70]";
+connectAttr "whiplash_whip_base_scaleY.o" "whiplash.uv[71]";
+connectAttr "whiplash_whip_base_scaleX.o" "whiplash.uv[72]";
+connectAttr "whiplash_whip_base1_scaleZ.o" "whiplash.uv[73]";
+connectAttr "whiplash_whip_base1_scaleY.o" "whiplash.uv[74]";
+connectAttr "whiplash_whip_base1_scaleX.o" "whiplash.uv[75]";
+connectAttr "whiplash_joint1_scaleZ.o" "whiplash.uv[76]";
+connectAttr "whiplash_joint1_scaleY.o" "whiplash.uv[77]";
+connectAttr "whiplash_joint1_scaleX.o" "whiplash.uv[78]";
+connectAttr "whiplash_left_thumb1_scaleZ.o" "whiplash.uv[79]";
+connectAttr "whiplash_left_thumb1_scaleY.o" "whiplash.uv[80]";
+connectAttr "whiplash_left_thumb1_scaleX.o" "whiplash.uv[81]";
+connectAttr "whiplash_left_thumb_scaleZ.o" "whiplash.uv[82]";
+connectAttr "whiplash_left_thumb_scaleY.o" "whiplash.uv[83]";
+connectAttr "whiplash_left_thumb_scaleX.o" "whiplash.uv[84]";
+connectAttr "whiplash_left_pointer2_scaleZ.o" "whiplash.uv[85]";
+connectAttr "whiplash_left_pointer2_scaleY.o" "whiplash.uv[86]";
+connectAttr "whiplash_left_pointer2_scaleX.o" "whiplash.uv[87]";
+connectAttr "whiplash_left_pointer1_scaleZ.o" "whiplash.uv[88]";
+connectAttr "whiplash_left_pointer1_scaleY.o" "whiplash.uv[89]";
+connectAttr "whiplash_left_pointer1_scaleX.o" "whiplash.uv[90]";
+connectAttr "whiplash_left_pointer_scaleZ.o" "whiplash.uv[91]";
+connectAttr "whiplash_left_pointer_scaleY.o" "whiplash.uv[92]";
+connectAttr "whiplash_left_pointer_scaleX.o" "whiplash.uv[93]";
+connectAttr "whiplash_left_middle2_scaleZ.o" "whiplash.uv[94]";
+connectAttr "whiplash_left_middle2_scaleY.o" "whiplash.uv[95]";
+connectAttr "whiplash_left_middle2_scaleX.o" "whiplash.uv[96]";
+connectAttr "whiplash_left_middle1_scaleZ.o" "whiplash.uv[97]";
+connectAttr "whiplash_left_middle1_scaleY.o" "whiplash.uv[98]";
+connectAttr "whiplash_left_middle1_scaleX.o" "whiplash.uv[99]";
+connectAttr "whiplash_left_middle_scaleZ.o" "whiplash.uv[100]";
+connectAttr "whiplash_left_middle_scaleY.o" "whiplash.uv[101]";
+connectAttr "whiplash_left_middle_scaleX.o" "whiplash.uv[102]";
+connectAttr "whiplash_left_ring2_scaleZ.o" "whiplash.uv[103]";
+connectAttr "whiplash_left_ring2_scaleY.o" "whiplash.uv[104]";
+connectAttr "whiplash_left_ring2_scaleX.o" "whiplash.uv[105]";
+connectAttr "whiplash_left_ring1_scaleZ.o" "whiplash.uv[106]";
+connectAttr "whiplash_left_ring1_scaleY.o" "whiplash.uv[107]";
+connectAttr "whiplash_left_ring1_scaleX.o" "whiplash.uv[108]";
+connectAttr "whiplash_left_ring_scaleZ.o" "whiplash.uv[109]";
+connectAttr "whiplash_left_ring_scaleY.o" "whiplash.uv[110]";
+connectAttr "whiplash_left_ring_scaleX.o" "whiplash.uv[111]";
+connectAttr "whiplash_left_pinky2_scaleZ.o" "whiplash.uv[112]";
+connectAttr "whiplash_left_pinky2_scaleY.o" "whiplash.uv[113]";
+connectAttr "whiplash_left_pinky2_scaleX.o" "whiplash.uv[114]";
+connectAttr "whiplash_left_pinky1_scaleZ.o" "whiplash.uv[115]";
+connectAttr "whiplash_left_pinky1_scaleY.o" "whiplash.uv[116]";
+connectAttr "whiplash_left_pinky1_scaleX.o" "whiplash.uv[117]";
+connectAttr "whiplash_left_pinky_scaleZ.o" "whiplash.uv[118]";
+connectAttr "whiplash_left_pinky_scaleY.o" "whiplash.uv[119]";
+connectAttr "whiplash_left_pinky_scaleX.o" "whiplash.uv[120]";
+connectAttr "whiplash_left_wrist_scaleZ.o" "whiplash.uv[121]";
+connectAttr "whiplash_left_wrist_scaleY.o" "whiplash.uv[122]";
+connectAttr "whiplash_left_wrist_scaleX.o" "whiplash.uv[123]";
+connectAttr "whiplash_left_elbow_scaleZ.o" "whiplash.uv[124]";
+connectAttr "whiplash_left_elbow_scaleY.o" "whiplash.uv[125]";
+connectAttr "whiplash_left_elbow_scaleX.o" "whiplash.uv[126]";
+connectAttr "whiplash_left_shoulder_scaleZ.o" "whiplash.uv[127]";
+connectAttr "whiplash_left_shoulder_scaleY.o" "whiplash.uv[128]";
+connectAttr "whiplash_left_shoulder_scaleX.o" "whiplash.uv[129]";
+connectAttr "whiplash_left_eyebrow_scaleZ.o" "whiplash.uv[130]";
+connectAttr "whiplash_left_eyebrow_scaleY.o" "whiplash.uv[131]";
+connectAttr "whiplash_left_eyebrow_scaleX.o" "whiplash.uv[132]";
+connectAttr "whiplash_right_eyebrow_scaleZ.o" "whiplash.uv[133]";
+connectAttr "whiplash_right_eyebrow_scaleY.o" "whiplash.uv[134]";
+connectAttr "whiplash_right_eyebrow_scaleX.o" "whiplash.uv[135]";
+connectAttr "whiplash_head_scaleZ.o" "whiplash.uv[136]";
+connectAttr "whiplash_head_scaleY.o" "whiplash.uv[137]";
+connectAttr "whiplash_head_scaleX.o" "whiplash.uv[138]";
+connectAttr "whiplash_neck_head_connection_scaleZ.o" "whiplash.uv[139]";
+connectAttr "whiplash_neck_head_connection_scaleY.o" "whiplash.uv[140]";
+connectAttr "whiplash_neck_head_connection_scaleX.o" "whiplash.uv[141]";
+connectAttr "whiplash_neck_body_connection_scaleZ.o" "whiplash.uv[142]";
+connectAttr "whiplash_neck_body_connection_scaleY.o" "whiplash.uv[143]";
+connectAttr "whiplash_neck_body_connection_scaleX.o" "whiplash.uv[144]";
+connectAttr "whiplash_mid_body_scaleZ.o" "whiplash.uv[145]";
+connectAttr "whiplash_mid_body_scaleY.o" "whiplash.uv[146]";
+connectAttr "whiplash_mid_body_scaleX.o" "whiplash.uv[147]";
+connectAttr "whiplash_right_ancle_scaleZ.o" "whiplash.uv[148]";
+connectAttr "whiplash_right_ancle_scaleY.o" "whiplash.uv[149]";
+connectAttr "whiplash_right_ancle_scaleX.o" "whiplash.uv[150]";
+connectAttr "whiplash_right_knee_scaleZ.o" "whiplash.uv[151]";
+connectAttr "whiplash_right_knee_scaleY.o" "whiplash.uv[152]";
+connectAttr "whiplash_right_knee_scaleX.o" "whiplash.uv[153]";
+connectAttr "whiplash_hip_right_leg_scaleZ.o" "whiplash.uv[154]";
+connectAttr "whiplash_hip_right_leg_scaleY.o" "whiplash.uv[155]";
+connectAttr "whiplash_hip_right_leg_scaleX.o" "whiplash.uv[156]";
+connectAttr "whiplash_left_ancle_scaleZ.o" "whiplash.uv[157]";
+connectAttr "whiplash_left_ancle_scaleY.o" "whiplash.uv[158]";
+connectAttr "whiplash_left_ancle_scaleX.o" "whiplash.uv[159]";
+connectAttr "whiplash_left_knee_scaleZ.o" "whiplash.uv[160]";
+connectAttr "whiplash_left_knee_scaleY.o" "whiplash.uv[161]";
+connectAttr "whiplash_left_knee_scaleX.o" "whiplash.uv[162]";
+connectAttr "whiplash_hip_left_leg_scaleZ.o" "whiplash.uv[163]";
+connectAttr "whiplash_hip_left_leg_scaleY.o" "whiplash.uv[164]";
+connectAttr "whiplash_hip_left_leg_scaleX.o" "whiplash.uv[165]";
+connectAttr "whiplash_hip_body_scaleZ.o" "whiplash.uv[166]";
+connectAttr "whiplash_hip_body_scaleY.o" "whiplash.uv[167]";
+connectAttr "whiplash_hip_body_scaleX.o" "whiplash.uv[168]";
+connectAttr "whiplash_root_scaleZ.o" "whiplash.uv[169]";
+connectAttr "whiplash_root_scaleY.o" "whiplash.uv[170]";
+connectAttr "whiplash_root_scaleX.o" "whiplash.uv[171]";
+connectAttr "whiplash_right_thumb_hand1_rotateZ.o" "whiplash.av[1]";
+connectAttr "whiplash_right_thumb_hand1_rotateY.o" "whiplash.av[2]";
+connectAttr "whiplash_right_thumb_hand1_rotateX.o" "whiplash.av[3]";
+connectAttr "whiplash_right_thumb_hand_rotateZ.o" "whiplash.av[4]";
+connectAttr "whiplash_right_thumb_hand_rotateY.o" "whiplash.av[5]";
+connectAttr "whiplash_right_thumb_hand_rotateX.o" "whiplash.av[6]";
+connectAttr "whiplash_right_pointer_hand2_rotateZ.o" "whiplash.av[7]";
+connectAttr "whiplash_right_pointer_hand2_rotateY.o" "whiplash.av[8]";
+connectAttr "whiplash_right_pointer_hand2_rotateX.o" "whiplash.av[9]";
+connectAttr "whiplash_right_pointer_hand1_rotateZ.o" "whiplash.av[10]";
+connectAttr "whiplash_right_pointer_hand1_rotateY.o" "whiplash.av[11]";
+connectAttr "whiplash_right_pointer_hand1_rotateX.o" "whiplash.av[12]";
+connectAttr "whiplash_right_pointer_hand_rotateZ.o" "whiplash.av[13]";
+connectAttr "whiplash_right_pointer_hand_rotateY.o" "whiplash.av[14]";
+connectAttr "whiplash_right_pointer_hand_rotateX.o" "whiplash.av[15]";
+connectAttr "whiplash_right_middle_hand2_rotateZ.o" "whiplash.av[16]";
+connectAttr "whiplash_right_middle_hand2_rotateY.o" "whiplash.av[17]";
+connectAttr "whiplash_right_middle_hand2_rotateX.o" "whiplash.av[18]";
+connectAttr "whiplash_right_middle_hand1_rotateZ.o" "whiplash.av[19]";
+connectAttr "whiplash_right_middle_hand1_rotateY.o" "whiplash.av[20]";
+connectAttr "whiplash_right_middle_hand1_rotateX.o" "whiplash.av[21]";
+connectAttr "whiplash_right_middle_hand_rotateZ.o" "whiplash.av[22]";
+connectAttr "whiplash_right_middle_hand_rotateY.o" "whiplash.av[23]";
+connectAttr "whiplash_right_middle_hand_rotateX.o" "whiplash.av[24]";
+connectAttr "whiplash_right_ring_hand2_rotateZ.o" "whiplash.av[25]";
+connectAttr "whiplash_right_ring_hand2_rotateY.o" "whiplash.av[26]";
+connectAttr "whiplash_right_ring_hand2_rotateX.o" "whiplash.av[27]";
+connectAttr "whiplash_right_ring_hand1_rotateZ.o" "whiplash.av[28]";
+connectAttr "whiplash_right_ring_hand1_rotateY.o" "whiplash.av[29]";
+connectAttr "whiplash_right_ring_hand1_rotateX.o" "whiplash.av[30]";
+connectAttr "whiplash_right_ring_hand_rotateZ.o" "whiplash.av[31]";
+connectAttr "whiplash_right_ring_hand_rotateY.o" "whiplash.av[32]";
+connectAttr "whiplash_right_ring_hand_rotateX.o" "whiplash.av[33]";
+connectAttr "whiplash_right_pinky_hand2_rotateZ.o" "whiplash.av[34]";
+connectAttr "whiplash_right_pinky_hand2_rotateY.o" "whiplash.av[35]";
+connectAttr "whiplash_right_pinky_hand2_rotateX.o" "whiplash.av[36]";
+connectAttr "whiplash_right_pinky_hand1_rotateZ.o" "whiplash.av[37]";
+connectAttr "whiplash_right_pinky_hand1_rotateY.o" "whiplash.av[38]";
+connectAttr "whiplash_right_pinky_hand1_rotateX.o" "whiplash.av[39]";
+connectAttr "whiplash_right_pinky_hand_rotateZ.o" "whiplash.av[40]";
+connectAttr "whiplash_right_pinky_hand_rotateY.o" "whiplash.av[41]";
+connectAttr "whiplash_right_pinky_hand_rotateX.o" "whiplash.av[42]";
+connectAttr "whiplash_right_wrist_rotateZ.o" "whiplash.av[43]";
+connectAttr "whiplash_right_wrist_rotateY.o" "whiplash.av[44]";
+connectAttr "whiplash_right_wrist_rotateX.o" "whiplash.av[45]";
+connectAttr "whiplash_right_elbow_rotateZ.o" "whiplash.av[46]";
+connectAttr "whiplash_right_elbow_rotateY.o" "whiplash.av[47]";
+connectAttr "whiplash_right_elbow_rotateX.o" "whiplash.av[48]";
+connectAttr "whiplash_right_shoulder_rotateZ.o" "whiplash.av[49]";
+connectAttr "whiplash_right_shoulder_rotateY.o" "whiplash.av[50]";
+connectAttr "whiplash_right_shoulder_rotateX.o" "whiplash.av[51]";
+connectAttr "whiplash_whip_joint_6_rotateZ.o" "whiplash.av[52]";
+connectAttr "whiplash_whip_joint_6_rotateY.o" "whiplash.av[53]";
+connectAttr "whiplash_whip_joint_6_rotateX.o" "whiplash.av[54]";
+connectAttr "whiplash_whip_joint_5_rotateZ.o" "whiplash.av[55]";
+connectAttr "whiplash_whip_joint_5_rotateY.o" "whiplash.av[56]";
+connectAttr "whiplash_whip_joint_5_rotateX.o" "whiplash.av[57]";
+connectAttr "whiplash_whip_joint_4_rotateZ.o" "whiplash.av[58]";
+connectAttr "whiplash_whip_joint_4_rotateY.o" "whiplash.av[59]";
+connectAttr "whiplash_whip_joint_4_rotateX.o" "whiplash.av[60]";
+connectAttr "whiplash_whip_joint_3_rotateZ.o" "whiplash.av[61]";
+connectAttr "whiplash_whip_joint_3_rotateY.o" "whiplash.av[62]";
+connectAttr "whiplash_whip_joint_3_rotateX.o" "whiplash.av[63]";
+connectAttr "whiplash_whip_joint_2_rotateZ.o" "whiplash.av[64]";
+connectAttr "whiplash_whip_joint_2_rotateY.o" "whiplash.av[65]";
+connectAttr "whiplash_whip_joint_2_rotateX.o" "whiplash.av[66]";
+connectAttr "whiplash_whip_joint_1_rotateZ.o" "whiplash.av[67]";
+connectAttr "whiplash_whip_joint_1_rotateY.o" "whiplash.av[68]";
+connectAttr "whiplash_whip_joint_1_rotateX.o" "whiplash.av[69]";
+connectAttr "whiplash_whip_base_rotateZ.o" "whiplash.av[70]";
+connectAttr "whiplash_whip_base_rotateY.o" "whiplash.av[71]";
+connectAttr "whiplash_whip_base_rotateX.o" "whiplash.av[72]";
+connectAttr "whiplash_whip_base1_rotateZ.o" "whiplash.av[73]";
+connectAttr "whiplash_whip_base1_rotateY.o" "whiplash.av[74]";
+connectAttr "whiplash_whip_base1_rotateX.o" "whiplash.av[75]";
+connectAttr "whiplash_joint1_rotateZ.o" "whiplash.av[76]";
+connectAttr "whiplash_joint1_rotateY.o" "whiplash.av[77]";
+connectAttr "whiplash_joint1_rotateX.o" "whiplash.av[78]";
+connectAttr "whiplash_left_thumb1_rotateZ.o" "whiplash.av[79]";
+connectAttr "whiplash_left_thumb1_rotateY.o" "whiplash.av[80]";
+connectAttr "whiplash_left_thumb1_rotateX.o" "whiplash.av[81]";
+connectAttr "whiplash_left_thumb_rotateZ.o" "whiplash.av[82]";
+connectAttr "whiplash_left_thumb_rotateY.o" "whiplash.av[83]";
+connectAttr "whiplash_left_thumb_rotateX.o" "whiplash.av[84]";
+connectAttr "whiplash_left_pointer2_rotateZ.o" "whiplash.av[85]";
+connectAttr "whiplash_left_pointer2_rotateY.o" "whiplash.av[86]";
+connectAttr "whiplash_left_pointer2_rotateX.o" "whiplash.av[87]";
+connectAttr "whiplash_left_pointer1_rotateZ.o" "whiplash.av[88]";
+connectAttr "whiplash_left_pointer1_rotateY.o" "whiplash.av[89]";
+connectAttr "whiplash_left_pointer1_rotateX.o" "whiplash.av[90]";
+connectAttr "whiplash_left_pointer_rotateZ.o" "whiplash.av[91]";
+connectAttr "whiplash_left_pointer_rotateY.o" "whiplash.av[92]";
+connectAttr "whiplash_left_pointer_rotateX.o" "whiplash.av[93]";
+connectAttr "whiplash_left_middle2_rotateZ.o" "whiplash.av[94]";
+connectAttr "whiplash_left_middle2_rotateY.o" "whiplash.av[95]";
+connectAttr "whiplash_left_middle2_rotateX.o" "whiplash.av[96]";
+connectAttr "whiplash_left_middle1_rotateZ.o" "whiplash.av[97]";
+connectAttr "whiplash_left_middle1_rotateY.o" "whiplash.av[98]";
+connectAttr "whiplash_left_middle1_rotateX.o" "whiplash.av[99]";
+connectAttr "whiplash_left_middle_rotateZ.o" "whiplash.av[100]";
+connectAttr "whiplash_left_middle_rotateY.o" "whiplash.av[101]";
+connectAttr "whiplash_left_middle_rotateX.o" "whiplash.av[102]";
+connectAttr "whiplash_left_ring2_rotateZ.o" "whiplash.av[103]";
+connectAttr "whiplash_left_ring2_rotateY.o" "whiplash.av[104]";
+connectAttr "whiplash_left_ring2_rotateX.o" "whiplash.av[105]";
+connectAttr "whiplash_left_ring1_rotateZ.o" "whiplash.av[106]";
+connectAttr "whiplash_left_ring1_rotateY.o" "whiplash.av[107]";
+connectAttr "whiplash_left_ring1_rotateX.o" "whiplash.av[108]";
+connectAttr "whiplash_left_ring_rotateZ.o" "whiplash.av[109]";
+connectAttr "whiplash_left_ring_rotateY.o" "whiplash.av[110]";
+connectAttr "whiplash_left_ring_rotateX.o" "whiplash.av[111]";
+connectAttr "whiplash_left_pinky2_rotateZ.o" "whiplash.av[112]";
+connectAttr "whiplash_left_pinky2_rotateY.o" "whiplash.av[113]";
+connectAttr "whiplash_left_pinky2_rotateX.o" "whiplash.av[114]";
+connectAttr "whiplash_left_pinky1_rotateZ.o" "whiplash.av[115]";
+connectAttr "whiplash_left_pinky1_rotateY.o" "whiplash.av[116]";
+connectAttr "whiplash_left_pinky1_rotateX.o" "whiplash.av[117]";
+connectAttr "whiplash_left_pinky_rotateZ.o" "whiplash.av[118]";
+connectAttr "whiplash_left_pinky_rotateY.o" "whiplash.av[119]";
+connectAttr "whiplash_left_pinky_rotateX.o" "whiplash.av[120]";
+connectAttr "whiplash_left_wrist_rotateZ.o" "whiplash.av[121]";
+connectAttr "whiplash_left_wrist_rotateY.o" "whiplash.av[122]";
+connectAttr "whiplash_left_wrist_rotateX.o" "whiplash.av[123]";
+connectAttr "whiplash_left_elbow_rotateZ.o" "whiplash.av[124]";
+connectAttr "whiplash_left_elbow_rotateY.o" "whiplash.av[125]";
+connectAttr "whiplash_left_elbow_rotateX.o" "whiplash.av[126]";
+connectAttr "whiplash_left_shoulder_rotateZ.o" "whiplash.av[127]";
+connectAttr "whiplash_left_shoulder_rotateY.o" "whiplash.av[128]";
+connectAttr "whiplash_left_shoulder_rotateX.o" "whiplash.av[129]";
+connectAttr "whiplash_left_eyebrow_rotateZ.o" "whiplash.av[130]";
+connectAttr "whiplash_left_eyebrow_rotateY.o" "whiplash.av[131]";
+connectAttr "whiplash_left_eyebrow_rotateX.o" "whiplash.av[132]";
+connectAttr "whiplash_right_eyebrow_rotateZ.o" "whiplash.av[133]";
+connectAttr "whiplash_right_eyebrow_rotateY.o" "whiplash.av[134]";
+connectAttr "whiplash_right_eyebrow_rotateX.o" "whiplash.av[135]";
+connectAttr "whiplash_head_rotateZ.o" "whiplash.av[136]";
+connectAttr "whiplash_head_rotateY.o" "whiplash.av[137]";
+connectAttr "whiplash_head_rotateX.o" "whiplash.av[138]";
+connectAttr "whiplash_neck_head_connection_rotateZ.o" "whiplash.av[139]";
+connectAttr "whiplash_neck_head_connection_rotateY.o" "whiplash.av[140]";
+connectAttr "whiplash_neck_head_connection_rotateX.o" "whiplash.av[141]";
+connectAttr "whiplash_neck_body_connection_rotateZ.o" "whiplash.av[142]";
+connectAttr "whiplash_neck_body_connection_rotateY.o" "whiplash.av[143]";
+connectAttr "whiplash_neck_body_connection_rotateX.o" "whiplash.av[144]";
+connectAttr "whiplash_mid_body_rotateZ.o" "whiplash.av[145]";
+connectAttr "whiplash_mid_body_rotateY.o" "whiplash.av[146]";
+connectAttr "whiplash_mid_body_rotateX.o" "whiplash.av[147]";
+connectAttr "whiplash_right_ancle_rotateZ.o" "whiplash.av[148]";
+connectAttr "whiplash_right_ancle_rotateY.o" "whiplash.av[149]";
+connectAttr "whiplash_right_ancle_rotateX.o" "whiplash.av[150]";
+connectAttr "whiplash_right_knee_rotateZ.o" "whiplash.av[151]";
+connectAttr "whiplash_right_knee_rotateY.o" "whiplash.av[152]";
+connectAttr "whiplash_right_knee_rotateX.o" "whiplash.av[153]";
+connectAttr "whiplash_hip_right_leg_rotateZ.o" "whiplash.av[154]";
+connectAttr "whiplash_hip_right_leg_rotateY.o" "whiplash.av[155]";
+connectAttr "whiplash_hip_right_leg_rotateX.o" "whiplash.av[156]";
+connectAttr "whiplash_left_ancle_rotateZ.o" "whiplash.av[157]";
+connectAttr "whiplash_left_ancle_rotateY.o" "whiplash.av[158]";
+connectAttr "whiplash_left_ancle_rotateX.o" "whiplash.av[159]";
+connectAttr "whiplash_left_knee_rotateZ.o" "whiplash.av[160]";
+connectAttr "whiplash_left_knee_rotateY.o" "whiplash.av[161]";
+connectAttr "whiplash_left_knee_rotateX.o" "whiplash.av[162]";
+connectAttr "whiplash_hip_left_leg_rotateZ.o" "whiplash.av[163]";
+connectAttr "whiplash_hip_left_leg_rotateY.o" "whiplash.av[164]";
+connectAttr "whiplash_hip_left_leg_rotateX.o" "whiplash.av[165]";
+connectAttr "whiplash_hip_body_rotateZ.o" "whiplash.av[166]";
+connectAttr "whiplash_hip_body_rotateY.o" "whiplash.av[167]";
+connectAttr "whiplash_hip_body_rotateX.o" "whiplash.av[168]";
+connectAttr "whiplash_root_rotateZ.o" "whiplash.av[169]";
+connectAttr "whiplash_root_rotateY.o" "whiplash.av[170]";
+connectAttr "whiplash_root_rotateX.o" "whiplash.av[171]";
+connectAttr "whiplash_right_thumb_hand1_translateZ.o" "whiplash.lv[1]";
+connectAttr "whiplash_right_thumb_hand1_translateY.o" "whiplash.lv[2]";
+connectAttr "whiplash_right_thumb_hand1_translateX.o" "whiplash.lv[3]";
+connectAttr "whiplash_right_thumb_hand_translateZ.o" "whiplash.lv[4]";
+connectAttr "whiplash_right_thumb_hand_translateY.o" "whiplash.lv[5]";
+connectAttr "whiplash_right_thumb_hand_translateX.o" "whiplash.lv[6]";
+connectAttr "whiplash_right_pointer_hand2_translateZ.o" "whiplash.lv[7]";
+connectAttr "whiplash_right_pointer_hand2_translateY.o" "whiplash.lv[8]";
+connectAttr "whiplash_right_pointer_hand2_translateX.o" "whiplash.lv[9]";
+connectAttr "whiplash_right_pointer_hand1_translateZ.o" "whiplash.lv[10]";
+connectAttr "whiplash_right_pointer_hand1_translateY.o" "whiplash.lv[11]";
+connectAttr "whiplash_right_pointer_hand1_translateX.o" "whiplash.lv[12]";
+connectAttr "whiplash_right_pointer_hand_translateZ.o" "whiplash.lv[13]";
+connectAttr "whiplash_right_pointer_hand_translateY.o" "whiplash.lv[14]";
+connectAttr "whiplash_right_pointer_hand_translateX.o" "whiplash.lv[15]";
+connectAttr "whiplash_right_middle_hand2_translateZ.o" "whiplash.lv[16]";
+connectAttr "whiplash_right_middle_hand2_translateY.o" "whiplash.lv[17]";
+connectAttr "whiplash_right_middle_hand2_translateX.o" "whiplash.lv[18]";
+connectAttr "whiplash_right_middle_hand1_translateZ.o" "whiplash.lv[19]";
+connectAttr "whiplash_right_middle_hand1_translateY.o" "whiplash.lv[20]";
+connectAttr "whiplash_right_middle_hand1_translateX.o" "whiplash.lv[21]";
+connectAttr "whiplash_right_middle_hand_translateZ.o" "whiplash.lv[22]";
+connectAttr "whiplash_right_middle_hand_translateY.o" "whiplash.lv[23]";
+connectAttr "whiplash_right_middle_hand_translateX.o" "whiplash.lv[24]";
+connectAttr "whiplash_right_ring_hand2_translateZ.o" "whiplash.lv[25]";
+connectAttr "whiplash_right_ring_hand2_translateY.o" "whiplash.lv[26]";
+connectAttr "whiplash_right_ring_hand2_translateX.o" "whiplash.lv[27]";
+connectAttr "whiplash_right_ring_hand1_translateZ.o" "whiplash.lv[28]";
+connectAttr "whiplash_right_ring_hand1_translateY.o" "whiplash.lv[29]";
+connectAttr "whiplash_right_ring_hand1_translateX.o" "whiplash.lv[30]";
+connectAttr "whiplash_right_ring_hand_translateZ.o" "whiplash.lv[31]";
+connectAttr "whiplash_right_ring_hand_translateY.o" "whiplash.lv[32]";
+connectAttr "whiplash_right_ring_hand_translateX.o" "whiplash.lv[33]";
+connectAttr "whiplash_right_pinky_hand2_translateZ.o" "whiplash.lv[34]";
+connectAttr "whiplash_right_pinky_hand2_translateY.o" "whiplash.lv[35]";
+connectAttr "whiplash_right_pinky_hand2_translateX.o" "whiplash.lv[36]";
+connectAttr "whiplash_right_pinky_hand1_translateZ.o" "whiplash.lv[37]";
+connectAttr "whiplash_right_pinky_hand1_translateY.o" "whiplash.lv[38]";
+connectAttr "whiplash_right_pinky_hand1_translateX.o" "whiplash.lv[39]";
+connectAttr "whiplash_right_pinky_hand_translateZ.o" "whiplash.lv[40]";
+connectAttr "whiplash_right_pinky_hand_translateY.o" "whiplash.lv[41]";
+connectAttr "whiplash_right_pinky_hand_translateX.o" "whiplash.lv[42]";
+connectAttr "whiplash_right_wrist_translateZ.o" "whiplash.lv[43]";
+connectAttr "whiplash_right_wrist_translateY.o" "whiplash.lv[44]";
+connectAttr "whiplash_right_wrist_translateX.o" "whiplash.lv[45]";
+connectAttr "whiplash_right_elbow_translateZ.o" "whiplash.lv[46]";
+connectAttr "whiplash_right_elbow_translateY.o" "whiplash.lv[47]";
+connectAttr "whiplash_right_elbow_translateX.o" "whiplash.lv[48]";
+connectAttr "whiplash_right_shoulder_translateZ.o" "whiplash.lv[49]";
+connectAttr "whiplash_right_shoulder_translateY.o" "whiplash.lv[50]";
+connectAttr "whiplash_right_shoulder_translateX.o" "whiplash.lv[51]";
+connectAttr "whiplash_whip_joint_6_translateZ.o" "whiplash.lv[52]";
+connectAttr "whiplash_whip_joint_6_translateY.o" "whiplash.lv[53]";
+connectAttr "whiplash_whip_joint_6_translateX.o" "whiplash.lv[54]";
+connectAttr "whiplash_whip_joint_5_translateZ.o" "whiplash.lv[55]";
+connectAttr "whiplash_whip_joint_5_translateY.o" "whiplash.lv[56]";
+connectAttr "whiplash_whip_joint_5_translateX.o" "whiplash.lv[57]";
+connectAttr "whiplash_whip_joint_4_translateZ.o" "whiplash.lv[58]";
+connectAttr "whiplash_whip_joint_4_translateY.o" "whiplash.lv[59]";
+connectAttr "whiplash_whip_joint_4_translateX.o" "whiplash.lv[60]";
+connectAttr "whiplash_whip_joint_3_translateZ.o" "whiplash.lv[61]";
+connectAttr "whiplash_whip_joint_3_translateY.o" "whiplash.lv[62]";
+connectAttr "whiplash_whip_joint_3_translateX.o" "whiplash.lv[63]";
+connectAttr "whiplash_whip_joint_2_translateZ.o" "whiplash.lv[64]";
+connectAttr "whiplash_whip_joint_2_translateY.o" "whiplash.lv[65]";
+connectAttr "whiplash_whip_joint_2_translateX.o" "whiplash.lv[66]";
+connectAttr "whiplash_whip_joint_1_translateZ.o" "whiplash.lv[67]";
+connectAttr "whiplash_whip_joint_1_translateY.o" "whiplash.lv[68]";
+connectAttr "whiplash_whip_joint_1_translateX.o" "whiplash.lv[69]";
+connectAttr "whiplash_whip_base_translateZ.o" "whiplash.lv[70]";
+connectAttr "whiplash_whip_base_translateY.o" "whiplash.lv[71]";
+connectAttr "whiplash_whip_base_translateX.o" "whiplash.lv[72]";
+connectAttr "whiplash_whip_base1_translateZ.o" "whiplash.lv[73]";
+connectAttr "whiplash_whip_base1_translateY.o" "whiplash.lv[74]";
+connectAttr "whiplash_whip_base1_translateX.o" "whiplash.lv[75]";
+connectAttr "whiplash_joint1_translateZ.o" "whiplash.lv[76]";
+connectAttr "whiplash_joint1_translateY.o" "whiplash.lv[77]";
+connectAttr "whiplash_joint1_translateX.o" "whiplash.lv[78]";
+connectAttr "whiplash_left_thumb1_translateZ.o" "whiplash.lv[79]";
+connectAttr "whiplash_left_thumb1_translateY.o" "whiplash.lv[80]";
+connectAttr "whiplash_left_thumb1_translateX.o" "whiplash.lv[81]";
+connectAttr "whiplash_left_thumb_translateZ.o" "whiplash.lv[82]";
+connectAttr "whiplash_left_thumb_translateY.o" "whiplash.lv[83]";
+connectAttr "whiplash_left_thumb_translateX.o" "whiplash.lv[84]";
+connectAttr "whiplash_left_pointer2_translateZ.o" "whiplash.lv[85]";
+connectAttr "whiplash_left_pointer2_translateY.o" "whiplash.lv[86]";
+connectAttr "whiplash_left_pointer2_translateX.o" "whiplash.lv[87]";
+connectAttr "whiplash_left_pointer1_translateZ.o" "whiplash.lv[88]";
+connectAttr "whiplash_left_pointer1_translateY.o" "whiplash.lv[89]";
+connectAttr "whiplash_left_pointer1_translateX.o" "whiplash.lv[90]";
+connectAttr "whiplash_left_pointer_translateZ.o" "whiplash.lv[91]";
+connectAttr "whiplash_left_pointer_translateY.o" "whiplash.lv[92]";
+connectAttr "whiplash_left_pointer_translateX.o" "whiplash.lv[93]";
+connectAttr "whiplash_left_middle2_translateZ.o" "whiplash.lv[94]";
+connectAttr "whiplash_left_middle2_translateY.o" "whiplash.lv[95]";
+connectAttr "whiplash_left_middle2_translateX.o" "whiplash.lv[96]";
+connectAttr "whiplash_left_middle1_translateZ.o" "whiplash.lv[97]";
+connectAttr "whiplash_left_middle1_translateY.o" "whiplash.lv[98]";
+connectAttr "whiplash_left_middle1_translateX.o" "whiplash.lv[99]";
+connectAttr "whiplash_left_middle_translateZ.o" "whiplash.lv[100]";
+connectAttr "whiplash_left_middle_translateY.o" "whiplash.lv[101]";
+connectAttr "whiplash_left_middle_translateX.o" "whiplash.lv[102]";
+connectAttr "whiplash_left_ring2_translateZ.o" "whiplash.lv[103]";
+connectAttr "whiplash_left_ring2_translateY.o" "whiplash.lv[104]";
+connectAttr "whiplash_left_ring2_translateX.o" "whiplash.lv[105]";
+connectAttr "whiplash_left_ring1_translateZ.o" "whiplash.lv[106]";
+connectAttr "whiplash_left_ring1_translateY.o" "whiplash.lv[107]";
+connectAttr "whiplash_left_ring1_translateX.o" "whiplash.lv[108]";
+connectAttr "whiplash_left_ring_translateZ.o" "whiplash.lv[109]";
+connectAttr "whiplash_left_ring_translateY.o" "whiplash.lv[110]";
+connectAttr "whiplash_left_ring_translateX.o" "whiplash.lv[111]";
+connectAttr "whiplash_left_pinky2_translateZ.o" "whiplash.lv[112]";
+connectAttr "whiplash_left_pinky2_translateY.o" "whiplash.lv[113]";
+connectAttr "whiplash_left_pinky2_translateX.o" "whiplash.lv[114]";
+connectAttr "whiplash_left_pinky1_translateZ.o" "whiplash.lv[115]";
+connectAttr "whiplash_left_pinky1_translateY.o" "whiplash.lv[116]";
+connectAttr "whiplash_left_pinky1_translateX.o" "whiplash.lv[117]";
+connectAttr "whiplash_left_pinky_translateZ.o" "whiplash.lv[118]";
+connectAttr "whiplash_left_pinky_translateY.o" "whiplash.lv[119]";
+connectAttr "whiplash_left_pinky_translateX.o" "whiplash.lv[120]";
+connectAttr "whiplash_left_wrist_translateZ.o" "whiplash.lv[121]";
+connectAttr "whiplash_left_wrist_translateY.o" "whiplash.lv[122]";
+connectAttr "whiplash_left_wrist_translateX.o" "whiplash.lv[123]";
+connectAttr "whiplash_left_elbow_translateZ.o" "whiplash.lv[124]";
+connectAttr "whiplash_left_elbow_translateY.o" "whiplash.lv[125]";
+connectAttr "whiplash_left_elbow_translateX.o" "whiplash.lv[126]";
+connectAttr "whiplash_left_shoulder_translateZ.o" "whiplash.lv[127]";
+connectAttr "whiplash_left_shoulder_translateY.o" "whiplash.lv[128]";
+connectAttr "whiplash_left_shoulder_translateX.o" "whiplash.lv[129]";
+connectAttr "whiplash_left_eyebrow_translateZ.o" "whiplash.lv[130]";
+connectAttr "whiplash_left_eyebrow_translateY.o" "whiplash.lv[131]";
+connectAttr "whiplash_left_eyebrow_translateX.o" "whiplash.lv[132]";
+connectAttr "whiplash_right_eyebrow_translateZ.o" "whiplash.lv[133]";
+connectAttr "whiplash_right_eyebrow_translateY.o" "whiplash.lv[134]";
+connectAttr "whiplash_right_eyebrow_translateX.o" "whiplash.lv[135]";
+connectAttr "whiplash_head_translateZ.o" "whiplash.lv[136]";
+connectAttr "whiplash_head_translateY.o" "whiplash.lv[137]";
+connectAttr "whiplash_head_translateX.o" "whiplash.lv[138]";
+connectAttr "whiplash_neck_head_connection_translateZ.o" "whiplash.lv[139]";
+connectAttr "whiplash_neck_head_connection_translateY.o" "whiplash.lv[140]";
+connectAttr "whiplash_neck_head_connection_translateX.o" "whiplash.lv[141]";
+connectAttr "whiplash_neck_body_connection_translateZ.o" "whiplash.lv[142]";
+connectAttr "whiplash_neck_body_connection_translateY.o" "whiplash.lv[143]";
+connectAttr "whiplash_neck_body_connection_translateX.o" "whiplash.lv[144]";
+connectAttr "whiplash_mid_body_translateZ.o" "whiplash.lv[145]";
+connectAttr "whiplash_mid_body_translateY.o" "whiplash.lv[146]";
+connectAttr "whiplash_mid_body_translateX.o" "whiplash.lv[147]";
+connectAttr "whiplash_right_ancle_translateZ.o" "whiplash.lv[148]";
+connectAttr "whiplash_right_ancle_translateY.o" "whiplash.lv[149]";
+connectAttr "whiplash_right_ancle_translateX.o" "whiplash.lv[150]";
+connectAttr "whiplash_right_knee_translateZ.o" "whiplash.lv[151]";
+connectAttr "whiplash_right_knee_translateY.o" "whiplash.lv[152]";
+connectAttr "whiplash_right_knee_translateX.o" "whiplash.lv[153]";
+connectAttr "whiplash_hip_right_leg_translateZ.o" "whiplash.lv[154]";
+connectAttr "whiplash_hip_right_leg_translateY.o" "whiplash.lv[155]";
+connectAttr "whiplash_hip_right_leg_translateX.o" "whiplash.lv[156]";
+connectAttr "whiplash_left_ancle_translateZ.o" "whiplash.lv[157]";
+connectAttr "whiplash_left_ancle_translateY.o" "whiplash.lv[158]";
+connectAttr "whiplash_left_ancle_translateX.o" "whiplash.lv[159]";
+connectAttr "whiplash_left_knee_translateZ.o" "whiplash.lv[160]";
+connectAttr "whiplash_left_knee_translateY.o" "whiplash.lv[161]";
+connectAttr "whiplash_left_knee_translateX.o" "whiplash.lv[162]";
+connectAttr "whiplash_hip_left_leg_translateZ.o" "whiplash.lv[163]";
+connectAttr "whiplash_hip_left_leg_translateY.o" "whiplash.lv[164]";
+connectAttr "whiplash_hip_left_leg_translateX.o" "whiplash.lv[165]";
+connectAttr "whiplash_hip_body_translateZ.o" "whiplash.lv[166]";
+connectAttr "whiplash_hip_body_translateY.o" "whiplash.lv[167]";
+connectAttr "whiplash_hip_body_translateX.o" "whiplash.lv[168]";
+connectAttr "whiplash_root_translateZ.o" "whiplash.lv[169]";
+connectAttr "whiplash_root_translateY.o" "whiplash.lv[170]";
+connectAttr "whiplash_root_translateX.o" "whiplash.lv[171]";
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert3SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert4SG.pa" ":renderPartition.st" -na;
@@ -23364,4 +28415,5 @@ connectAttr "file3.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file4.msg" ":defaultTextureList1.tx" -na;
 connectAttr "my_avatar:file1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file4.oc" ":internal_standInShader.ic";
-// End of whiplash model.ma
+connectAttr "whiplash.pa" ":characterPartition.st" -na;
+// End of whip_to_lash.ma
