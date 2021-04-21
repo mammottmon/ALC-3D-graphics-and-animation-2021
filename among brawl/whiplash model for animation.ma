@@ -1,6 +1,6 @@
 //Maya ASCII 2019 scene
-//Name: whiplash model.ma
-//Last modified: Thu, Apr 15, 2021 09:10:09 AM
+//Name: whiplash model for animation.ma
+//Last modified: Thu, Apr 15, 2021 09:47:03 AM
 //Codeset: UTF-8
 requires maya "2019";
 requires -nodeType "HIKSolverNode" -nodeType "HIKCharacterNode" -nodeType "HIKControlSetNode"
@@ -19,13 +19,13 @@ fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "400AA029-7C44-34CA-83E6-D28B68C6672F";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 4.6204316821750568 7.2897617073220315 13.906077602622396 ;
-	setAttr ".r" -type "double3" 344.66164712725896 -4661.8000000009552 -1.2555190477741451e-15 ;
+	setAttr ".t" -type "double3" 6.8059512846745536 9.6624465591111228 18.824298835444999 ;
+	setAttr ".r" -type "double3" 342.86164712705522 -5021.7999999990598 -4.1850634926259973e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "4300CC95-3643-1916-A6FD-7890BC68F30B";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 15.959792807331432;
+	setAttr ".coi" 21.80615228922111;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -12907,25 +12907,25 @@ createNode joint -n "right_thumb_hand1" -p "right_thumb_hand";
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -7.445501787945326 2.8146734897061529 -2.7867297636523491 1;
 	setAttr ".radi" 0.2;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "94FF2428-BF4C-9E06-CDEE-CAA8C6EB362C";
+	rename -uid "351F8BDD-4E45-4A33-557B-899A55BF30D9";
 	setAttr -s 27 ".lnk";
 	setAttr -s 27 ".slnk";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "AC941B4A-A14A-01FA-182A-C2A0B590CA2D";
+	rename -uid "7BE9A253-6B4E-2D61-C5C6-5EBF9CC30945";
 	setAttr ".cdl" 1;
 	setAttr -s 3 ".dli[1:2]"  1 2;
 	setAttr -s 2 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "CBD41C49-F141-2891-EEA7-30B7B5F624AA";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "EA931D69-4C43-4885-234D-30811D0F2FD7";
+	rename -uid "99408DF4-3949-4D23-3D99-AE85A5436BB7";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "94012505-5744-F055-6408-01BA5F9BA88B";
 	setAttr ".g" yes;
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "EA5DA6C9-5248-955E-CCB1-D58A2D1E7940";
+	rename -uid "AA97839A-FB40-D06A-F522-21BFEDFF9F26";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "965DC76F-1746-BBE8-AB64-C981A2CF41D3";
+	rename -uid "FAE1836B-504C-CC9B-1067-3A8705F51176";
 createNode script -n "uiConfigurationScriptNode";
 	rename -uid "47EFCE09-8644-4E56-531C-70AC41A183C3";
 	setAttr ".b" -type "string" (
@@ -21134,39 +21134,8 @@ createNode geomBind -n "geomBind2";
 	setAttr ".mi" 5;
 createNode displayLayer -n "no_touch";
 	rename -uid "4AE23AE9-DF4D-FFE5-B439-2FB749D02A31";
-	setAttr ".dt" 2;
 	setAttr ".c" 21;
 	setAttr ".do" 1;
-createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "2A68907E-6548-284A-0A8E-688F8F93EFA6";
-	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" -277.16020444910134 -2126.0124380844104 ;
-	setAttr ".tgi[0].vh" -type "double2" 1076.4805400572966 1419.2371308609174 ;
-	setAttr -s 8 ".tgi[0].ni";
-	setAttr ".tgi[0].ni[0].x" 58.571430206298828;
-	setAttr ".tgi[0].ni[0].y" -174.28572082519531;
-	setAttr ".tgi[0].ni[0].nvs" 1923;
-	setAttr ".tgi[0].ni[1].x" 372.85714721679688;
-	setAttr ".tgi[0].ni[1].y" -581.4285888671875;
-	setAttr ".tgi[0].ni[1].nvs" 1923;
-	setAttr ".tgi[0].ni[2].x" -37.142856597900391;
-	setAttr ".tgi[0].ni[2].y" 138.57142639160156;
-	setAttr ".tgi[0].ni[2].nvs" 1923;
-	setAttr ".tgi[0].ni[3].x" 375.24945068359375;
-	setAttr ".tgi[0].ni[3].y" -152.85714721679688;
-	setAttr ".tgi[0].ni[3].nvs" 1923;
-	setAttr ".tgi[0].ni[4].x" 65.714286804199219;
-	setAttr ".tgi[0].ni[4].y" -602.85711669921875;
-	setAttr ".tgi[0].ni[4].nvs" 1923;
-	setAttr ".tgi[0].ni[5].x" 58.571430206298828;
-	setAttr ".tgi[0].ni[5].y" 318.57144165039062;
-	setAttr ".tgi[0].ni[5].nvs" 1923;
-	setAttr ".tgi[0].ni[6].x" 365.71429443359375;
-	setAttr ".tgi[0].ni[6].y" 340;
-	setAttr ".tgi[0].ni[6].nvs" 1923;
-	setAttr ".tgi[0].ni[7].x" 270;
-	setAttr ".tgi[0].ni[7].y" 72.857139587402344;
-	setAttr ".tgi[0].ni[7].nvs" 1923;
 createNode skinCluster -n "skinCluster7";
 	rename -uid "F410CBA5-7F46-19A5-9196-94A08CB7F6A4";
 	setAttr -s 270 ".wl";
@@ -21624,6 +21593,36 @@ createNode groupParts -n "skinCluster7GroupParts";
 createNode groupId -n "skinCluster7GroupId";
 	rename -uid "4CAD4857-4046-F18F-17B9-378D1A5231DB";
 	setAttr ".ihi" 0;
+createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
+	rename -uid "312CB790-4F4C-6218-D466-70B61EFB2540";
+	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
+	setAttr ".tgi[0].vl" -type "double2" 129.49079168614244 -860.25126460145987 ;
+	setAttr ".tgi[0].vh" -type "double2" 645.82339392638585 492.048407932511 ;
+	setAttr -s 8 ".tgi[0].ni";
+	setAttr ".tgi[0].ni[0].x" -37.142856597900391;
+	setAttr ".tgi[0].ni[0].y" 138.57142639160156;
+	setAttr ".tgi[0].ni[0].nvs" 1923;
+	setAttr ".tgi[0].ni[1].x" 58.571430206298828;
+	setAttr ".tgi[0].ni[1].y" 318.57144165039062;
+	setAttr ".tgi[0].ni[1].nvs" 1923;
+	setAttr ".tgi[0].ni[2].x" 58.571430206298828;
+	setAttr ".tgi[0].ni[2].y" -174.28572082519531;
+	setAttr ".tgi[0].ni[2].nvs" 1923;
+	setAttr ".tgi[0].ni[3].x" 270;
+	setAttr ".tgi[0].ni[3].y" 72.857139587402344;
+	setAttr ".tgi[0].ni[3].nvs" 1923;
+	setAttr ".tgi[0].ni[4].x" 377.70819091796875;
+	setAttr ".tgi[0].ni[4].y" -152.85714721679688;
+	setAttr ".tgi[0].ni[4].nvs" 1923;
+	setAttr ".tgi[0].ni[5].x" 365.71429443359375;
+	setAttr ".tgi[0].ni[5].y" 340;
+	setAttr ".tgi[0].ni[5].nvs" 1923;
+	setAttr ".tgi[0].ni[6].x" 65.714286804199219;
+	setAttr ".tgi[0].ni[6].y" -602.85711669921875;
+	setAttr ".tgi[0].ni[6].nvs" 1923;
+	setAttr ".tgi[0].ni[7].x" 372.85714721679688;
+	setAttr ".tgi[0].ni[7].y" -581.4285888671875;
+	setAttr ".tgi[0].ni[7].nvs" 1923;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -21889,11 +21888,11 @@ connectAttr "groupId20.id" "pCubeShape3.iog.og[3].gid";
 connectAttr "tweakSet3.mwc" "pCubeShape3.iog.og[3].gco";
 connectAttr "tweak3.vl[0].vt[0]" "pCubeShape3.twl";
 connectAttr "no_touch.di" "polySurface5.do";
-connectAttr "skinCluster7.og[0]" "polySurfaceShape5.i";
-connectAttr "skinCluster7GroupId.id" "polySurfaceShape5.iog.og[6].gid";
 connectAttr "skinCluster7Set.mwc" "polySurfaceShape5.iog.og[6].gco";
-connectAttr "groupId28.id" "polySurfaceShape5.iog.og[7].gid";
+connectAttr "skinCluster7GroupId.id" "polySurfaceShape5.iog.og[6].gid";
 connectAttr "tweakSet7.mwc" "polySurfaceShape5.iog.og[7].gco";
+connectAttr "groupId28.id" "polySurfaceShape5.iog.og[7].gid";
+connectAttr "skinCluster7.og[0]" "polySurfaceShape5.i";
 connectAttr "tweak7.vl[0].vt[0]" "polySurfaceShape5.twl";
 connectAttr "no_touch.di" "polySurface2.do";
 connectAttr "skinCluster8.og[0]" "polySurfaceShape2.i";
@@ -23253,22 +23252,6 @@ connectAttr "whip_joint_5.bps" "bindPose4.wm[6]";
 connectAttr "whip_joint_6.bps" "bindPose4.wm[7]";
 connectAttr "bindPose4.msg" "geomBind2.bp";
 connectAttr "layerManager.dli[2]" "no_touch.id";
-connectAttr "place2dTexture2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
-		;
-connectAttr "file4.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
-		;
-connectAttr "place2dTexture1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
-		;
-connectAttr "file2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
-		;
-connectAttr "place2dTexture4.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
-		;
-connectAttr "place2dTexture3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
-		;
-connectAttr "file3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
-		;
-connectAttr "file1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
-		;
 connectAttr "skinCluster7GroupParts.og" "skinCluster7.ip[0].ig";
 connectAttr "skinCluster7GroupId.id" "skinCluster7.ip[0].gi";
 connectAttr "root.wm" "skinCluster7.ma[0]";
@@ -23310,6 +23293,22 @@ connectAttr "polySurfaceShape5.iog.og[7]" "tweakSet7.dsm" -na;
 connectAttr "tweak7.msg" "tweakSet7.ub[0]";
 connectAttr "tweak7.og[0]" "skinCluster7GroupParts.ig";
 connectAttr "skinCluster7GroupId.id" "skinCluster7GroupParts.gi";
+connectAttr "place2dTexture1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+		;
+connectAttr "place2dTexture3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+		;
+connectAttr "place2dTexture2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+		;
+connectAttr "file1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+		;
+connectAttr "file2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+		;
+connectAttr "file3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
+		;
+connectAttr "place2dTexture4.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
+		;
+connectAttr "file4.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
+		;
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert3SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert4SG.pa" ":renderPartition.st" -na;
@@ -23371,5 +23370,6 @@ connectAttr "file2.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file3.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file4.msg" ":defaultTextureList1.tx" -na;
 connectAttr "my_avatar:file1.msg" ":defaultTextureList1.tx" -na;
-connectAttr "file4.oc" ":internal_standInShader.ic";
-// End of whiplash model.ma
+connectAttr "file4.oc" ":internal_soloShader.ic";
+connectAttr "file2.oc" ":internal_standInShader.ic";
+// End of whiplash model for animation.ma
